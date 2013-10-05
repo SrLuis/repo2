@@ -1,0 +1,313 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+
+quest.gat,43,55,5	script	Wandering	757,{
+// Variables
+set	@name$,"[Hat de Lobo]";	//nombre NPC
+	if (GetGMLevel()>98) goto GMS;
+// Quest Script
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Estas Hat de Lobo te otorgara poderes, te permite ver enemigos invisibles,  Brinda status a +90 exepto luk y vitalidad. Velocidad para caminar a 25% te deseo suerte";//-----------------------------//--------------//======//
+	mes "Escoje el color de Tu wandering Hat que deseas hacer";
+if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],31479,31480,31481,31482,31483,31484,31485,31486;
+		callfunc "DoTestHats";
+		end;
+	}
+	menu "Negro",QUEST1," Cafe ",QUEST2,"Cyan",QUEST3,"Verde",QUEST4,"Purpura",QUEST5,"Rojo",QUEST6,"plata",QUEST7,"Blanco",QUEST8;
+
+GMS:
+	mes "Hola gm escoje entre estas opciones";
+	menu "Sacar un item",SAKARITEM,"Menu User",MENUUSER;
+MENUUSER:
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Estas Hat de Lobo te otorgara poderes, te permite ver enemigos invisibles,  Brinda status a +90 exepto luk y vitalidad. Velocidad para caminar a 25% te deseo suerte";//-----------------------------//--------------//======//
+	mes "Escoje el color de Tu wandering Hat que deseas hacer";
+	next;
+	if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],31479,31480,31481,31482,31483,31484,31485,31486;
+		callfunc "DoTestHats";
+		end;
+	}
+	menu "Negro",QUEST1," Cafe ",QUEST2,"Cyan",QUEST3,"Verde",QUEST4,"Purpura",QUEST5,"Rojo",QUEST6,"plata",QUEST7,"Blanco",QUEST8;
+
+	SAKARITEM:menu "Negro",QUEST1a," Cafe ",QUEST2a,"Cyan",QUEST3a,"Verde",QUEST4a,"Purpura",QUEST5a,"Rojo",QUEST6a,"plata",QUEST7a,"Blanco",QUEST8a;
+QUEST1a:
+	getitem 31479,1;
+	close;
+QUEST2a:
+	getitem 31480,1;
+	close;
+QUEST3a:
+	getitem 31481,1;
+	close;
+QUEST4a:
+	getitem 31482,1;
+	close;
+QUEST5a:
+	getitem 31483,1;
+	close;
+QUEST6a:
+	getitem 31484,1;
+	close;
+QUEST7a:
+	getitem 31485,1;
+	close;
+QUEST8a:
+	getitem 31486,1;
+	close;
+
+
+//31479,Black_Wandering_Wolf_Hat,Black_Wandering_Wolf_Hat,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1453,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31480,Brown_Wandering_Wolf_Hat,Brown_Wandering_Wolf_Hat,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1454,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31481,Cyan_Wandering_Wolf_Hat,Cyan_Wandering_Wolf_Hat,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1455,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31482,Green_Wandering_Wolf_Hat,Green_Wandering_Wolf_Hat,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1456,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31483,Purple_Wandering_Wolf_Hat,Purple_Wandering_Wolf_Hat,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1457,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31484,Red_Wandering_Wolf_Hat,Red_Wandering_Wolf_Hat,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1458,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31485,Wandering_Wolf_Hat,Wandering_Wolf_Hat,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1459,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31486,White_Wandering_Wolf_Hat,White_Wandering_Wolf_Hat,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1460,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+
+
+QUEST1:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31479,1;
+	close;
+
+QUEST2:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31480,1;
+	close;
+	
+QUEST3:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31481,1;
+	close;
+	
+QUEST4:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31482,1;
+	close;
+QUEST5:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31483,1;
+	close;
+QUEST6:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31484,1;
+	close;
+QUEST7:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31485,1;
+	close;
+QUEST8:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31486,1;
+	close;
+
+
+falta:
+	mes "Creo que algo falta, Aun no tienes lo necesario checa bien, vuelve cuando lo tengas buena suerte ..";
+	close;
+	npctalk "~ NPC SrLuis ~";
+}
+prontera,231,70,7	duplicate(Wandering)	Wandering#01	828

@@ -1,0 +1,68 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+
+-	script	sEvent	-1,{
+OnWhisperGlobal:
+	if(@whispervar0$ == "open" && getgmlevel() > 98){
+	mes "Bienvenido al control de eventos que evento deseas activar";
+	menu "Twister",-,"Porings",Poringss,"Disguise",DisFuai,"Casillas",Casill,"Noivice Vs Zombie",NoVsZo,"Laberinto",Laberin,"Play Bgm",BloodC,"Plantas",TokaPor,"Salir",Exito;
+mes "activado";
+	close2;
+	donpcevent "Pruebas::OnLcktw";
+	end;
+
+Poringss:
+	mes "activado";
+	close2;
+	donpcevent "Poring_mu#01::OnPor";
+	end;
+
+Casill:
+mes "activado";
+	close2;
+	donpcevent "casillas#01::OnCasill";
+	end;
+NoVsZo:
+mes "activado";
+	close2;
+	donpcevent "novszo#01::OnZomb";
+	end;
+Laberin:
+mes "activado";
+	close2;
+	donpcevent "laberinto#01::OnLabe";
+	end;
+BloodC:
+mes "activado";
+	Input @Plabgm$;
+	next;
+	mes "Xd";
+	close2;
+	playBGMall ""+@Plabgm$+"";
+	end;
+TokaPor:
+mes "activado";
+	close2;
+	donpcevent "Evento_Flowers::OnFlower";
+	end;
+
+DisFuai:
+mes "activado";
+	close2;
+	donpcevent "Disguise#S1::OnDisIn";
+	end;
+
+Exito:
+close;
+}
+}

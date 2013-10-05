@@ -1,0 +1,54 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+sec_pri,22,44,5	script	Sejmet#Hallo1	856,{
+
+//||||||||||||||||||||||||||||||||||||||||||||||||
+//===============Configuraciones==================
+set @n$,"Sejmet";
+//if(nPer1$ != -1)//If Del nombre
+//||||||||||||||||||||||||||||||||||||||||||||||||
+
+mes @n$;
+mes "Hola " + (Sex ? "Forastero!" : "Forastera!");
+mes "Mi nombre es ^FF0000Sejmet^000000, Cual es su nombre?";
+next;
+prompt("Decirle mi nombre:No te diré nada");
+mes @n$;
+switch(@menu) {
+	
+	case 1:
+		mes "Escribe tu nombre";
+		Input nPer1$;
+		mes "Un placer "+nPer1$+" es un gusto " + (Sex ? "Conocerlo!" : "Conocerla!");
+		close;
+		
+		
+	case 2:
+		mes "Como guste, Ni tenía ganas de conocer gente hoy!";
+		close;
+	
+	
+	default:
+		mes "Bueno, al parecer solo me haces perder el tiempo!";
+		close;
+	
+
+
+
+}//Fin menu decir nombre
+
+
+
+
+
+}//Fin Script

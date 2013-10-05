@@ -1,0 +1,51 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+prontera,164,163,2	script	Poring Coin	405,{
+set @n$,"[Poring Coin]";
+
+mes @n$;
+mes "Hola te gustaria hacer una apuesta";
+if(select("De que se trata:No, Gracias")==2)close;
+next;
+mes @n$;
+mes "Ok es fasil tu apuestas 1 poring coin y si ganas te dare uno pero si pierdes te quitare unos es como jugar un volado";
+if(select("Jugar el volado:No, Gracias")==2)close;
+next;
+if(countitem(7539) < 1){mes @n$; mes "Lo siento pero no tienes Poring Coin"; close;}
+set @volado,rand(1,20);
+if(@volado == 2){mes @n$; mes "Mala suerte has perdido sigue intentando"; specialeffect 611; delitem 7539,1; close;}
+if(@volado == 4){mes @n$; mes "Mala suerte has perdido sigue intentando";  specialeffect 611; delitem 7539,1; close;}
+if(@volado == 3){ mes @n$; mes "Felicidades me has ganado aqui tienes tu poring coin";  specialeffect 610; getitem 7539,1; close;}
+if(@volado == 5){ mes @n$; mes "Felicidades me has ganado aqui tienes tu poring coin"; specialeffect 610;  getitem 7539,1; close;}
+if(@volado == 6){mes @n$; mes "Mala suerte has perdido sigue intentando";  specialeffect 611; delitem 7539,1; close;}
+if(@volado == 7){ mes @n$; mes "Felicidades me has ganado aqui tienes tu poring coin";  specialeffect 610; getitem 7539,1; close;}
+if(@volado == 8){mes @n$; mes "Mala suerte has perdido sigue intentando";  specialeffect 611; delitem 7539,1; close;}
+if(@volado == 9){ mes @n$; mes "Felicidades me has ganado aqui tienes tu poring coin";  specialeffect 610; getitem 7539,1; close;}
+if(@volado == 10){mes @n$; mes "Mala suerte has perdido sigue intentando"; specialeffect 611;  delitem 7539,1; close;}
+if(@volado == 11){ mes @n$; mes "Felicidades me has ganado aqui tienes tu poring coin"; specialeffect 610;  getitem 7539,1; close;}
+if(@volado == 12){mes @n$; mes "Mala suerte has perdido sigue intentando"; specialeffect 611;  delitem 7539,1; close;}
+if(@volado == 13){ mes @n$; mes "Felicidades me has ganado aqui tienes tu poring coin";  specialeffect 610; getitem 7539,1; close;}
+if(@volado == 14){mes @n$; mes "Mala suerte has perdido sigue intentando"; specialeffect 611;  delitem 7539,1; close;}
+if(@volado == 15){ mes @n$; mes "Felicidades me has ganado aqui tienes tu poring coin";  specialeffect 610; getitem 7539,1; close;}
+if(@volado == 16){mes @n$; mes "Mala suerte has perdido sigue intentando"; specialeffect 611;  delitem 7539,1; close;}
+if(@volado == 17){ mes @n$; mes "Felicidades me has ganado aqui tienes tu poring coin";  specialeffect 610; getitem 7539,1; close;}
+if(@volado == 18){mes @n$; mes "Mala suerte has perdido sigue intentando";  specialeffect 611; delitem 7539,1; close;}
+if(@volado == 19){ mes @n$; mes "Felicidades me has ganado aqui tienes tu poring coin";  specialeffect 610; getitem 7539,1; close;}
+if(@volado == 20){ mes @n$; mes "Felicidades me has ganado aqui tienes tu poring coin"; specialeffect 610;  getitem 7539,1; close;}
+
+
+mes @n$;
+mes "Si llegaste aqui avisa a un administrador algo anda mal";
+close;
+
+}//end script

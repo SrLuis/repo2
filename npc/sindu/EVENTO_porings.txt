@@ -1,0 +1,144 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+
+prontera,156,227,0	script	aPortal	45,2,2,{
+
+OnTouch:
+warp "poring_w01",102,101; //Portal Evento Poring.
+end;
+
+OnInit:
+	hideonnpc "aPortal";
+	movenpc "aPortal",83,363;
+	end;
+}
+-	script	Poring_mu#01	-1,{
+
+	
+OnClock0701:
+donpcevent "Poring_mu#01::OnPor";
+end;
+OnClock1101:
+donpcevent "Poring_mu#01::OnPor";
+end;
+OnClock1501:
+donpcevent "Poring_mu#01::OnPor";
+end;
+OnClock1901:
+donpcevent "Poring_mu#01::OnPor";
+end;
+OnClock2301:
+donpcevent "Poring_mu#01::OnPor";
+end;
+OnClock0301:
+donpcevent "Poring_mu#01::OnPor";
+end;
+OnPor:
+	killmonsterall "poring_w01";
+	hideoffnpc "aPortal";
+	movenpc "aPortal",156,227;
+	announce "Poring: El evento de los Poring falsos va a comenzar.",bc_npc,0x00ffff;
+	sleep2 5000;
+	announce "Poring: Tienen menos de 2 minutos para entrar por el portal que esta al norte de la plaza de prontera.",bc_npc,0x00ffff;
+	sleep2 25000;
+	announce "Poring: Queda 1 minuto y 30 segundos para que el portal que esta al norte de la plaza de prontera se cierre.",bc_npc,0x00ffff;
+	sleep2 30000;
+	announce "Poring: Queda 1 minuto para que el portal que esta al norte de la plaza de prontera se cierre.",bc_npc,0x00ffff;
+	sleep2 30000;
+	announce "Poring: Quedan 30 segundos para que el portal que esta al norte de la plaza de prontera se cierre.",bc_npc,0x00ffff;
+	sleep2 20000;
+	announce "Poring: Quedan 10 segundos para que el portal que esta al norte de la plaza de prontera se cierre.",bc_npc,0x00ffff;
+	sleep2 5000;
+	announce "Poring: 5 segundos.",bc_npc,0x00ffff;
+	sleep2 1000;
+	announce "Poring: 4 segundos.",bc_npc,0x00ffff;
+	sleep2 1000;
+	announce "Poring: 3 segundos.",bc_npc,0x00ffff;
+	sleep2 1000;
+	announce "Poring: 2 segundos.",bc_npc,0x00ffff;
+	sleep2 1000;
+	announce "Poring: 1 segundo.",bc_npc,0x00ffff;
+	sleep2 1000;
+	announce "Poring: El portal para el evento de los Poring falsos ha sido cerrado.",bc_npc,0x00ffff;
+	hideonnpc "aPortal";
+	movenpc "aPortal",83,363;
+	donpcevent "aPoring::OnPoring";
+	end;
+}
+
+
+
+//[=============================================================]
+
+-	script	aPoring	-1,{
+
+end;
+
+OnInit:
+	hideonnpc "aPoring";
+	end;
+	
+OnPoring:
+	sleep2 5000;
+	mapannounce "poring_w01","Poring: Bienvenido al evento de los Poring falsos.",bc_map,0xff8000;
+	sleep2 5000;
+	mapannounce "poring_w01","Poring: Antes de comenzár, explicare brevemente de que trata el evento.",bc_map,0xff8000;
+	sleep2 5000;
+	mapannounce "poring_w01","Poring: El evento consiste en que se invocarán una infinidad de porings en esta zona.",bc_map,0xff8000;
+	sleep2 5000;
+	mapannounce "poring_w01","Poring: Y entre esos porings hay uno solo que es el original, lo sabrán por su nombre.",bc_map,0xff8000;
+	sleep2 5000;
+	mapannounce "poring_w01","Poring: Quien encuentre y mate al poring original será el ganador.",bc_map,0xff8000;
+	sleep2 5000;
+	mapannounce "poring_w01","Poring: Eso es todo, ojalá se diviertan y que gane el de mejor vista.",bc_map,0xff8000;
+	sleep2 10000;
+	mapannounce "poring_w01","Poring: Se han invocado los porings, tienen como maximo 5 minutos para encontrar al original.",bc_map,0xff8000;
+	monster "poring_w01",0,0,"P0r1ng",1725,10,"aPoring::OnFakePoringDeath";
+	monster "poring_w01",0,0,"Pouring",1725,10,"aPoring::OnFakePoringDeath";
+	monster "poring_w01",0,0,"Puring",1725,10,"aPoring::OnFakePoringDeath";
+	monster "poring_w01",0,0,"Paring",1725,10,"aPoring::OnFakePoringDeath";
+	monster "poring_w01",0,0,"Poryng",1725,10,"aPoring::OnFakePoringDeath";
+	monster "poring_w01",0,0,"Poringd",1725,10,"aPoring::OnFakePoringDeath";
+	monster "poring_w01",0,0,"Piring",1725,10,"aPoring::OnFakePoringDeath";
+	monster "poring_w01",0,0,"Poring",1725,1,"aPoring::OnRealPoringDeath";
+	set $pt, 1;
+	sleep2 300000;
+	if($pt == 1){
+	mapannounce "poring_w01","Poring: Se ha acabado el tiempo, el evento ha terminado. Vuelve a participar en otra ocasión.",bc_map,0xff8000;
+	killmonsterall "poring_w01";
+	set $pt, 0;
+	sleep2 5000;
+	mapwarp "poring_w01","prontera",155,182;
+	announce "Poring: Lastima, nadie ha ganado el evento de los Porings falsos.",bc_npc,0x00ffff;	
+	end;
+	}
+	end;
+	
+OnFakePoringDeath:
+	dispbottom "Ese no era el Poring original!";
+	warp "prontera",0,0;
+	end;
+	
+OnRealPoringDeath:
+	getitem 7539,1;
+	
+	atcommand "@doommap";
+	mapannounce "poring_w01","Poring: ¡El Poring original ha muerto!",bc_map,0xff8000;
+	set $pt, 0;
+	killmonsterall "poring_w01";
+	sleep2 5000;
+	announce "Poring: El ganador del evento de los Poring falsos es "+strcharinfo(0)+", Felicidades.",bc_all,0x00ffff;
+	sleep2 5000;
+	mapwarp "poring_w01","prontera",155,182;
+	end;
+}

@@ -1,0 +1,448 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+quest.gat,34,46,4	script	Valk helm	878,{
+// Variables
+set	@name$,"[Valk H]";	//nombre NPC
+	if (GetGMLevel()>98) goto GMS;
+// Quest Script
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Esta complicada quest te otorga grandes poderes Brinda status a +90 exepto luk y vitalidad. Busca combinaciones simples para ganar mas Puntos en tus Estatus ademas te elevan Velocidad para caminar a 25% Prueba convinarlos con tus v2, te deseo suerte eligue tu color";//-
+	mes "Escoje el color del Valkirye helm que deseas hacer";
+if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],31527,31528,31529,31530,31531,31532,31533,31534,31535,31536,31537,31538;
+		callfunc "DoTestHats";
+		end;
+	}
+	menu "Negro",QUEST1,"Azul",QUEST2,"Cafe",QUEST3,"Cyan",QUEST4,"Dorado",QUEST5,"Verde",QUEST6,"Naranja",QUEST7,"Rosa",QUEST8,"Purpura",QUEST9,"Roja",QUEST10,"Gris",QUEST11,"Blanco",QUEST12;
+
+GMS:
+	mes "Hola gm escoje entre estas opciones";
+	menu "Sacar un item",SAKARITEM,"Menu User",MENUUSER;
+
+MENUUSER:
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Esta complicada quest te otorga grandes poderes Brinda status a +90 exepto luk y vitalidad. Busca combinaciones simples para ganar mas Puntos en tus Estatus ademas te elevan Velocidad para caminar a 25% Prueba convinarlos con tus v2, te deseo suerte eligue tu color";//-----------------------------//--------------//======//
+	next;
+	if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],31527,31528,31529,31530,31531,31532,31533,31534,31535,31536,31537,31538;
+		callfunc "DoTestHats";
+		end;
+	}
+	mes "Escoje el color del valkyrie helm que deseas hacer";
+	menu "Negro",QUEST1,"Azul",QUEST2,"Cafe",QUEST3,"Cyan",QUEST4,"Dorado",QUEST5,"Verde",QUEST6,"Naranja",QUEST7,"Rosa",QUEST8,"Purpura",QUEST9,"Roja",QUEST10,"Gris",QUEST11,"Blanco",QUEST12;
+SAKARITEM:
+	menu "Negro",QUEST1a,"Azul",QUEST2a,"Cafe",QUEST3a,"Cyan",QUEST4a,"Dorado",QUEST5a,"Verde",QUEST6a,"Naranja",QUEST7a,"Rosa",QUEST8a,"Purpura",QUEST9a,"Roja",QUEST10a,"Gris",QUEST11a,"Blanco",QUEST12a;
+QUEST1a:
+	getitem 31527,1;
+	close;
+QUEST2a:
+	getitem 31528,1;
+	close;
+QUEST3a:
+	getitem 31529,1;
+	close;
+QUEST4a:
+	getitem 31530,1;
+	close;
+QUEST5a:
+	getitem 31531,1;
+	close;
+QUEST6a:
+	getitem 31532,1;
+	close;
+QUEST7a:
+	getitem 31533,1;
+	close;
+QUEST8a:
+	getitem 31534,1;
+	close;
+QUEST9a:
+	getitem 31535,1;
+	close;
+QUEST10a:
+	getitem 31536,1;
+	close;
+QUEST11a:
+	getitem 31537,1;
+	close;
+QUEST12a:
+	getitem 31538,1;
+	close;
+
+//31527,New_Black_Valkyrie_Helm,New_Black_Valkyrie_Helm,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1501,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31528,New_Blue_Valkyrie_Helm,New_Blue_Valkyrie_Helm,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1502,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31529,New_Brown_Valkyrie_Helm,New_Brown_Valkyrie_Helm,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1503,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31530,New_Cyan_Valkyrie_Helm,New_Cyan_Valkyrie_Helm,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1504,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31531,New_Gold_Valkyrie_Helm,New_Gold_Valkyrie_Helm,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1505,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31532,New_Green_Valkyrie_Helm,New_Green_Valkyrie_Helm,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1506,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31533,New_Orange_Valkyrie_Helm,New_Orange_Valkyrie_Helm,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1507,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31534,New_Pink_Valkyrie_Helm,New_Pink_Valkyrie_Helm,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1508,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31535,New_Purple_Valkyrie_Helm,New_Purple_Valkyrie_Helm,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1509,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31536,New_Red_Valkyrie_Helm,New_Red_Valkyrie_Helm,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1510,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31537,New_Silver_Valkyrie_Helm,New_Silver_Valkyrie_Helm,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1511,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31538,New_White_Valkyrie_Helm,New_White_Valkyrie_Helm,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1512,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+
+
+
+
+QUEST1:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31527,1;
+	close;
+
+QUEST2:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31528,1;
+	close;
+
+QUEST3:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31529,1;
+	close;
+
+QUEST4:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31530,1;
+	close;
+
+QUEST5:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31531,1;
+	close;
+
+QUEST6:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31532,1;
+	close;
+
+QUEST7:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31533,1;
+	close;
+
+QUEST8:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31534,1;
+	close;
+
+QUEST9:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31535,1;
+	close;
+
+QUEST10:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31536,1;
+	close;
+
+QUEST11:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31537,1;
+	close;
+
+QUEST12:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	getitem 31538,1;
+	close;
+
+
+
+
+falta:
+	mes "Creo que algo falta, Aun no tienes lo necesario checa bien, vuelve cuando lo tengas buena suerte ..";
+	close;
+	npctalk "~ NPC SrLuis ~";
+}
+prontera,244,64,4	duplicate(Valk helm)	Valk helm#01	828

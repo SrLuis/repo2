@@ -1,0 +1,66 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+//
+// [========================================================]
+// [=========       Anti Doble Login System     ============]
+// [========================================================]
+// [ Version 1.0                                            ]
+// [========================================================]
+// [ Tipo de Servidores: Solo servidores SQL                ]
+// [========================================================]
+// [ Script original por: Dean                              ]
+// [========================================================]
+// [ Descripción:                                           ]
+// [--------------------------------------------------------]
+// [                                                        ]
+// [ - Sistema que evita hacer doble login en el servidor   ]
+// [ - Pros: Evita doble login.                             ]
+// [ - Contras: Solo puede conectarse un PC por red debido  ]
+// [   a que el script detecta la IP de la red, eso quiere  ]
+// [   decir que si se conectan varios usuarios con la      ]
+// [   misma IP, ya sea por que estan en un cyber cafe o    ]
+// [   por que tiene más de un PC en su red domiciliaria,   ]
+// [   solo uno de esos PC podrá conectarse al servidor y   ]
+// [   los demases los tomará como doble login.             ]
+// [========================================================]
+// [ Últimas actualizaciones                                ]
+// [--------------------------------------------------------]
+// [ Ninguna.                                               ]
+// [========================================================]
+// [ Aporte para DivineRO                                   ]
+// [========================================================]
+
+p_track02,51,41,4	script	DLogin	-1,2000,2000,{
+
+OnTouch:
+	query_sql ("SELECT `last_ip` FROM `login` WHERE `account_id` = '"+getcharid(3)+"' ",@ip$);
+	query_sql ("INSERT INTO `online` (account_online, ip_online) VALUES ('"+getcharid(3)+"', '"+@ip$+"') ");
+	query_sql ("SELECT COUNT(*) FROM `online` WHERE `ip_online` = '"+@ip$+"' ",@c);
+	if(@c >= 2){
+		announce "DOBLE LOGIN DETECTADO... "+strcharinfo(0)+" expulsado del mapa.",bc_map,0xff0000;
+		sleep2 1000;
+		query_sql ("DELETE FROM `online` WHERE `account_online` = '"+getcharid(3)+"' ");
+		warp "prontera",150,150;
+	}
+end;
+
+OnPCLogoutEvent:
+	query_sql ("DELETE FROM `online` WHERE `account_online` = '"+getcharid(3)+"' ");
+	end;
+
+OnInit:
+	query_sql ("CREATE TABLE IF NOT EXISTS `online` (`account_online` int(11) unsigned NOT NULL, `ip_online` varchar(100) NOT NULL default '', PRIMARY KEY (`account_online`)) ");
+	end;
+}
+
+//guild_vs2,49,49,4	duplicate(DLogin)	DLogin#01	-1,2000,2000
+old_morocc,158,92,4	duplicate(DLogin)	DLogin#03	-1,2000,2000

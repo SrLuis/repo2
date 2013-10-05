@@ -1,0 +1,228 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+//-----------------------------------------------------------------------------------
+//------------------Warp Portal------------------------------------------------------
+gonryun,154,107,0	warp	guesswarp	2,2,poring_c01,103,95	
+//-----------------------------------------------------------------------------------
+//------------------Map Flags--------------------------------------------------------
+
+//----------------Disguise NPC--------------------------------------------------------
+quiz_02,31,347,2	script	Disguise NPC		50,{
+
+if (!$guessbegin)
+{
+	mes "[Disguise NPC]";
+	mes "El evento Adivina el Monstruo va a comenzar pronto!";
+	close;
+}
+end;
+
+OnStart:
+	set $guessbegin, 1;
+	set .DisguiseWon, 0;
+	if (!$DisguiseRound)
+	{
+		npctalk "Está bien, entonces. Empecemos el evento!";
+		sleep 4000;
+		npctalk "Pero primero voy a explicar cómo jugar este juego.";
+		sleep 6000;
+		npctalk "Me voy a disfrazar en un monstruo al azar.";
+		sleep 5000;
+		npctalk "Tienes que adivinar el nombre del monstruo y decirlo.";
+		sleep 5000;
+		npctalk "No te preocupes por usar letras mayusculas u minusculas es igual.";
+		sleep 8000;
+		npctalk "Ok. Empecemos!";
+		sleep 5000;
+	}
+	else if ($DisguiseRound < 5)
+	{
+		npctalk "Preparénse para la siguiente ronda.";
+		setnpctimer 0;
+		sleep 8000;
+	}
+	else
+	{	
+		npctalk "Esta es la ultima ronda!";
+		sleep 2000;
+		npctalk "Prepárense.";
+		sleep 6000;
+	}
+	do
+	{
+		set $monster, rand(1001,1702);
+	}
+	while ($monster == 1003 || $monster == 1006 || $monster == 1017 || $monster == 1021 || $monster == 1022 || $monster == 1027 || $monster == 1043 || $monster == 1006 || $monster == 1136 || $monster == 1137 || $monster == 1168 || $monster == 1171 || $monster == 1172 || $monster == 1173 || $monster == 1181 || $monster == 1210 || $monster == 1223 || $monster == 1284 || ($monster >= 1324 && $monster <= 1363) || $monster == 1006 || $monster == 1407 || $monster == 1411 || $monster == 1414 || $monster == 1496 || $monster == 1501);
+	setnpctimer 0;
+	initnpctimer;
+	setnpcdisplay "Disguise NPC",$monster;
+	set $MonsterName$, strmobinfo(1,$monster);
+	defpattern 1, "([^:]+):.*\\s"+$MonsterName$+"(.*)", "SrLuis";
+	activatepset 1;
+	npctalk "¿Cuál es mi nombre?";
+	sleep 2000;
+	npcwalkto 107,99;
+	sleep 1000;
+	npcwalkto 102,99;
+	sleep 1000;
+	npcwalkto 102,103;
+	sleep 1000;
+	npcwalkto 102,99;
+	end;
+	
+	OnTimer10000:
+		if (!.DisguiseWon)
+		{ 
+			npctalk "Vamos. ¿Qué monstruo soy?";
+			npcwalkto 107,99;
+			sleep 2000;
+			npcwalkto 102,99;
+			sleep 2000;
+			npcwalkto 102,103;
+			sleep 2000;
+			npcwalkto 102,99;
+		}
+		end;
+
+
+	OnTimer25000:
+		if (!.DisguiseWon) 
+		{
+			npctalk "Nadie sabe que monstruo?";
+			npcwalkto 107,99;
+			sleep 2000;
+			npcwalkto 102,99;
+			sleep 2000;
+			npcwalkto 102,103;
+			sleep 2000;
+			npcwalkto 102,99;
+		}
+		end;
+
+	OnTimer35000:
+		if (!.DisguiseWon) 
+		{
+			npctalk " Tienen 10 segundos para adivinar mi nombre.";
+			npcwalkto 107,99;
+			sleep 2000;
+			npcwalkto 102,99;
+			sleep 2000;
+			npcwalkto 102,103;
+			sleep 2000;
+			npcwalkto 102,99;
+		}
+		end;
+
+	OnTimer45000:
+		if (!.DisguiseWon)
+		{ 
+			npctalk "La ronda ha terminado.";
+			set $DisguiseRound, $DisguiseRound + 1;
+			sleep 3000;
+			deletepset 1;
+			npctalk $MonsterName$ + " hubiera sido la respuesta correcta.";
+			sleep 5000;
+			if ($DisguiseRound >= 6)
+			{
+				set $DisguiseRound, 0;
+				sleep 3000;
+				npctalk "El evento ha terminado!";
+				sleep 3500;
+				npctalk "Nos vemos la proxima!";
+				sleep 2000;
+				emotion 12;
+				sleep 1000;
+				mapwarp "poring_c01.gat","gonryun",158,112;
+				setnpcdisplay "Disguise NPC",50;
+				disablenpc "Disguise NPC";
+				end;
+			}
+			goto OnStart;
+		}
+		end;
+
+SrLuis:
+		setnpctimer 0;
+		deletepset 1;
+		set .DisguiseWon, 1;
+		set $DisguiseRound, $DisguiseRound + 1;
+		sleep2 3000;
+		npctalk strcharinfo(0) + " adivino mi nombre!";
+		sleep2 3000;
+		npctalk $MonsterName$ + " es la respuesta correcta.";
+		sleep2 3000;
+		npctalk "Toma tu recompensa, amigo.";
+		getitem 7061,1;
+		if ($DisguiseRound >= 6)
+			{
+				set $DisguiseRound, 0;
+				sleep 3000;
+				npctalk "Evento ha terminado!";
+				sleep 3500;
+				npctalk "Nos vemos la proxima!";
+				sleep 2000;
+				emotion 12;
+				sleep 1000;
+				mapwarp "poring_c01.gat","gonryun",158,112;
+				setnpcdisplay "Disguise NPC",50;
+				disablenpc "Disguise NPC";
+				end;
+			}
+		sleep 5000;
+		goto OnStart;
+		end;
+
+	
+
+}
+
+//-----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
+
+-	script	guessAnnouncer	-1,{
+
+OnMinute00:
+OnMinute05:
+OnMInute12:
+OnMinute15:
+OnMInute20:
+OnMinute25:
+OnMInute30:
+OnMinute35:
+OnMInute40:
+OnMinute45:
+OnMInute50:
+OnMinute55:
+
+	set $guessbegin, 0;
+	sleep 5000;
+	enablenpc "Disguise NPC";
+	sleep 1000;
+	sleep 5000;
+	set $DisguiseRound, 0;
+	donpcevent "Disguise NPC::OnStart";
+	end;
+
+OnInit:
+	disablenpc "Disguise NPC";
+	disablenpc "guesswarp";
+
+}
+
+
+poring_c01	mapflag	nowarpto
+poring_c01	mapflag	noskill
+poring_c01	mapflag	nowarp
+poring_c01	mapflag	nosave
+poring_c01	mapflag	nomemo
+poring_c01	mapflag	noteleport
+//-----------------------------------------------------------------------------------

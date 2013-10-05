@@ -1,0 +1,649 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+//***************************************
+//MVP Room "Definitivo"
+//Version: 1.5
+//***************************************
+//NPC Realizado Por Rpizer Para Divine-Ro
+//***************************************
+//Creditos:
+//***************************************
+//Eradicate ( www.eathena.ws )
+//ToastOfDoom ( www.eathena.ws )
+//Por ayudarme a terminar la ultima parte del MVP Room ( Bloquear MVPs ).
+//
+//Someday ( Divine-RO)
+//Por ayudarme notificando los Bugs.
+//***************************************
+
+pvp_n_1-1,14,185,4	script	Mvp Config	402,{
+//***********************
+//*****COnfig Warper*****
+//***********************
+	if(select("Warper:Summoner")==1){
+Menu_Warper:
+	switch(select("Nombre Salas",
+		"Habilitacion Salas",
+		((.Hsl==0)?"^FF0000Tiempo Alquiler Guild^000000":"Tiempo Alquiler Guild"),
+		((.Hsl==0)?"^FF0000Tiempo Alquiler Party^000000":"Tiempo Alquiler Party"),
+		((.Hsl==0)?"^FF0000Tiempo Alquiler Privado^000000":"Tiempo Alquiler Privado"),
+		((.Hsl==0)?"^FF0000Players Para Party^000000":"Players Para Party"),
+		((.Hsl==0)?"^FF0000Costo Alquiler Guild^000000":"Costo Alquiler Guild"),
+		((.Hsl==0)?"^FF0000Costo Alquiler Party^000000":"Costo Alquiler Party"),
+		((.Hsl==0)?"^FF0000Costo Alquiler Privado^000000":"Costo Alquiler Privado"),
+		"Nada")){
+case 1:
+	mes "NomSala = Nombre Salas";
+	mes "0 = Nombres Sala 1, Sala 2, etc.";
+	mes "1 = Nombres Mapas";
+	mes "Actual: "+.NomSala;
+	input @NomSala;
+	set .NomSala,@NomSala;
+	break;
+case 2:
+	mes "Hsl = Habilitacion Salas";
+	mes "0 = Solo Salas Publicas";
+	mes "1 = Salas Publicas/Privadas/Party/Guild";
+	mes "2 = Salas Privadas/Party/Guild";
+	mes "Actual: "+.Hsl;
+	input @Hsl;
+	set .Hsl,@Hsl;
+	break;
+case 3:
+	if(.Hsl==0){
+	mes "Para poder configurar esta opcion se tiene que habilitar el Habilitacion Salas";
+	close;
+	}
+	mes "Tiempo: 120 = 2 Minutos, ( En Segundos )";
+	mes "Tgu = Tiempo Que Alquila La Guild";
+	mes "Actual: "+(.Tgu/1000)+" Segundos = "+((.Tgu/1000)/60)+" Minutos";
+	input @Tgu;
+	set .Tgu,@Tgu*1000;
+	break;
+case 4:
+	if(.Hsl==0){
+	mes "Para poder configurar esta opcion se tiene que habilitar el Habilitacion Salas";
+	close;
+	}
+	mes "Tiempo: 120 = 2 Minutos, ( En Segundos )";
+	mes "Tpa = Tiempo Que Alquila La Party";
+	mes "Actual: "+(.TPa/1000)+" Segundos = "+((.TPa/1000)/60)+" Minutos";
+	input @Tpa;
+	set .Tpa,@Tpa*1000;
+	break;
+case 5:
+	if(.Hsl==0){
+	mes "Para poder configurar esta opcion se tiene que habilitar el Habilitacion Salas";
+	close;
+	}
+	mes "Tpr = Tiempo Que Alquila El User ( Privado )";
+	mes "Actual: "+(.TPr/1000)+" Segundos = "+((.TPr/1000)/60)+" Minutos";
+	input @Tpr;
+	set .Tpr,@Tpr*1000;
+	break;
+case 6:
+	if(.Hsl==0){
+	mes "Para poder configurar esta opcion se tiene que habilitar el Habilitacion Salas";
+	close;
+	}
+	mes "PlPa = Players Necesarios Para Alquilar Sala Party";
+	mes "Actual: "+.PlPa;
+	input @PlPa;
+	set .PlPa,@PlPa;
+	break;
+case 7:
+	if(.Hsl==0){
+	mes "Para poder configurar esta opcion se tiene que habilitar el Habilitacion Salas";
+	close;
+	}
+	mes "ZenyGu = Costo De Alquilar Sala Guild";
+	mes "Actual: "+.ZenyGu;
+	input @ZenyGu;
+	set .ZenyGu,@ZenyGu;
+	break;
+case 8:
+	if(.Hsl==0){
+	mes "Para poder configurar esta opcion se tiene que habilitar el Habilitacion Salas";
+	close;
+	}
+	mes "ZenyPa = Costo De Alquilar Sala Party";
+	mes "Actual: "+.ZenyPa;
+	input @ZenyPa;
+	set .ZenyPa,@ZenyPa;
+	break;
+case 9:
+	if(.Hsl==0){
+	mes "Para poder configurar esta opcion se tiene que habilitar el Habilitacion Salas";
+	close;
+	}
+	mes "ZenyPr = Costo De Alquilar Sala Privada";
+	mes "Actual: "+.ZenyPr;
+	input @ZenyPr;
+	set .ZenyPr,@ZenyPr;
+	break;
+case 10:
+	close;
+	}
+	if(select("Seguir Configurando:Terminar Configuracion")==2) close;
+	close2;
+	goto Menu_Warper;
+	end;
+}
+
+//*************************
+//*****Config Summoner*****
+//*************************
+Menu_Summoner:
+	switch(select("Configurar Niveles",
+		"Cobra Por MVP",
+		((.Cbm==0)?"^FF0000Forma De Pago^000000":"Forma De Pago"),
+		((.Cbm==0 || .FP!=2)?"^FF0000Item De Pago^000000":"Item De Pago"),
+		((.Cbm==0 || .Nvl==1)?"^FF0000Costo Individual Por MVP^000000":"Costo Individual Por MVP"),
+		((.Cbm==0 || .Nvl==0)?"^FF0000Costo Por MVP Nivel 1^000000":"Costo Por MVP Nivel 1"),
+		((.Cbm==0 || .Nvl==0)?"^FF0000Costo Por MVP Nivel 2^000000":"Costo Por MVP Nivel 2"),
+		((.Cbm==0 || .Nvl==0)?"^FF0000Costo Por MVP Nivel 3^000000":"Costo Por MVP Nivel 3"),
+		((.Cbm==0 || .Nvl==0)?"^FF0000Costo Por MVP Nivel Biolab^000000":"Costo Por MVP Nivel Biolab"),
+		"Activar MVP Max",
+		((.AMMax==0)?"^FF0000MVP Max Por Summoner^000000":"MVP Max Por Summoner"),
+		"Heal",
+		"Nombre User En MVP",
+		"Nada")){
+case 1:
+	mes "Nvl = Niveles";
+	mes "0 = Invocacion Sin Niveles";
+	mes "1 = Separacion De Niveles De MVP";
+	mes "Actual: "+.Nvl;
+	input @Nvl;
+	set .Nvl,@Nvl;
+	break;
+case 2:
+	mes "CbM = Cobra por MVP?";
+	mes "0 = No";
+	mes "1 = Si";
+	mes "Actual: "+.Cbm;
+	input @Cbm;
+	set .CbM,@Cbm;
+	break;
+case 3:
+	if(.Cbm==0){
+	mes "Para poder configurar esta opcion se tiene que habilitar el Cobra Por MVP";
+	close;
+	}
+	mes "FP = Forma De Pago ( .CbM == 1 )";
+	mes "0 = Zeny";
+	mes "1 = CashPoint";
+	mes "2 = Item";
+	mes "Actual: "+.FP;
+	input @FP;
+	set .FP,@FP;
+	break;
+case 4:
+	if(.Cbm==0 || .FP!=2){
+	mes "Para poder configurar esta opcion se tiene que habilitar el Cobra Por MVP";
+	mes "Para poder configurar esta opcion se tiene que habilitar el Forma De Pago en Item";
+	close;
+	}
+	mes "IP = Item De Pago ( .FP == 2 )";
+	mes "Actual: "+.IP;
+	input @IP;
+	set .IP,@IP;
+	break;
+case 5:
+	if(.Cbm==0 || .Nvl==1){
+	mes "Para poder configurar esta opcion se tiene que habilitar el Cobra Por MVP";
+	mes "Para poder configurar esta opcion se tiene que deshabilitar el Separacion De Niveles De MVP";
+	close;
+	}
+	mes "CInd = Costo Individual Por MVP ( .Nvl == 0 )";
+	mes "Actual: "+.CInd;
+	input @CInd;
+	set .CInd,@CInd;
+	break;
+case 6:
+	if(.Cbm==0 || .Nvl==0){
+	mes "Para poder configurar esta opcion se tiene que habilitar el Cobra Por MVP";
+	mes "Para poder configurar esta opcion se tiene que habilitar el Separacion De Niveles De MVP";
+	close;
+	}
+	mes "CN1 = Costo Por MVP Nivel 1 ( .Nvl == 1 )";
+	mes "Actual: "+.CN1;
+	input @CN1;
+	set .CN1,@CN1;
+	break;
+case 7:
+	if(.Cbm==0 || .Nvl==0){
+	mes "Para poder configurar esta opcion se tiene que habilitar el Cobra Por MVP";
+	mes "Para poder configurar esta opcion se tiene que habilitar el Separacion De Niveles De MVP";
+	close;
+	}
+	mes "CN2 = Costo Por MVP Nivel 2 ( .Nvl == 1 )";
+	mes "Actual: "+.CN2;
+	input @CN2;
+	set .CN2,@CN2;
+	break;
+case 8:
+	if(.Cbm==0 || .Nvl==0){
+	mes "Para poder configurar esta opcion se tiene que habilitar el Cobra Por MVP";
+	mes "Para poder configurar esta opcion se tiene que habilitar el Separacion De Niveles De MVP";
+	close;
+	}
+	mes "CN3 = Costo Por MVP Nivel 3 ( .Nvl == 1 )";
+	mes "Actual: "+.CN3;
+	input @CN3;
+	set .CN3,@CN3;
+	break;
+case 9:
+	if(.Cbm==0 || .Nvl==0){
+	mes "Para poder configurar esta opcion se tiene que habilitar el Cobra Por MVP";
+	mes "Para poder configurar esta opcion se tiene que habilitar el Separacion De Niveles De MVP";
+	close;
+	}
+	mes "CNB = Costo Por MVP Nivel Biolab ( .Nvl == 1 )";
+	mes "Actual: "+.CNB;
+	input @CNB;
+	set .CNB,@CNB;
+	break;
+case 10:
+	mes "AMMax = Activar MVP Max";
+	mes "0 = No";
+	mes "1 = Si";
+	mes "Actual: "+.AMMax;
+	input @AMMax;
+	set .AMMax,@AMMax;
+	break;
+case 11:
+	if(.AMMax==0){
+	mes "Para poder configurar esta opcion se tiene que habilitar el Activar MVP Max";
+	close;
+	}
+	mes "MMax = MVP Max Por Summoner ( .AMMax == 1 )";
+	mes "Actual: "+.MMax;
+	input @MMax;
+	set .MMax,@MMax;
+	break;
+case 12:
+	mes "Heal = ¿El Summoner da Heal al hablar con el?";
+	mes "1 = Si";
+	mes "0 = No";
+	mes "Actual: "+.Heal;
+	input @Heal;
+	set .Heal,@Heal;
+	break;
+case 13:
+	mes "NMvP = ¿El MvP lleva el nombre del user que lo invoco?";
+	mes "1 = Si";
+	mes "0 = No";
+	mes "Actual: "+.NMvP;
+	input @NMvP;
+	set .NMvP,@NMvP;
+	break;
+case 14:
+	close;
+	end;
+	}
+	if(select("Seguir Configurando:Terminar Configuracion")==2) close;
+	close2;
+	goto Menu_Summoner;
+	end;
+
+OnInit:
+	hideonnpc "Mvp Config";
+	set .NomSala,0; //Los nombres de las salas los muestra: Sala 1, Sala 2, etc...
+	set .Hsl,1; //Salas Publicas/Privadas/Party/Guild
+	set .Tgu,300000; //5 Minutos
+	set .Tpa,300000; //5 Minutos
+	set .Tpr,300000; //5 Minutos
+	set .PlPa,3; //3 Personas minimo para Party
+	set .ZenyGu,5000000; //Costo de Zeny para alquilar la sala Guild
+	set .ZenyPa,4000000; //Costo de Zeny para alquilar la sala Party
+	set .ZenyPr,2500000; //Costo de Zeny para alquilar la sala Privada
+	set .Heal,0; //El Summoner no da Heal
+	set .Nvl,0; //Los MVP no se separan por niveles
+	set .CbM,1; //Cobra por MVP para invocar
+	set .FP,0; //Cobra en Zeny
+	set .IP,0; //No necesita item asi que esto se queda en 0
+	set .CInd,500000; //Cuanto cuesta invocar cada MVP individual
+	set .CN1,250000; //Cuanto cuesta invocar cada MVP Nivel 1
+	set .CN2,500000; //Cuanto cuesta invocar cada MVP Nivel 2
+	set .CN3,750000; //Cuanto cuesta invocar cada MVP Nivel 3
+	set .CNB,1000000; //Cuanto cuesta invocar cada MVP Biolab
+	set .AMMax,1; //Activado el limite de MVP por Summoner
+	set .MMax,10; //El limite esta puesto en 3 MVPs
+	set .NMvP,1; //El MVP no lleva el nombre del user
+	end;
+}
+
+pvp_n_1-1,12,187,4	script	Mvp Warper	402,{
+	setarray .Salas$[1],"izlude","mapa2","mapa3"; //Salas Publicas
+	setarray .SalasPr$[1],"izlude","mapa2","mapa3"; //Salas Privadas
+	setarray .SalasPa$[1],"izlude","mapa2","mapa3"; //Salas Party
+	setarray .SalasGu$[1],"izlude","mapa2","mapa3"; //Salas Guild
+	set @lista2$,"";
+	set @listaSalas$,"";
+	set @listaSalasGu$,"";
+	set @listaSalasPr$,"";
+	set @listaSalasPa$,"";
+	mes "Elegi la sala";
+	switch(getvariableofnpc(.Hsl,"Mvp Config")){
+case 0:
+	callsub L_Sls;
+	end;
+case 1:
+		switch(select("Publico:Privado:Party:Guild:Ninguno")){
+	case 1:
+		callsub L_Sls;
+		end;
+	case 2:
+		callsub L_Sls_Pr;
+		end;
+	case 3:
+		callsub L_Sls_Pa;
+		end;
+	case 4:
+		callsub L_Sls_Gu;
+		end;
+	case 5:
+		close;
+		end;
+		}
+	end;
+case 2:
+		switch(select("Privado:Party:Guild:Ninguno")){
+	case 1:
+		callsub L_Sls_Pr;
+		end;
+	case 2:
+		callsub L_Sls_Pa;
+		end;
+	case 3:
+		callsub L_Sls_Gu;
+		end;
+	case 4:
+		close;
+		end;
+		}
+	end;
+	}
+L_Sls_Gu:
+	for(set @i,1; @i<getarraysize(.SalasGu$); set @i,@i+1){
+	if(getvariableofnpc(.NomSala,"Mvp Config")==0){
+	set @lista3$,"Sala "+@i;
+	} else {
+	set @lista3$,.SalasGu$[@i];
+	}
+	if(getd(".SalaGu"+@i)){
+	set @lista2$,getguildname(getd(".SalaGu"+@i));
+	} else {
+	set @lista2$,"Sin Dueño";
+	}
+	set @listaSalasGu$,@listaSalasGu$+@lista3$+"["+@lista2$+"]:";
+	}
+	set @listaSalasGu$,@listaSalasGu$+"Ninguna";
+	set @j,select(@listaSalasGu$);
+	if(@j==getarraysize(.SalasGu$)) close;
+	if(!getcharid(2)){
+	mes "Necesitas una Guild primero";
+	close;
+	}
+	if(getd(".SalaGu"+@j)){
+	if(getd(".SalaGu"+@j)==getcharid(2)){
+		warp .SalasPr$[@j],0,0;
+		end;
+		} else {
+		mes "Esta sala ya esta alquilada por: "+getguildname(getd(".SalaGu"+@j));
+		close;
+		}
+	} else {
+	mes "¿Queres alquilar la sala?";
+	mes "La sala cuesta "+getvariableofnpc(.ZenyGu,"Mvp Config")+" zeny";
+	mes "Y vas a estar dentro "+(getvariableofnpc(.Tgu,"Mvp Config")/1000)+" segundos";
+	if(select("Si:No")==2) close;
+	if(zeny<getvariableofnpc(.ZenyGu,"Mvp Config")){
+	mes "No tenes suficiente Zeny";
+	close;
+	} else {
+	setd(".SalaGu"+@j,getcharid(2));
+	warpguild .SalasGu$[@j],0,0,getcharid(2);
+	sleep2 getvariableofnpc(.TGu,"Mvp Config");
+	killmonsterall .SalasGu$[@j];
+	mapwarp .SalasGu$[@j],"prontera",150,150;
+	setd(".SalaGu"+@j,0);
+	end;
+	}
+	}
+L_Sls_Pa:
+	for(set @i,1; @i<getarraysize(.SalasPa$); set @i,@i+1){
+	if(getvariableofnpc(.NomSala,"Mvp Config")==0){
+	set @lista3$,"Sala "+@i;
+	} else {
+	set @lista3$,.SalasPa$[@i];
+	}
+	if(getd(".SalaPa"+@i)){
+	set @lista2$,getpartyname(getd(".SalaPa"+@i));
+	} else {
+	set @lista2$,"Sin Dueño";
+	}
+	set @listaSalasPa$,@listaSalasPa$+@lista3$+"["+@lista2$+"]:";
+	}
+	set @listaSalasPa$,@listaSalasPa$+"Ninguna";
+	set @j,select(@listaSalasPa$);
+	if(@j==getarraysize(.SalasPa$)) close;
+	if(!getcharid(1)){
+	mes "Necesitas una Party primero";
+	close;
+	}
+	if(getd(".SalaPa"+@j)){
+	if(getd(".SalaPa"+@j)==getcharid(1)){
+		warp .SalasPa$[@j],0,0;
+		end;
+		} else {
+		mes "Esta sala ya esta alquilada por la Party: "+getpartyname(getd(".SalaPa"+@j));
+		close;
+		}
+	} else {
+	if(getpartyleader(getcharid(1),2)!=getcharid(0)){
+	mes "Solo el lider de la Party puede alquilar";
+	close;
+	}
+	getpartymember getcharid(1);
+	set @partymembercount,$@partymembercount;
+	if(@partymembercount<getvariableofnpc(.PlPa,"Mvp Config")){
+	mes "Tu Party necesita como minimo "+getvariableofnpc(.PlPa,"Mvp Config")+" usuarios";
+	close;
+	}
+	mes "¿Queres alquilar la sala para tu Party?";
+	mes "La sala cuesta "+getvariableofnpc(.ZenyPa,"Mvp Config")+" zeny";
+	mes "Y vas a estar dentro "+(getvariableofnpc(.TPa,"Mvp Config")/1000)+" segundos";
+	if(select("Si:No")==2) close;
+	if(zeny<getvariableofnpc(.ZenyPa,"Mvp Config")){
+	mes "No tenes suficiente Zeny";
+	close;
+	} else {
+	setd(".SalaPa"+@j,strcharinfo(1));
+	warpparty .SalasPa$[@j],0,0,getcharid(1);
+	sleep2 getvariableofnpc(.TPa,"Mvp Config");
+	killmonsterall .SalasPa$[@j];
+	mapwarp .SalasPa$[@j],"prontera",150,150;
+	setd(".SalaPa"+@j,0);
+	end;
+	}
+	}
+L_Sls_Pr:
+	for(set @i,1; @i<getarraysize(.SalasPr$); set @i,@i+1){
+	if(getvariableofnpc(.NomSala,"Mvp Config")==0){
+	set @lista3$,"Sala "+@i;
+	} else {
+	set @lista3$,.SalasPr$[@i];
+	}
+	if(getd(".SalaPr"+@i)){
+	set @lista2$,rid2name(getd(".SalaPr"+@i));
+	} else {
+	set @lista2$,"Sin Dueño";
+	}
+	set @listaSalasPr$,@listaSalasPr$+@lista3$+"["+@lista2$+"]:";
+	}
+	set @listaSalasPr$,@listaSalasPr$+"Ninguna";
+	set @j,select(@listaSalasPr$);
+	if(@j==getarraysize(.SalasPr$)) close;
+	if(getd(".SalaPr"+@j)){
+	if(getd(".SalaPr"+@j)==getcharid(3)){
+		warp .SalasPr$[@j],0,0;
+		end;
+		} else {
+		mes "Esta sala ya esta alquilada por: "+rid2name(getd(".SalaPr"+@j));
+		close;
+		}
+	} else {
+	mes "¿Queres alquilar la sala?";
+	mes "La sala cuesta "+getvariableofnpc(.ZenyPr,"Mvp Config")+" zeny";
+	mes "Y vas a estar dentro "+(getvariableofnpc(.Tpr,"Mvp Config")/1000)+" segundos";
+	if(select("Si:No")==2) close;
+	if(zeny<getvariableofnpc(.ZenyPR,"Mvp Config")){
+	mes "No tenes suficiente Zeny";
+	close;
+	} else {
+	setd(".SalaPr"+@j,getcharid(3));
+	warp .SalasPr$[@j],0,0;
+	sleep2 getvariableofnpc(.TPr,"Mvp Config");
+	killmonsterall .SalasPr$[@j];
+	mapwarp .SalasPr$[@j],"prontera",150,150;
+	setd(".SalaPr"+@j,0);
+	end;
+	}
+	}
+L_Sls:
+	for(set @i,1; @i<getarraysize(.Salas$); set @i,@i+1){
+	if(getvariableofnpc(.NomSala,"Mvp Config")==0){
+	set @lista3$,"Sala "+@i;
+	} else {
+	set @lista3$,.Salas$[@i];
+	}
+	set @listaSalas$,@listaSalas$+@lista3$+":";
+	}
+	set @listaSalas$,@listaSalas$+"Ninguna";
+	set @j,select(@listaSalas$);
+	if(@j==getarraysize(.Salas$)) close;
+	warp .Salas$[@j],0,0;
+	end;
+OnInit:
+	hideonnpc "Mvp Warper";
+	end;
+}
+
+pvp_n_1-5,99,101,4	script	Mvp Summoner	402,{
+	set @listaMvp$,"";
+	deletearray @Mvps[1],getarraysize(@Mvps);
+	if(getvariableofnpc(.Heal,"Mvp Config")) percentheal 100,100;
+	if(getvariableofnpc(.AMMax,"Mvp Config")) mes "["+.MInv+"/"+getvariableofnpc(.MMax,"Mvp Config")+"] MVPs Invocados";
+	switch(getvariableofnpc(.Nvl,"Mvp Config")){
+case 0:
+	deletearray @Mvps[1],getarraysize(@Mvps);
+	setarray @Mvps[1],1511,1647,1785,1630,1039,/*2068,*/1272,1719,1046,1389,1112,1115,1418,1871,1252,1768,1086,1885,1649,1651,1832,1492,1734,1251,1779,1688,/*2156,*/1646,1373,1147,1059,1150,/*2022,*/1087,1190,1038,1157,1159,/*2087,*/1623,1650,1583,1708,1312,1751,1685,1648,1917,1658;
+	if(getvariableofnpc(.Cbm,"Mvp Config")) set @k,getvariableofnpc(.CInd,"Mvp Config");
+	break;
+case 1:
+		switch(select("Nivel 1:Nivel 2:Nivel 3:Biolab")){
+	case 1:
+		deletearray @Mvps[1],getarraysize(@Mvps);
+		setarray @Mvps[1],11,12,13;
+		if(getvariableofnpc(.Cbm,"Mvp Config")) set @k,getvariableofnpc(.CN1,"Mvp Config");
+		break;
+	case 2:
+		deletearray @Mvps[1],getarraysize(@Mvps);
+		setarray @Mvps[1],21,22,23;
+		if(getvariableofnpc(.Cbm,"Mvp Config")) set @k,getvariableofnpc(.CN2,"Mvp Config");
+		break;
+	case 3:
+		deletearray @Mvps[1],getarraysize(@Mvps);
+		setarray @Mvps[1],31,32,33;
+		if(getvariableofnpc(.Cbm,"Mvp Config")) set @k,getvariableofnpc(.CN3,"Mvp Config");
+		break;
+	case 4:
+		deletearray @Mvps[1],getarraysize(@Mvps);
+		setarray @Mvps[1],41,42,43;
+		if(getvariableofnpc(.Cbm,"Mvp Config")) set @k,getvariableofnpc(.CNB,"Mvp Config");
+		break;
+		}
+	}
+	set @i,1;
+	while(@i < getarraysize(@Mvps)) {
+		set @listed, getd(".mvpsPr_" + @Mvps[@i]);
+		set @listaMvp$, @listaMvp$+((@listed)?"^FF0000":"")+getmonsterinfo(@Mvps[@i],0)+((@listed)?"^000000":"")+":";
+		set @i, @i + 1;
+	}
+	set @listaMvp$,@listaMvp$+"Ninguno";
+	set @j,select(@listaMvp$);
+	if(@j==getarraysize(@Mvps)) close;
+	for(set @l,1; @l<getarraysize(.MvpsPr); set @l,@l+1){
+	if(@Mvps[@j]==.MvpsPr[@l]){
+	mes "Este MVP esta restringido por un Admin";
+	close;
+	}
+	}
+	if(getvariableofnpc(.AMMax,"Mvp Config")){
+		if(.MInv==getvariableofnpc(.MMax,"Mvp Config")){
+		mes "Solo se permiten "+getvariableofnpc(.MMax,"Mvp Config")+" MVPs por cada Summoner";
+		close;
+		}
+	}
+	if(getvariableofnpc(.Cbm,"Mvp Config")){
+	mes "Para invocar a "+getmonsterinfo(@Mvps[@j],0);
+	if(getvariableofnpc(.FP,"Mvp Config")==0) set @FP$,"Zeny";
+	if(getvariableofnpc(.FP,"Mvp Config")==1) set @FP$,"CashPoints";
+	if(getvariableofnpc(.FP,"Mvp Config")==2) set @FP$,getitemname(getvariableofnpc(.IP,"Mvp Config"));
+	mes "Necesitas "+@k+" "+@FP$;
+	mes "¿Queres invocarlo?";
+	if(select("Si:No")==2) close;
+	if(getvariableofnpc(.FP,"Mvp Config")==0) set @FP2,Zeny;
+	if(getvariableofnpc(.FP,"Mvp Config")==1) set @FP2,#CASHPOINTS;
+	if(getvariableofnpc(.FP,"Mvp Config")==2) set @FP2,countitem(getvariableofnpc(.IP,"Mvp Config"));
+	if(@FP2<@k){
+	mes "No tenes la cantidad necesaria para la invocacion";
+	close;
+	} else {
+	close2;
+	if(getvariableofnpc(.FP,"Mvp Config")==0) set Zeny,Zeny-@k;
+	if(getvariableofnpc(.FP,"Mvp Config")==1) set #CASHPOINTS,#CASHPOINTS-@k;
+	if(getvariableofnpc(.FP,"Mvp Config")==2) delitem getvariableofnpc(.IP,"Mvp Config"),@k;
+	}
+	}
+	sleep2 500;
+	getmapxy @Mapa$,@X,@Y,0;
+	set @NMvP$,getmonsterinfo(@Mvps[@j],0);
+	if(getvariableofnpc(.NMvP,"Mvp Config")==1) set @NMvP$,@NMvP$+"-"+strcharinfo(0);
+	if(getvariableofnpc(.AMMax,"Mvp Config")==1) set .MInv,.MInv+1;
+	monster	@Mapa$,@X+2,@Y+2,@NMvP$,@Mvps[@j],1,strnpcinfo(0)+"::OnMVPDeath";
+	end;
+
+OnMVPDeath:
+	if(getvariableofnpc(.AMMax,"Mvp Config")==1){ set .MInv,.MInv-1; }
+	end;
+OnInit:
+		setarray .MvpsPr[1],1001; //Lista de MVPs que no queres que se puedan invocar.
+		set .@i,1;
+		while(.@i < getarraysize(.MvpsPr)) {
+			setd(".mvpsPr_" + .MvpsPr[.@i], 1);
+			set .@i, .@i + 1;
+		}
+		end;
+}
+pvp_n_2-5,99,101,4	duplicate(Mvp Summoner)	Mvp Summoner#01	402
+pvp_n_3-5,99,101,4	duplicate(Mvp Summoner)	Mvp Summoner#02	402
+pvp_n_4-5,99,101,4	duplicate(Mvp Summoner)	Mvp Summoner#03	402
+pvp_n_5-5,99,101,4	duplicate(Mvp Summoner)	Mvp Summoner#04	402
+
+pvp_n_1-5	mapflag	monster_noteleport
+pvp_n_2-5	mapflag	monster_noteleport
+pvp_n_3-5	mapflag	monster_noteleport
+pvp_n_4-5	mapflag	monster_noteleport
+pvp_n_5-5	mapflag	monster_noteleport

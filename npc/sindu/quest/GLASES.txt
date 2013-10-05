@@ -1,0 +1,347 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+
+quest.gat,34,43,4	script	Glasess	878,{
+// Variables
+set	@name$,"[Glasess]";	//nombre NPC
+	if (GetGMLevel()>98) goto GMS;
+// Quest Script
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Esta  quest te otorga Medios poderes Brinda status a +90 exepto luk y vitalidad. Velocidad para caminar a 25% te deseo suerte";//--
+	mes "Escoje el color de los Glasses que deseas hacer";
+if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],5401,31679,31680,31681,31682,31683,31684,5288;
+		callfunc "DoTestHats";
+		end;
+	}
+	menu "Negros",QUEST1,"Azul",QUEST2,"Cyan",QUEST3,"Dorado",QUEST4,"Verde",QUEST5,"Purpura",QUEST6,"Blanco",QUEST7,"Rojo",QUEST8;
+
+GMS:
+	mes "Hola gm escoje entre estas opciones";
+	menu "Sacar un item",SAKARITEM,"Menu User",MENUUSER;
+MENUUSER:
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Esta  quest te otorga Medios poderes Brinda status a +90 exepto luk y vitalidad. Velocidad para caminar a 25% te deseo suerte";//-----------------------------//--------------//======//
+	next;
+	if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],5401,31679,31680,31681,31682,31683,31684,5288;
+		callfunc "DoTestHats";
+		end;
+	}
+	mes "Escoje el item que deseas hacer";
+	menu "Negos",QUEST1,"Azules",QUEST2,"Cyan",QUEST3,"Dorado",QUEST4,"Verde",QUEST5,"Purpura",QUEST6,"Blanco",QUEST7,"Rojo",QUEST8;
+
+SAKARITEM:
+	menu "Glases negro",QUEST1a,"Glases azul",QUEST2a,"Glases cyan",QUEST3a,"Glases gold",QUEST4a,"Glases green",QUEST5a,"purple",QUEST6a,"blanco",QUEST7a,"Rojo",QUEST8a;	
+QUEST1a:
+	getitem 5401,1;
+	close;
+QUEST2a:
+	getitem 31679,1;
+	close;
+QUEST3a:
+	getitem 31680,1;
+	close;
+QUEST4a:
+	getitem 31681,1;
+	close;
+QUEST5a:
+	getitem 31682,1;
+	close;
+QUEST6a:
+	getitem 31683,1;
+	close;
+QUEST7a:
+	getitem 31684,1;
+	close;
+QUEST8a:
+	getitem 5288,1;
+	close;
+
+
+//31678,Black_Glasses,Black_Glasses,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1652,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31679,Blue_Glasses,Blue_Glasses,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1653,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31680,Cyan_Glasses,Cyan_Glasses,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1654,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31681,Gold_Glasses,Gold_Glasses,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1655,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31682,Green_Glasses,Green_Glasses,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1656,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31683,Purple_Glasses,Purple_Glasses,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1657,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31684,White_Glasses,White_Glasses,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1658,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+
+
+
+QUEST1:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "5 Poring Coin";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	if(countitem(7539)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	delitem 7539,5;
+	getitem 5401,1;
+	close;
+	npctalk "~ NPC hecho SrLuis ~";
+	
+QUEST2:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "5 Poring Coin";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	if(countitem(7539)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	delitem 7539,5;
+	getitem 31679,1;
+
+	close;
+	npctalk "~ NPC hecho por SrLuis ~";
+	
+QUEST3:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "5 Poring Coin";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	if(countitem(7539)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	delitem 7539,5;
+	getitem 31680,1;
+
+	close;
+	
+QUEST4:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "5 Poring Coin";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	if(countitem(7539)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	delitem 7539,5;
+	getitem 31681,1;
+
+	close;
+QUEST5:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "5 Poring Coin";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	if(countitem(7539)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	delitem 7539,5;
+	getitem 31682,1;
+
+	close;
+QUEST6:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "5 Poring Coin";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	if(countitem(7539)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	delitem 7539,5;
+	getitem 31683,1;
+
+	close;
+QUEST7:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "5 Poring Coin";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	if(countitem(7539)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	delitem 7539,5;
+	getitem 31684,1;
+
+	close;
+
+QUEST8:
+	next;
+	mes "Necesitaras esto:";
+	mes "1 Turquoise";
+	mes "200 Glass Bead";
+	mes "150 Dragon Scale ";
+	mes "50 Dust Pollutant";
+	mes "5 Mixture";
+	mes "5 Poring Coin";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<1)goto falta;
+	if(countitem(746)<200)goto falta;
+	if(countitem(1036)<150)goto falta;
+	if(countitem(7320)<50)goto falta;
+	if(countitem(974)<5)goto falta;
+	if(countitem(7539)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, convinalo con el color de tus alas para obtener mas poder, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,1;
+	delitem 746,200;
+	delitem 1036,150;
+	delitem 7320,50;
+	delitem 974,5;
+	delitem 7539,5;
+	getitem 5288,1;
+
+	close;
+
+falta:
+	mes "Creo que algo falta, Aun no tienes lo necesario checa bien, vuelve cuando lo tengas buena suerte ..";
+	close;
+	npctalk "~ NPC SrLuis ~";
+}
+prontera,244,72,4	duplicate(Glasess)	Glasess#01	828

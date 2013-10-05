@@ -1,0 +1,78 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+//===== eAthena Script =======================================================================
+//= Script Que Contiene Skill para buffear
+//===== By: =================================================================================
+//= Luis Tapia (Conwaidd)
+//===== Current Version: ======================================================================
+//= 1.0.0
+//==========================================================================================
+
+prontera.gat,159,187,4	script	Healer	402,{
+if(getcharid(3) == 2000680) goto Iniciar_ini;
+//Variables
+set @effect, 0; // 0 para desabilitar los effecto si da lag
+set @heal, 1; // 0 para que no cure
+switch(select("Curar:Buffer")){
+	case 1:
+	percentheal 100,100;
+	end;
+	
+	case 2:
+		sc_start 32,  240000, 10;  // Increase Agi
+		sc_start 29,  300000, 10;  // Angelus
+		sc_start 30, 240000, 10; // Blessing
+		sc_start 35,  60000, 5; // Impositio Manus
+		sc_start 40,  90000, 5; // Magnificat
+		sc_start 41,  30000,  5; // Gloria  
+		sc_start 115, 100000,  5; // Assumptio
+		percentheal 100,100;
+		end;
+		
+}
+
+Iniciar_ini:
+		sc_start 32,  240000, 10;  // Increase Agi
+		sc_start 29,  300000, 10;  // Angelus
+		sc_start 30, 240000, 10; // Blessing
+		sc_start 35,  60000, 5; // Impositio Manus
+		sc_start 40,  90000, 5; // Magnificat
+		sc_start 41,  30000,  5; // Gloria  
+		sc_start 115, 100000,  5; // Assumptio
+		getitem 31900,3;
+		percentheal 100,100;
+		end;
+
+//sc_start 32,  240000, 10;  // Increase Agi
+//sc_start 29,  300000, 10;  // Angelus
+//sc_start 30, 240000, 10; // Blessing
+//sc_start 35,  60000, 5; // Impositio Manus
+//sc_start 40,  90000, 5; // Magnificat
+//sc_start 41,  30000,  5; // Gloria  
+//sc_start 115, 100000,  5; // Assumptio
+//
+//if(@effect == 1) skilleffect 29,0; // Increase Agi
+//if(@effect == 1) skilleffect 33,0; // Angelus
+//if(@effect == 1) skilleffect 34,0; // Blessing
+//if(@effect == 1) skilleffect 66,0; // Impositio Manus
+//if(@effect == 1) skilleffect 73,0; // Kyrie Eleison
+//if(@effect == 1) skilleffect 74,0; // Magnificat
+//if(@effect == 1) skilleffect 75,0; // Gloria
+//if(@effect == 1) skilleffect 361,0; // Assumptio
+//
+//if(@heal == 1) percentheal 100,100;
+}
+
+izlude,122,150,7	duplicate(Healer)	Healer#02	402
+gonryun,155,121,7	duplicate(Healer)	Healer#03	402
+lighthalzen,166,100,7	duplicate(Healer)	Healer#04	402
+dicastes01,192,191,7	duplicate(Healer)	Healer#05	402

@@ -1,0 +1,218 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+
+quest.gat,36,38,7	script	Uper Hat	795,{
+// Variables
+set	@name$,"[Uper Hat]";	//nombre NPC
+	if (GetGMLevel()>98) goto GMS;
+// Quest Script
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Tengo algunos hats para ti todos son uper hat quieres saber cuales son?";//-----------------------------//--------------//======//
+	mes "Muy bien tengo los siguientes";
+	if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],5474,5766,5490,5513,5531,5382,5427,5236,5065,5235;
+		callfunc "DoTestHats";
+		end;
+	}
+
+	menu "AFK Hat",QUEST1,"Amistr Cap",QUEST2,"Anubis Helm",QUEST3,"Aquarius Crown",QUEST4,"Baby Dragon Hat",QUEST5,"Bell Ribbon",QUEST6,"Black Tea",QUEST7,"Blue Beanie",QUEST8,"Blue Fish",QUEST9,"Brown Beanie",QUEST10;
+GMS:
+	mes "Hola gm escoje entre estas opciones";
+	menu "Sacar un item",SAKARITEM,"Menu User",MENUUSER;
+MENUUSER:
+	
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Tengo algunos hats para ti todos son uper hat quieres saber cuales son?";//-----------------------------//--------------//======//
+	mes "Muy bien tengo los siguientes";
+	if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],5474,5766,5490,5513,5531,5382,5427,5236,5065,5235;
+		callfunc "DoTestHats";
+		end;
+	}
+	mes "Muy bien los siguientes";
+	menu "AFK Hat",QUEST1,"Amistr Cap",QUEST2,"Anubis Helm",QUEST3,"Aquarius Crown",QUEST4,"Baby Dragon Hat",QUEST5,"Bell Ribbon",QUEST6,"Black Tea",QUEST7,"Blue Beanie",QUEST8,"Blue Fish",QUEST9,"Brown Beanie",QUEST10;
+SAKARITEM:
+	menu "AFK Hat",QUEST1a,"Amistr Cap",QUEST2a,"Anubis Helm",QUEST3a,"Aquarius Crown",QUEST4a,"Baby Dragon Hat",QUEST5a,"Bell Ribbon",QUEST6a,"Black Tea",QUEST7a,"Blue Beanie",QUEST8a,"Blue Fish",QUEST9a,"Brown Beanie",QUEST10a;
+QUEST1a:
+	getitem 5474,1;
+	close;
+QUEST2a:
+	getitem 5766,1;
+	close;
+QUEST3a:
+	getitem 5490,1;
+	close;
+QUEST4a:
+	getitem 5513,1;
+	close;
+QUEST5a:
+	getitem 5531,1;
+	close;
+QUEST6a:
+	getitem 5382,1;
+	close;
+QUEST7a:
+	getitem 5427,1;
+	close;
+QUEST8a:
+	getitem 5236,1;
+	close;
+QUEST9a:
+	getitem 5065,1;
+	close;
+QUEST10a:
+	getitem 5235,1;
+	close;
+
+
+QUEST1:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5474,1;
+	close;
+
+	
+QUEST2:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5766,1;
+	close;
+	
+QUEST3:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5490,1;
+	close;
+QUEST4:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5513,1;
+	close;
+QUEST5:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5531,1;
+	close;
+QUEST6:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5382,1;
+	close;
+	
+QUEST7:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5427,1;
+	close;
+QUEST8:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5236,1;
+	close;
+QUEST9:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5065,1;
+	close;
+QUEST10:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5235,1;
+	close;
+
+
+falta:
+	mes "Creo que algo falta, Aun no tienes lo necesario checa bien, vuelve cuando lo tengas buena suerte ..";
+	close;
+	npctalk "~ NPC SrLuis ~";
+}
+prontera,163,187,4	duplicate(Uper Hat)	Uper Hat#01	878
+prontera,244,82,4	duplicate(Uper Hat)	Uper Hat#02	878
+
+

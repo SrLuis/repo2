@@ -1,0 +1,96 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+niflheim,217,216,4	script	Cleto	805,{
+set	@name$,"[Cleto]";
+mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";next;
+mes "Mi nombre es Cleto";
+next;
+mes "Que te trae por aqui";
+menu "Hablar",SI,"Solo pasaba por aqui",XD;
+SI:
+mes "Que dices te mando travel!! Ooh genial cuando lo mires salúdalo de mi parte… ya veo te dio algo para mí?";
+next;
+mes "Humm... Andas creando un Ítem,  valla será una gran aventura escucha... te ayudare con eso será sencillo muy sencillo  a cambio de 100 de las pócimas que te regala Travel, te daré una mascara Rara que te facilitara la vida para juntar los tikets";
+next;
+mes "Esta es la parte buena... los tikets solo son dropeados solo por algunos mobs propiedad Undead.";
+next;
+mes "Llévale a travel 250 tikets";
+mes "También te pedirá zeny para salir de sus apuros este Halloween,";
+mes "Es seguro que te pida 1 000 000 000 de zeny";
+mes "Tambien 15 Poring Coin's";
+next;
+menu "Gracias por la info.",SI1,"Tengo las 100 Pociones",YA,"Algo más que necesite saber?",NO;
+next;
+SI1:
+mes "Vale te deseo mucha suerte";
+close;
+YA:
+	next;
+	mes "Enserio tienes ya las 100 pocimas";
+	mes "Muestramelas";
+	next;
+	if(countitem(12350)<100)goto falta;
+	next;
+	mes "Valla tienes las 100 pócimas ok me parece justo aquí está lo que te prometí...";
+	next;
+	mes "Nesesitas equipartelo y matar mobs Propiedad Undead";
+	mes "Gracias por todo nos vemos Cuidate";
+	delitem 12350,100;
+	getitem 32100,1;
+	close;
+NO:
+mes "Bueno si";
+mes "Crees que soy aburrido";
+next;
+mes "Este lugar es muy solitario";
+mes "Ademas no suelo hablar mucho no hay nadie";
+next;
+menu "Si eres un poco aburrido",SI2,"No paresces ser aburrido",SI3;
+SI2:
+mes "Lo se nesesito salir mas, hacer mas amigos :l";
+close;
+SI3:
+mes "Enserio hahah bueno te puedo contar  algo es importante y es sobre Halloween te interesa?";
+next;
+menu "SI",SI4,"NO",SI5;
+next;
+SI4:
+mes "Encerio... olle antes de empezar y contarte los secreto te gustaria ser mi amigo?";
+next;
+menu "Claro",SI6,"Mmm Tengo muchos Amigos",SI7;
+SI6:
+mes "Gracias TwT Mira eh divagado  este lugar por años y otros lugares siempre en búsqueda de TELOM, él es el creador el Maestro de un Set muy poderoso, si logras encontrarlo procura que no te mate hehe no me creas solo dale estas Coca-colas él sabrá qué hacer con ella hehe";
+next;
+getitem 12143,10;
+next;
+mes "Él se encuentra oculto en los volcanes de fuego necesitas buscarlo";
+next;
+mes "Te dará información de cómo hacer ese poderoso Set...Bueno es todo espero te allá servido Gracias por conversar conmigo Cuídate";
+close;
+SI7:
+mes "Valla eres afortunado Bueno gracias igual";
+close;
+falta:
+mes "no";
+mes "aun no las tienes o te faltan algunas... Vuelve cuando las tengas";
+close;
+SI5:
+mes "ya veo te da miedo bueno nimodo";
+close;
+XD:
+mes "porsupuesto ten mucho cuidado";
+close;
+
+end;
+
+}

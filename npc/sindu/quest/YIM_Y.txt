@@ -1,0 +1,177 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+
+quest.gat,34,52,4	script	Yim Yang	878,{
+// Variables
+set	@name$,"[Yim Yang]";	//nombre NPC
+	if (GetGMLevel()>98) goto GMS;
+// Quest Script
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Esta  quest te otorga Medios poderes Brinda status a +70 exepto luk y vitalidad. Velocidad para caminar a 20%, Segundas alas Stats +100 y (Intravision) te deseo suerte";//-
+	mes "Escoje el color de las parte Yin Yang que deseas hacer, hay dos tipos de alas!";
+	if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],31395,31394,31393,31766;
+		callfunc "DoTestHats";
+		end;
+	}
+	menu "Hat",QUEST1,"Alas",QUEST2,"Aura",QUEST3,"Wings Y/Y",QUEST4;
+GMS:
+	mes "Hola gm escoje entre estas opciones";
+	menu "Sacar un item",SAKARITEM,"Menu User",MENUUSER;
+MENUUSER:
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Esta  quest te otorga Medios poderes Brinda status a +70 exepto luk y vitalidad. Velocidad para caminar a 20%, Segundas alas Stats +100 y (Intravision) te deseo suerte";//-----------------------------//--------------//======//
+	next;
+	if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],31395,31394,31393,31766;
+		callfunc "DoTestHats";
+		end;
+	}
+	mes "Escoje el item que deseas hacer";
+	menu "Hat",QUEST1,"Alas",QUEST2,"Aura",QUEST3,"Wings Y/Y",QUEST4;
+SAKARITEM:
+	menu "Hat",QUEST1a,"Aalas",QUEST2a,"Aura",QUEST3a,"Wings Y/Y",QUEST4a;
+
+QUEST1a:
+	getitem 31395,1;
+	close;
+QUEST2a:
+	getitem 31394,1;
+	close;
+QUEST3a:
+	getitem 31393,1;
+	close;
+QUEST4a:
+	getitem 31766,1;
+	close;
+//31766,YingYangWings,ying_yang_wings,5,20,,100,,3,,4,0xFFFFFFFF,7,2,001,,0,1,1740,{ bonus bAllStats,100; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; bonus bIntravision,0; },{},{}
+
+QUEST1:
+	next;
+	mes "Necesitaras esto:";
+	mes "5 Fragment Of Rosata";
+	mes "5 Fang Of Garm";
+	mes "5 Poring Coin ";
+	mes "5 Fire Dragon Scale";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7211)<5)goto falta;
+	if(countitem(7036)<5)goto falta;
+	if(countitem(7539)<5)goto falta;
+	if(countitem(7451)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7211,5;
+	delitem 7036,5;
+	delitem 7539,5;
+	delitem 7451,5;
+	getitem 31395,1;
+	close;
+	npctalk "~ NPC hecho SrLuis ~";
+	
+QUEST2:
+	next;
+	mes "Necesitaras esto:";
+	mes "5 Fragment Of Rosata";
+	mes "5 Fang Of Garm";
+	mes "5 Poring Coin ";
+	mes "5 Fire Dragon Scale";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7211)<5)goto falta;
+	if(countitem(7036)<5)goto falta;
+	if(countitem(7539)<5)goto falta;
+	if(countitem(7451)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-100000000000;
+	delitem 7211,5;
+	delitem 7036,5;
+	delitem 7539,5;
+	delitem 7451,5;
+	getitem 31394,1;
+
+	close;
+	npctalk "~ NPC hecho por SrLuis ~";
+	
+QUEST3:
+	next;
+	mes "Necesitaras esto:";
+	mes "5 Fragment Of Rosata";
+	mes "5 Fang Of Garm";
+	mes "5 Poring Coin ";
+	mes "5 Fire Dragon Scale";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7211)<5)goto falta;
+	if(countitem(7036)<5)goto falta;
+	if(countitem(7539)<5)goto falta;
+	if(countitem(7451)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7211,5;
+	delitem 7036,5;
+	delitem 7539,5;
+	delitem 7451,5;
+	getitem 31393,1;
+
+	close;
+
+
+QUEST4:
+	next;
+	mes "Necesitaras esto:";
+	mes "25 Fragment Of Rosata";
+	mes "25 Fang Of Garm";
+	mes "10 Poring Coin ";
+	mes "25 Fire Dragon Scale";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7211)<5)goto falta;
+	if(countitem(7036)<5)goto falta;
+	if(countitem(7539)<5)goto falta;
+	if(countitem(7451)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7211,25;
+	delitem 7036,25;
+	delitem 7539,10;
+	delitem 7451,25;
+	getitem 31766,1;
+
+	close;
+
+	
+falta:
+	mes "Creo que algo falta, Aun no tienes lo necesario checa bien, vuelve cuando lo tengas buena suerte ..";
+	close;
+	npctalk "~ NPC SrLuis ~";
+}
+prontera,244,60,4	duplicate(Yim Yang)	Yim Yang#01	828

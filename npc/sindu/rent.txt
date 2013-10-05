@@ -1,0 +1,36 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+turbo_room,70,89,5	script	quitamount	45,2,2,{
+
+OnTouch:
+if(ismounting()){mes "ya tienes una mountura"; close;}
+if(checkfalcon() || checkcart() || checkriding() || checkmadogear()){mes "Lo siento para poder asistir el evento te deves sacar el carro la montura o el ave"; close;}
+setmounting;
+set $seacabo,1;
+warp "turbo_n_1",59,364;
+while ($seacabo != 2) {
+		sleep2 1000;
+	}
+setmounting;
+end;
+
+}
+
+-	script	mev	-1,{
+OnWhisperGlobal:
+	if(@whispervar0$ == "open" && getgmlevel() > 98){
+	if(select("Apagar:nada")==2)end;
+	set $seacabo,2;
+	end;
+	}
+}

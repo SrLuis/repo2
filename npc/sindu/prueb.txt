@@ -1,0 +1,81 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+sec_pri,23,40,5	script	delaytime	441,{
+set @Calfuncc$,"" + callfunc("Time2Str2",Delay_Prueba) + "";
+mes "te pondre delay de 10 minutos";
+
+menu "poner delay",-,"ver delay",Vedelay,"cero delay",delaycero,"Revisar delay",Revicicero,""+@Calfuncc$+"",LolasoxD;
+next;
+set Delay_Prueba, gettimetick(2) + 172800;
+mes "Delay Puesto";
+close;
+
+
+
+Vedelay:
+mes "" + callfunc("Time2Str2",Delay_Prueba) + "";
+close;
+
+delaycero:
+next;
+set Delay_Prueba,0;
+mes "Delay en 0 xD";
+next;
+mes "" + callfunc("Time2Str2",Delay_Prueba) + "";
+close;
+
+Revicicero:
+if( Delay_Prueba >= gettimetick(2) ){mes "Lo siento no puedes hablar con migo "; close;}
+mes "HAY 0 DELAY :d";
+close;
+
+
+LolasoxD:
+close;
+}
+
+
+
+function	script	Time2Str2	{
+	set .@Time_Left, getarg(0) - gettimetick(2);
+	
+	set .@Days, .@Time_Left / 86400;
+	set .@Time_Left, .@Time_Left - (.@Days * 86400);
+	set .@Hours, .@Time_Left / 3600;
+	set .@Time_Left, .@Time_Left - (.@Hours * 3600);
+	set .@Minutes, .@Time_Left / 60;
+	set .@Time_Left, .@Time_Left - (.@Minutes * 60);
+	
+	set .@Time$, "";
+	if( .@Days > 1 )
+		set .@Time$, .@Time$ + .@Days + " dias, ";
+	else if( .@Days > 0 )
+		set .@Time$, .@Time$ + .@Days + " dia, ";
+
+	if( .@Hours > 1 )
+		set .@Time$, .@Time$ + .@Hours + " horas, ";
+	else if( .@Hours > 0 )
+		set .@Time$, .@Time$ + .@Hours + " hora, ";
+
+	if( .@Minutes > 1 )
+		set .@Time$, .@Time$ + .@Minutes + " minutos, ";
+	else if( .@Minutes > 0 )
+		set .@Time$, .@Time$ + .@Minutes + " minuto, ";
+
+	if( .@Time_Left > 1 || .@Time_Left == 0 )
+		set .@Time$, .@Time$ + .@Time_Left + " segundos.";
+	else if( .@Time_Left == 1 )
+		set .@Time$, .@Time$ + .@Time_Left + " segundo.";
+	
+	return .@Time$;
+}

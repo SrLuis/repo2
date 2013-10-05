@@ -1,0 +1,195 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+
+prontera,156,227,0	script	aPortalcasi	45,2,2,{
+OnTouch:
+	warp "quiz_01",55,90; //Portal Evento Casillas.
+	end;
+OnInit:
+	hideonnpc "aPortalcasi";
+	movenpc "aPortalcasi",83,363;
+	end;
+}
+-	script	casillas#01	-1,{
+OnClock0901:
+donpcevent "casillas#01::OnCasill";
+end; 
+OnClock1301:
+donpcevent "casillas#01::OnCasill";
+end;
+OnClock1701:
+donpcevent "casillas#01::OnCasill";
+end;
+OnCasill:
+	set $ap,1;
+	movenpc "aPortalcasi",156,227;
+	hideoffnpc "aPortalcasi";
+	announce "Casillas: El evento de las Casillas va a comenzar.",bc_npc,0x00ffff;
+	sleep 5000;
+	announce "Casillas: Tienen menos de 2 minutos para entrar por el portal que se encuentra al norte de la plaza de prontera.",bc_npc,0x00ffff;
+	sleep 25000;
+	announce "Casillas: Queda 1 minuto y 30 segundos para que el portal que esta al norte de la plaza de prontera se cierre.",bc_npc,0x00ffff;
+	sleep 30000;
+	announce "Casillas: Queda 1 minuto para que el portal que esta al norte de la plaza de prontera se cierre.",bc_npc,0x00ffff;
+	sleep 30000;
+	announce "Casillas: Quedan 30 segundos para que el portal que esta al norte de la plaza de prontera se cierre.",bc_npc,0x00ffff;
+	sleep 20000;
+	announce "Casillas: Quedan 10 segundos para que el portal que esta al norte de la plaza de prontera se cierre.",bc_npc,0x00ffff;
+	sleep 5000;
+	announce "Casillas: 5 segundos.",bc_npc,0x00ffff;
+	sleep 1000;
+	announce "Casillas: 4 segundos.",bc_npc,0x00ffff;
+	sleep 1000;
+	announce "Casillas: 3 segundos.",bc_npc,0x00ffff;
+	sleep 1000;
+	announce "Casillas: 2 segundos.",bc_npc,0x00ffff;
+	sleep 1000;
+	announce "Casillas: 1 segundo.",bc_npc,0x00ffff;
+	sleep 1000;
+	announce "Casillas: El portal para el evento de las Casillas ha sido cerrado.",bc_npc,0x00ffff;
+	hideonnpc "aPortalcasi";
+	movenpc "aPortalcasi",83,363;
+	set $ap,0;
+	donpcevent "aCasillas::OnCasillas";
+	end;
+	}
+	
+//[==============================================================]
+
+quiz_01,55,98,4	script	aCasillas	715,{
+
+set .@n$,"^ff8000[ aCasillas ]^000000";
+
+	if($@w == 1 && $@wt > gettimetick(2)){
+	set $@w,0;
+	set $@wt,0;
+	set $@cn$,strcharinfo(0);
+	
+	mes .@n$;
+	mes "Que suerte has tenido "+strcharinfo(0)+"!";
+	mes "Tienes bien merecido el premio.";
+	getitem 7539,1;
+	close2;
+		announce "Casillas: El ganador del evento Casillas ha sido "+$@cn$+", Felicidades.",bc_all,0x00ffff;
+	hideonnpc "aCasillas";
+	warp "prontera",155,182;
+	end;
+	}
+	end;
+	
+OnCasillas:
+	sleep2 5000;
+	mapannounce "quiz_01","Casillas: Bienvenido al evento de las Casillas.",bc_map,0xff8000;
+	sleep2 5000;
+	mapannounce "quiz_01","Casillas: Antes de comenzár, explicaré brevemente de que trata el evento.",bc_map,0xff8000;
+	sleep2 5000;
+	mapannounce "quiz_01","Casillas: El evento consiste en que debes elejir y posicionarte sobre una de las Casillas con números.",bc_map,0xff8000;
+	sleep2 5000;
+	mapannounce "quiz_01","Casillas: Se elijirá un número entre 1 y 4 al azár. El número que sea anunciado, será el ganador.",bc_map,0xff8000;
+	sleep2 5000;
+	mapannounce "quiz_01","Casillas: Todas las personas que se encuentren dentro de las Casillas perdedoras, serán descalificados y retornados a la ciudad.",bc_map,0xff8000;
+	sleep2 5000;
+	mapannounce "quiz_01","Casillas: Si al momento de anunciar el número ganador estas fuera de una Casilla, serás descalificado automáticamente.",bc_map,0xff8000;
+	sleep2 5000;
+	mapannounce "quiz_01","Casillas: Repetiré una y otra vez la elección de números hasta que solo quede una persona en el mapa.",bc_map,0xff8000;
+	sleep2 5000;
+	mapannounce "quiz_01","Casillas: Eso es todo, ojalá se diviertan y que gane el más suertudo!",bc_map,0xff8000;
+	sleep2 10000;
+	
+S_Number:
+	if(getmapusers("quiz_01") == 1){
+	mapannounce "quiz_01","Casillas: Muy bien, has ganado! Habla con el NPC que está en el centro para reclamar tu premio.",bc_map,0xff8000;
+	hideoffnpc "aCasillas";
+	set $@w,1;
+	set $@wt,gettimetick(2)+125;
+	sleep2 5000;
+	mapannounce "quiz_01","Casillas: El premio será anulado si no lo reclamas antes de 2 minutos.",bc_map,0xff8000;
+	sleep2 120000;
+	if($@w == 1){
+	mapannounce "quiz_01","Casillas: Premio anulado.",bc_map,0xff8000;
+	set $@w,0;
+	set $@wt,0;
+	hideonnpc "aCasillas";
+	sleep2 5000;
+	mapwarp "quiz_01","prontera",155,182;
+	announce "Casillas: Nadie ha reclamado el premio del evento de las Casillas por lo que ha sido anulado.",bc_npc,0x00ffff;
+	end;
+	}
+	end;
+	}
+	if(getmapusers("quiz_01") < 1){
+	announce "Casillas: Lastima, nadie ha ganado el evento de las Casillas.",bc_npc,0x00ffff;
+	end;
+	}
+	if(getmapusers("quiz_01") > 1){
+	mapannounce "quiz_01","Casillas: Se esta escojiendo un número al azár. Tienen 5 segundos para elejir Casillas.",bc_map,0xff8000;
+	sleep2 1000;
+	mapannounce "quiz_01","Casillas: 5 segundos.",bc_map,0xff8000;
+	sleep2 1000;
+	mapannounce "quiz_01","Casillas: 4 segundos.",bc_map,0xff8000;
+	sleep2 1000;
+	mapannounce "quiz_01","Casillas: 3 segundos.",bc_map,0xff8000;
+	sleep2 1000;
+	mapannounce "quiz_01","Casillas: 2 segundos.",bc_map,0xff8000;
+	sleep2 1000;
+	mapannounce "quiz_01","Casillas: 1 segundo.",bc_map,0xff8000;
+	sleep2 1000;
+	set $@r, rand(1,4);
+	mapannounce "quiz_01","Casillas: La Casilla ganadora es la número "+$@r+"!",bc_map,0xff8000;
+	if($@r == 1){
+	areawarp "quiz_01",33,81,41,59,"quiz_01",55,90;		//Casilla 1 Gana
+	areawarp "quiz_01",45,81,53,59,"prontera",155,182;	//Casilla 2 Pierde
+	areawarp "quiz_01",57,81,65,59,"prontera",155,182;	//Casilla 3 Pierde
+	areawarp "quiz_01",69,81,77,59,"prontera",155,182;	//Casilla 4 Pierde
+	goto Cont;
+	}
+	if($@r == 2){
+	areawarp "quiz_01",33,81,41,59,"prontera",155,182;	//Casilla 1 Pierde
+	areawarp "quiz_01",45,81,53,59,"quiz_01",55,90;		//Casilla 2 Gana
+	areawarp "quiz_01",57,81,65,59,"prontera",155,182;	//Casilla 3 Pierde
+	areawarp "quiz_01",69,81,77,59,"prontera",155,182;	//Casilla 4 Pierde
+	goto Cont;
+	}
+	if($@r == 3){
+	areawarp "quiz_01",33,81,41,59,"prontera",155,182;	//Casilla 1 Pierde
+	areawarp "quiz_01",45,81,53,59,"prontera",155,182;	//Casilla 2 Pierde
+	areawarp "quiz_01",57,81,65,59,"quiz_01",55,90;		//Casilla 3 Gana
+	areawarp "quiz_01",69,81,77,59,"prontera",155,182;	//Casilla 4 Pierde
+	goto Cont;
+	}
+	if($@r == 4){
+	areawarp "quiz_01",33,81,41,59,"prontera",155,182;	//Casilla 1 Pierde
+	areawarp "quiz_01",45,81,53,59,"prontera",155,182;	//Casilla 2 Pierde
+	areawarp "quiz_01",57,81,65,59,"prontera",155,182;	//Casilla 3 Pierde
+	areawarp "quiz_01",69,81,77,59,"quiz_01",55,90;		//Casilla 4 Gana
+	goto Cont;
+	}
+
+Cont:
+	areawarp "quiz_01",32,94,78,86,"prontera",155,182;	//Zona Centro
+	areawarp "quiz_01",36,85,38,82,"prontera",155,182;	//Entrada 1
+	areawarp "quiz_01",48,85,50,82,"prontera",155,182;	//Entrada 2
+	areawarp "quiz_01",60,85,62,82,"prontera",155,182;	//Entrada 3
+	areawarp "quiz_01",72,85,74,82,"prontera",155,182;	//Entrada 4
+	sleep2 5000;
+	mapannounce "quiz_01","Casillas: Quedan "+getmapusers("quiz_01")+" participantes en el mapa.",bc_map,0xff8000;
+	sleep2 5000;
+	goto S_Number;
+	end;
+	}
+
+OnInit:
+	hideonnpc "aCasillas";
+	end;
+
+}

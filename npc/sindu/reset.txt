@@ -1,0 +1,158 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+//===== eAthena Script =======================================
+//= Reset MutualRO
+//===== By: ================================================== 
+//= SrLuis
+//===== Descripcion: ========================================= 
+//= Resets skills, stats, porera deja ticket
+//===== email: ================================= 
+//= Luis_beltran250@hotmail.com
+//============================================================ 
+//= Libre de bugs
+//============================================================
+
+
+prontera,168,179,2	script	Reset Girl	102,{
+
+//====Configuraciones====
+set @name0$,"^00FF22[^000000Reset Girl^00FF22]^000000";//Nombre del npc mostrado en la parte de arriva
+set .can, 500000;// cantidad de tickets que pedira en stats
+set .can1, 500000;// cantidad de tickets que pedira en skill
+set .can2, 750000;// cantidad de tickets que pedira en ambos
+//set .it, 30000;// Id del item del ticket
+//=======================
+
+
+	mes @name0$;
+	mes "Hola ^5555FF" + strcharinfo(0) + "^000000 Yo tengo el poder de resetear tus puntos de Status y Skill pero a cambio tendras que entregar algo de Zeny";
+	MES "¿Te gustaria resetear alguno?";
+	menu "[Si]",-,"[No]",Exit;
+	next;
+	mes @name0$;
+	mes "Escoja el tipo de reset que gustes";
+	mes "Status = "+.can+" De Zeny";
+	mes "Skill = "+.can1+" De Zeny";
+	menu "[Stats]",-,"[Skill]",RSKILLT,"[Salir]",Exit;
+	next;
+	mes @name0$;
+	mes "Hola!! Yo estuve estudiando el arte del Reset de stats por siglos.";
+	mes "Yo puedo hacer un reset de stats.";
+	mes "Puedo guardar los stpoints que sobran en un baúl para su uso posterior";
+	next;
+	mes "Por favor elija lo que desee hacer";
+	next;
+
+	if (StPoints>0) {
+		menu "Reset de stats",-,"Manejar stats guardados",Stats,"Nada, pero igual gracias",LNo;
+	} else {
+		menu "Reset de stats",-,"Nada, pero igual gracias",LNo;
+	}
+	if(Zeny<.can1) goto faltaz;
+	set @sum,(((readparam(bStr)-1)/10 +2)*(5*((readparam(bStr)-1)/10 +1) + (readparam(bStr)-1)%20) +10);
+	set @sum,@sum + (((readparam(bAgi)-1)/10 +2)*(5*((readparam(bAgi)-1)/10 +1) + (readparam(bAgi)-1)%20) +10);
+	set @sum,@sum + (((readparam(bVit)-1)/10 +2)*(5*((readparam(bVit)-1)/10 +1) + (readparam(bVit)-1)%20) +10);
+	set @sum,@sum + (((readparam(bInt)-1)/10 +2)*(5*((readparam(bInt)-1)/10 +1) + (readparam(bInt)-1)%20) +10);
+	set @sum,@sum + (((readparam(bDex)-1)/10 +2)*(5*((readparam(bDex)-1)/10 +1) + (readparam(bDex)-1)%20) +10);
+	set @sum,@sum + (((readparam(bLuk)-1)/10 +2)*(5*((readparam(bLuk)-1)/10 +1) + (readparam(bLuk)-1)%20) +10);
+
+	set StPoints,StPoints + @sum;
+	set StPoints,StPoints + StatusPoint;
+	set Zeny, Zeny-.can;
+	resetstatus;
+	set StatusPoint, 0;
+
+	if (StPoints<50000) {
+		set StatusPoint,StPoints;
+		set StPoints,0;
+		mes "Tus stats no alcanzan para ponerlos en un baúl.";
+		mes "Por eso te doy todos los puntos.";
+		mes "Nos vemos.";
+		close;
+	}
+
+	set StatusPoint,50000;
+	set StPoints,StPoints - 50000;
+
+	mes "Se le han dado ^FF000050.000^000000 statspoints para usar cuando y como lo desee";
+	next;
+	mes "Tiene ^FF0000" + StPoints + "^000000 Status points en el baúl";
+	next;
+	mes "Si necesita mas puntos (de 50.000 por vez), solo pídemelos";
+	close;
+
+Stats:
+	mes "Ud. tiene: ^FF0000" + StPoints + "^000000 Stats points en el baúl disponible";
+	mes "Que desea hacer?";
+	next;
+
+	if (StPoints>50000) {
+		menu "Sacar 50.000 Stat points",-,"Nada",LNo;
+	} else {
+		menu "Sacar " + StPoints + " Stat points",-,"Nada",LNo;
+	}
+
+	if (StatusPoint>15000) {
+		mes "Necesita tener 15000 Status Points (o menos) pada poder retirar";
+		close;
+	}
+	
+	if (StPoints<50000) {
+		set StatusPoint, StatusPoint+StPoints;
+		set StPoints, 0;
+
+		mes "Se le han dado " + StatusPoint + " status points.";
+		mes "Ud. tiene ^FF0000" + StPoints + "^000000 Stats points en el baúl y ^FF0000" + StatusPoint + "^000000 con el personaje.";
+		mes "Que los disfrute.";
+		close;
+	} else {
+		set StatusPoint,StatusPoint+50000;
+		set StPoints, StPoints-50000;
+
+		mes "Se le han dado 50000 status points.";
+		mes "Ud. tiene ^FF0000" + StPoints + "^000000 Stats points en el baúl y ^FF0000" + StatusPoint + "^000000 con el personaje.";
+		mes "Que los disfrute.";
+		close;
+	}
+	
+
+LNo:
+	mes "Espero que vuelva pronto";
+	close;
+RSKILLT:
+	next;
+	mes @name0$;
+	mes "Estas seguro de que quieres Resetear tus Skill? Recuerda que ya no se podran regresar tu Zeny una ves usado mis servicios";
+	menu "Si",-,"No",Exit;
+	next;
+	if(Zeny<.can1) goto faltaz;
+	set Zeny, Zeny-.can1;
+	ResetSkill;
+	mes @name0$;
+	mes "Listo tus Skill se han reseteado con exito";
+	close;
+
+faltaz:
+	next;
+	mes @name0$;
+	mes "Lo siento pero no tienes suficiente Zeny para hacer el Reset";
+	close;
+Exit:
+	next;
+	mes @name0$;
+	mes "Uhh que mal vulve cuando gustes";
+	close;
+}
+	
+
+	

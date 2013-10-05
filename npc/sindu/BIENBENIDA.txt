@@ -1,0 +1,67 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+
+prontera,147,174,5	script	SinduRo 	112,{
+
+//prontera,138,72,5	script	SinduRO	871,{
+	mes "[SinduRO]";
+	mes "Bienvenido a SinduRo";
+	mes "Por ser la ignaguracion Resiviras un set de Bienvenida";
+	next;
+	mes "[SinduRO]";
+	mes "Te gustaria Tener los 3 item de regalo?";
+	next;
+	mes "[SinduRO]";
+	mes "Obio si verdad !!";
+	next;
+	mes "[SinduRO]";
+	mes "Elije 1 entre las 3 opcines de item ";
+	menu "1",opcion1I,"2",opcion2I,"3",opcion3I;
+	opcion1I:
+	next;
+	if(#PimerItem == 1){mes "[SinduRO]"; mes "Lo siento pero ya te entregue este item"; close;}
+	set #PimerItem,1;
+	getitem 31293,1;
+	mes "[SinduRO]";
+	mes " Gracias por preferir a SinduRO";
+	mes "Hasta Pronto";
+	close;
+	opcion2I:
+	next;
+	if(#SegundoItem == 1){mes "[SinduRO]"; mes "Lo siento pero ya te entregue este item"; close;}
+	set #SegundoItem,1;
+	getitem 31073,1;
+	mes "[SinduRO]";
+	mes " Gracias por preferir a SinduRO";
+	mes "Hasta Pronto";
+	close;
+	opcion3I:
+	next;
+	if(#TercerItem == 1){mes "[SinduRO]"; mes "Lo siento pero ya te entregue este item"; close;}
+	set #TercerItem,1;
+	getitem 31087,1;
+	mes "[SinduRO]";
+	mes " Gracias por preferir a SinduRO";
+	mes "Hasta Pronto";
+	close;
+
+	next;
+	mes "[SinduRO]";
+	mes "uhh que mal tu te lo pierdes";
+	close;
+	
+}
+
+
+
+

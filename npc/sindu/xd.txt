@@ -1,0 +1,140 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+prontera.gat,147,163,7	script	Anunciador	952,{
+
+set .@nomA$,"[^6600CCAnunciador^000000]"; 
+set .@prixA,20000; 
+set .@temporisation,1;
+
+setarray .@color$[0],
+	"0xFFFF00",
+	"6600CC",
+	"0xFF9900", 
+	"0x00FF00";
+
+setarray .filtre$[0],
+	"Fuck","tonto","mierda","Ass","idiot","noob",
+	"estupido","pendejo","idiota","stupid","joto",
+	"jota","perra","puto","puta","marica","maricon",
+	"gay","homo","culo","pwned","mmg","owned","baboso","verga";
+
+	if ( gettimetick(2) - (.@temporisation * 1 ) < #Last_Announce )
+	{
+		mes .@nomA$;
+		mes "Debes esperar un poco para el siguiente anuncio.";
+		mes "Por favor vuelve mas tarde.";
+		close;
+	}
+	
+	mes .@nomA$;
+	mes "Hola " + strcharinfo(0) + ".";
+	mes "Soy un anunciador .";
+	mes "Que puedo hacer por ti??";
+	next;
+
+		switch( select ( "Escribir un anuncio:Reglas:Nada") )
+		{
+
+
+		case 1:
+
+			mes .@nomA$;
+			mes "Venga!";
+			mes "El anuncio te costara " + .@prixA + " zeny.";
+			mes "Quieres continuar?";
+			next;
+
+			if ( select ( "Si:No") -1 ) break ;
+
+			if(zeny < .@prixA)
+			{
+
+				mes .@nomA$;
+				mes "Lo siento pero ... No tienes suficiente dinero.";
+				close;
+
+			}
+
+		
+			do
+			{
+				set @annonce$,"";
+				mes .@nomA$;
+				mes "Escribe tu anuncio.";
+				input @annonce$;
+				next;
+				for ( set @i , 0 ; @i < getarraysize ( .filtre$ ) ; set @i , @i + 1 )
+ 					if( compare( @annonce$, .filtre$[ @i ] ) )
+ 					{
+						mes .@nomA$;
+						mes "Ohh! Palabras prohibidas !";
+ 						close;
+					}
+				mes .@nomA$;
+				mes "Aqui esta tu anuncio :";
+				mes @annonce$;
+				mes "Todo bien?";
+				next;
+
+			} while ( select ("Si:No, dejame repetirlo") - 1 );
+
+
+
+			mes .@nomA$;
+			mes "Elige un color :";
+			next;
+			set @color , select ( "Amarillo:Purpura:Orange:Green" ) - 1 ;
+
+			mes .@nomA$;
+			set Zeny, zeny - .@prixA;
+			announce strcharinfo(0) + ":[User] " + @annonce$ , bc_all , .@color$[ @color ] ;
+
+			set #Last_Announce , gettimetick (2) ;
+			mes "Tu anuncio fue enviado.";
+			close;
+
+			
+		case 2:
+		mes .@nomA$;
+		mes "1. No uses palabrotas";
+		mes "2. Este NPC es para mensajes con importancia";
+		mes "3. Aclara tus mensajes:";
+		mes "'V>' para vender";
+		mes "'C>' para comprar";
+		mes "'T>' para tradear";
+		mes "4. No hagas falsas ofertas";
+		close;
+
+		case 3:
+		}
+		
+		mes .@nomA$;
+		mes "Come back any times";
+		close;
+OnInit:
+	waitingroom "¡Anunciador!",0;
+	
+}
+geffen,114,64,4	duplicate(Anunciador)	Anunciador#01	952
+payon,145,229,4	duplicate(Anunciador)	Anunciador#02	952
+alberta,100,203,4	duplicate(Anunciador)	Anunciador#03	952
+izlude,129,107,4	duplicate(Anunciador)	Anunciador#04	952
+aldebaran,135,120,4	duplicate(Anunciador)	Anunciador#05	952
+xmas,142,128,4	duplicate(Anunciador)	Anunciador#06	952
+gonryun,166,116,4	duplicate(Anunciador)	Anunciador#07	952
+umbala,85,151,4	duplicate(Anunciador)	Anunciador#08	952
+louyang,229,104,4	duplicate(Anunciador)	Anunciador#09	952
+//new_1-1,63,123,4	duplicate(Anunciador)	Anunciador#10	952
+ayothaya,142,111,4	duplicate(Anunciador)	Anunciador#11	952
+lighthalzen,146,90,4	duplicate(Anunciador)	Anunciador#13	952
+rachel,115,109,4	duplicate(Anunciador)	Anunciador#14	952

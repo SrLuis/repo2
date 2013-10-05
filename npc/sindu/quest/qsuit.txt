@@ -1,0 +1,273 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+quest.gat,49,46,4	script	Suits	828,{
+// Variables
+set	@name$,"[1er Job suits]";	//nombre NPC
+	if (GetGMLevel()>98) goto GMS;
+// Quest Script
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Suits ";//-----
+	mes "suits a elejir";
+	menu "Novice Suit",QUEST1,"Swordman Suit",QUEST2,"Mage Suit",QUEST3,"Archer Suit",QUEST4,"Acolyte Suit",QUEST5,"Merchant Suit",QUEST6,"Thief Suit",QUEST7;
+
+GMS:
+	mes "Hola gm escoje entre estas opciones";
+	menu "Sacar un item",SAKARITEM,"Menu User",MENUUSER;
+MENUUSER:
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Esta  quest te  Otorga Un disfras de el job que elijas y aportara una Skill se te vera muy bien de veraz pruebalas";//-----------------------------//--------------//======//
+	next;
+	mes "Escoje el item que deseas hacer";
+	menu "Novice Suit",QUEST1,"Swordman Suit",QUEST2,"Mage Suit",QUEST3,"Archer Suit",QUEST4,"Acolyte Suit",QUEST5,"Merchant Suit",QUEST6,"Thief Suit",QUEST7;
+
+SAKARITEM:
+	menu "Novice Suit",QUEST1a,"Swordman Suit",QUEST2a,"Mage Suit",QUEST3a,"Archer Suit",QUEST4a,"Acolyte Suit",QUEST5a,"Merchant Suit",QUEST6a,"Thief Suit",QUEST7a;	
+QUEST1a:
+	getitem 31783,1;
+	close;
+QUEST2a:
+	getitem 31784,1;
+	close;
+QUEST3a:
+	getitem 31785,1;
+	close;
+QUEST4a:
+	getitem 31786,1;
+	close;
+QUEST5a:
+	getitem 31787,1;
+	close;
+QUEST6a:
+	getitem 31788,1;
+	close;
+QUEST7a:
+	getitem 31789,1;
+	close;
+//31783,Novice Suit,Novice Suit,5,500000000,10,10,20,20,4,2,0xFFFFFFFF,7,2,128,4,1,1,,{ changebase 0; Skill 143,1; },{},{changebase Class; }
+//31784,Swordman Suit,Swordman Suit,5,500000000,10,10,20,20,4,2,0xFFFFFFFF,7,2,128,4,1,1,,{ changebase 1; Skill 8,5;},{},{ changebase Class; }
+//31785,Mage Suit,Mage Suit,5,500000000,10,10,20,20,4,2,0xFFFFFFFF,7,2,128,4,1,1,,{ changebase 2; Skill 14,5;},{},{ changebase Class; }
+//31786,Archer Suit,Archer Suit,5,500000000,10,10,20,20,4,2,0xFFFFFFFF,7,2,128,4,1,1,,{ changebase 3; Skill 45,5;},{},{ changebase Class; }
+//31787,Acolyte Suit,Acolyte Suit,5,500000000,10,10,20,20,4,2,0xFFFFFFFF,7,2,128,4,1,1,,{ changebase 4; Skill 25,1;},{},{ changebase Class; }
+//31788,Merchant Suit,Merchant Suit,5,500000000,10,10,20,20,4,2,0xFFFFFFFF,7,2,128,4,1,1,,{ changebase 5; Skill 155,1;},{},{ changebase Class; }
+//31789,Thief Suit,Thief Suit,5,500000000,10,10,20,20,4,2,0xFFFFFFFF,7,2,128,4,1,1,,{ changebase 6; Skill 48,5;},{},{ changebase Class; }
+
+
+
+QUEST1:
+	next;
+	mes "Necesitaras esto:";
+	mes "15 biotite";
+	mes "25 citrin";
+	mes "10 Poring Coin ";
+	mes "3 Rose Quartz";
+	mes "15 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7297)<15)goto falta;
+	if(countitem(7295)<25)goto falta;
+	if(countitem(7539)<10)goto falta;
+	if(countitem(7293)<3)goto falta;
+	if(countitem(974)<15)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7297,15;
+	delitem 7295,15;
+	delitem 7539,10;
+	delitem 7293,3;
+	delitem 974,15;
+	getitem 31783,1;
+	close;
+
+QUEST2:
+	next;
+	mes "Necesitaras esto:";
+	mes "15 biotite";
+	mes "25 citrin";
+	mes "10 Poring Coin ";
+	mes "3 Rose Quartz";
+	mes "15 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7297)<15)goto falta;
+	if(countitem(7295)<25)goto falta;
+	if(countitem(7539)<10)goto falta;
+	if(countitem(7293)<3)goto falta;
+	if(countitem(974)<15)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7297,15;
+	delitem 7295,15;
+	delitem 7539,10;
+	delitem 7293,3;
+	delitem 974,15;
+	getitem 31784,1;
+	close;
+
+
+QUEST3:
+	next;
+	mes "Necesitaras esto:";
+	mes "15 biotite";
+	mes "25 citrin";
+	mes "10 Poring Coin ";
+	mes "3 Rose Quartz";
+	mes "15 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7297)<15)goto falta;
+	if(countitem(7295)<25)goto falta;
+	if(countitem(7539)<10)goto falta;
+	if(countitem(7293)<3)goto falta;
+	if(countitem(974)<15)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7297,15;
+	delitem 7295,15;
+	delitem 7539,10;
+	delitem 7293,3;
+	delitem 974,15;
+	getitem 31785,1;
+	close;
+
+QUEST4:
+	next;
+	mes "Necesitaras esto:";
+	mes "15 biotite";
+	mes "25 citrin";
+	mes "10 Poring Coin ";
+	mes "3 Rose Quartz";
+	mes "15 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7297)<15)goto falta;
+	if(countitem(7295)<25)goto falta;
+	if(countitem(7539)<10)goto falta;
+	if(countitem(7293)<3)goto falta;
+	if(countitem(974)<15)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7297,15;
+	delitem 7295,15;
+	delitem 7539,10;
+	delitem 7293,3;
+	delitem 974,15;
+	getitem 31786,1;
+	close;
+
+
+QUEST5:
+	next;
+	mes "Necesitaras esto:";
+	mes "15 biotite";
+	mes "25 citrin";
+	mes "10 Poring Coin ";
+	mes "3 Rose Quartz";
+	mes "15 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7297)<15)goto falta;
+	if(countitem(7295)<25)goto falta;
+	if(countitem(7539)<10)goto falta;
+	if(countitem(7293)<3)goto falta;
+	if(countitem(974)<15)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7297,15;
+	delitem 7295,15;
+	delitem 7539,10;
+	delitem 7293,3;
+	delitem 974,15;
+	getitem 31787,1;
+	close;
+
+
+
+QUEST6:
+	next;
+	mes "Necesitaras esto:";
+	mes "15 biotite";
+	mes "25 citrin";
+	mes "10 Poring Coin ";
+	mes "3 Rose Quartz";
+	mes "15 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7297)<15)goto falta;
+	if(countitem(7295)<25)goto falta;
+	if(countitem(7539)<10)goto falta;
+	if(countitem(7293)<3)goto falta;
+	if(countitem(974)<15)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7297,15;
+	delitem 7295,15;
+	delitem 7539,10;
+	delitem 7293,3;
+	delitem 974,15;
+	getitem 31788,1;
+	close;
+
+QUEST7:
+	next;
+	mes "Necesitaras esto:";
+	mes "15 biotite";
+	mes "25 citrin";
+	mes "10 Poring Coin ";
+	mes "3 Rose Quartz";
+	mes "15 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7297)<15)goto falta;
+	if(countitem(7295)<25)goto falta;
+	if(countitem(7539)<10)goto falta;
+	if(countitem(7293)<3)goto falta;
+	if(countitem(974)<15)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7297,15;
+	delitem 7295,15;
+	delitem 7539,10;
+	delitem 7293,3;
+	delitem 974,15;
+	getitem 31789,1;
+	close;
+
+falta:
+	mes "Creo que algo falta, Aun no tienes lo necesario checa bien, vuelve cuando lo tengas buena suerte ..";
+	close;
+	npctalk "~ NPC SrLuis ~";
+}
+prontera,231,79,7	duplicate(Suits)	Suits#01	828

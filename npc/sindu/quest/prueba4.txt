@@ -1,0 +1,195 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+geffen,164,196,5	script	BRUNE	125,{
+mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+mes "Está muy lindo el día por este lugar que haces por acá";
+next;
+mes "Tengo un muy buen amigo de infancia nos desempeñamos desde chicos en los rasgos visuales, su especialidad y la mía son muy parecidas, él tiene la facilidad de cambiarle de color a los Observer y Encantarlos con estatus ni se diga, yo a los Robo eye!";
+next;
+mes "Quieres saver mas sobre alguno?";
+next;
+menu "Si sobre Observer",abc,"Cuentame sobre el Robo eye",abc1,"no asi esta bien",abc2;
+next;
+abc:
+mes "Como te digo tengo un buen amigo él te dará datos sobre eso, su nombre es Arem, lo conoces?";
+next;
+menu "Si, te mando algo",abc3,"no, ire a buscarlo...",abc4;
+next;
+abc3:
+if(countitem(5102)<1)goto falta1;
+if(countitem(5516)<1)goto falta1;
+next;
+delitem 5102,1;
+delitem 5516,1;
+next;
+mes "A… las cosas que tenía que traerme pero faltan algunas tu irías a buscarlas? A cambio te daré el ítem para que él te cree un Observer del Color que elijas";
+next;
+mes "quieres que te diga que items te faltan?";
+menu "Si porfavor",abc5,"No sera despues",abc6;
+abc5:
+mes "Ok nesesitare esto";
+mes "50 Cat's eye";
+mes "20 Eye of Dullahan";
+mes "50 Observation card";
+mes "3 Turquoise";
+mes "5 mil barras de oro";
+next;
+mes "Esos seria todo";
+menu "Ire por ello",abc7,"Lo Tengo!!",abc8;
+abc8:
+mes "Enserio ya tienes todo… entrégamelo para darte el ítem que necesita Arem.";
+next;
+if(countitem(7263)<50)goto falta;
+if(countitem(2614)<20)goto falta;
+if(countitem(4392)<50)goto falta;
+if(countitem(7294)<3)goto falta;
+if(countitem(969)<5000)goto falta;
+next;
+delitem 7263,50;
+delitem 2614,20;
+delitem 4392,50;
+delitem 7294,3;
+delitem 969,5000;
+getitem 32101,1;
+next;
+mes "Valla que te has esforzado cuídate mucho y gracias por todo";
+close;
+abc1:
+mes "Entiendo quieres saber sobre el item que puedo crear yo, bueno te informare tienes que llegar a la sima de endles tower matar a él gran Boos y traerme sus cosas junto con su cadáver sin excepción todo lo que dropea!";
+next;
+mes "Sera muy facil para ti";
+menu "Ire a por el",abc10,"ya tengo sus Items",abc11;
+abc11:
+mes "Valla que eres un guerrero Formidable y fuerte enserio tienes todos y cada uno de sus items?";
+next;
+mes "Confio en ti solo damelos";
+if(countitem(616)<1)goto falta1;
+if(countitem(2514)<1)goto falta1;
+if(countitem(2542)<1)goto falta1;
+if(countitem(7294)<1)goto falta1;
+if(countitem(13412)<1)goto falta1;
+if(countitem(13413)<1)goto falta1;
+if(countitem(4457)<1)goto falta1;
+next;
+mes "Woojojou bueno selecciona el color de robo eye que quieras";
+menu "Negro",sopa,"Azul",sopa1,"Cyan",sopa2,"Dorado",sopa3,"Verde",sopa4,"Purpura",sopa5,"Rojo",sopa6;
+sopa:
+next;
+delitem 616,1;
+delitem 2514,1;
+delitem 2542,1;
+delitem 7294,1;
+delitem 13412,1;
+delitem 13413,1;
+delitem 4467,1;
+getitem 31909,1;
+mes "muy bien Aqui tienes tu item";
+close;
+sopa1:
+next;
+delitem 616,1;
+delitem 2514,1;
+delitem 2542,1;
+delitem 7294,1;
+delitem 13412,1;
+delitem 13413,1;
+delitem 4467,1;
+getitem 31918,1;
+mes "muy bien Aqui tienes tu item";
+close;
+sopa2:
+next;
+delitem 616,1;
+delitem 2514,1;
+delitem 2542,1;
+delitem 7294,1;
+delitem 13412,1;
+delitem 13413,1;
+delitem 4467,1;
+getitem 31929,1;
+mes "muy bien Aqui tienes tu item";
+close;
+sopa3:
+next;
+delitem 616,1;
+delitem 2514,1;
+delitem 2542,1;
+delitem 7294,1;
+delitem 13412,1;
+delitem 13413,1;
+delitem 4467,1;
+getitem 31975,1;
+mes "muy bien Aqui tienes tu item";
+close;
+sopa4:
+next;
+delitem 616,1;
+delitem 2514,1;
+delitem 2542,1;
+delitem 7294,1;
+delitem 13412,1;
+delitem 13413,1;
+delitem 4467,1;
+getitem 31984,1;
+mes "muy bien Aqui tienes tu item";
+close;
+sopa5:
+next;
+delitem 616,1;
+delitem 2514,1;
+delitem 2542,1;
+delitem 7294,1;
+delitem 13412,1;
+delitem 13413,1;
+delitem 4467,1;
+getitem 32030,1;
+mes "muy bien Aqui tienes tu item";
+close;
+sopa6:
+next;
+delitem 616,1;
+delitem 2514,1;
+delitem 2542,1;
+delitem 7294,1;
+delitem 13412,1;
+delitem 13413,1;
+delitem 4467,1;
+getitem 32039,1;
+mes "muy bien Aqui tienes tu item";
+close;
+//-------------------------------------//
+abc10:
+mes "uuui que miedo ten mucho cuidado recuerda todos sus items sin exepcion";
+close;
+falta:
+mes "Como lo supuse aun no tienes los items";
+close;
+abc7:
+mes "Entendido cuidate aqui te espero";
+close;
+falta1:
+mes "hehe no amigo, no tienes lo que el me deveria mandar";
+close;
+abc6:
+mes "Esta bien cuidate";
+close;
+abc4:
+mes "Claro Buena suerte";
+close;
+abc2:
+mes "Claro, pasa un buen dia";
+close;
+
+end;
+
+}

@@ -1,0 +1,525 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+aldeg_cas01	mapflag	restricted	4	
+aldeg_cas02	mapflag	restricted	4	
+quiz_02	mapflag	restricted	4
+aldeg_cas03	mapflag	restricted	4	
+aldeg_cas04	mapflag	restricted	4	
+aldeg_cas05	mapflag	restricted	4	
+gefg_cas01	mapflag	restricted	4
+gefg_cas02	mapflag	restricted	4
+gefg_cas03	mapflag	restricted	4
+gefg_cas04	mapflag	restricted	4
+gefg_cas05	mapflag	restricted	4
+//pay_gld	mapflag	restricted	4
+payg_cas01	mapflag	restricted	4
+payg_cas02	mapflag	restricted	4
+payg_cas03	mapflag	restricted	4
+payg_cas04	mapflag	restricted	4
+payg_cas05	mapflag	restricted	4
+//prt_gld	mapflag	restricted	4
+prtg_cas01	mapflag	restricted	4
+prtg_cas02	mapflag	restricted	4
+prtg_cas03	mapflag	restricted	4
+prtg_cas04	mapflag	restricted	4
+prtg_cas05	mapflag	restricted	4
+schg_cas01	mapflag	restricted	4
+schg_cas02	mapflag	restricted	4
+schg_cas03	mapflag	restricted	4
+schg_cas04	mapflag	restricted	4
+schg_cas05	mapflag	restricted	4
+arug_cas01	mapflag	restricted	4
+arug_cas02	mapflag	restricted	4
+arug_cas03	mapflag	restricted	4
+arug_cas04	mapflag	restricted	4
+arug_cas05	mapflag	restricted	4
+pvp_sindu1	mapflag	nowarpto
+pvp_sindu1	mapflag	noreturn
+pvp_sindu1	mapflag	nobranch
+pvp_n_1-4	mapflag	nobranch
+pvp_sindu1	mapflag	nowarp
+pvp_n_1-4	mapflag	nowarp
+pvp_sindu1	mapflag	noteleport
+pvp_sindu1	mapflag	nosave	SavePoint
+//old_rachel	mapflag	nowarp
+//old_rachel	mapflag	noteleport
+//old_rachel	mapflag	nosave	SavePoint
+guild_vs2	mapflag	nobranch
+pvp_sindu1	mapflag	nowarp
+prontera,140,177,2	script	PvPWarp	801,{
+//Configuración: 
+set @class,4023;//Baby Novice
+set @class2,4024;//Baby Swordsman
+set @class3,4025;//Baby Mage
+set @class4,4026;//Baby Archer
+set @class5,4027;//Baby Acolyte
+set @class6,4028;//Baby Merchant
+set @class7,4029;//Baby Thief
+set @class8,4030;//Baby Knigth
+set @class9,4031;//Baby Priest
+set @class10,4032;//Baby Wizard
+set @class11,4033;//Baby Blacksmith
+set @class12,4034;//Baby Hunter
+set @class13,4035;//Baby assasin
+set @class14,4037;//Baby Crusader
+set @class15,4038;//Baby Monk
+set @class16,4039;//Baby Sage
+set @class17,4040;//Baby Rogue
+set @class18,4041;//Baby Alchemist
+set @class19,4042;//Baby Bard
+set @class20,4043;//Baby Dancer
+set @class21,4045;//Super Baby
+//3 clases//
+set @class22,4096;//Baby Rune knigth
+set @class23,4097;//Baby Warlok
+set @class24,4098;//Baby Ranger
+set @class25,4099;//Baby Arch Bishop
+set @class26,4100;//Baby Mechanic
+set @class27,4101;//Baby Guillorines Cross
+set @class28,4102;//Baby Royal Guard
+set @class29,4103;//Baby Sorcesser
+set @class30,4104;//Baby Minstreal
+set @class31,4105;//Baby Wanderer
+set @class32,4106;//Baby Sura
+set @class33,4107;//Baby Genetic
+set @class34,4108;//Baby Shadow Shaser
+set @class35,4211;//KAGEROU
+set @class36,4212;//OBORO
+set @class37,4190;//ex super novice
+set @class38,4191;//ex super baby
+set @name$,"Pvp";
+	
+	if (GetGMLevel()>98) goto OnWarp;
+	if (GetGMLevel()>19) goto NOGMS;
+	if (Class==@class) goto OnWarp;
+	if (Class==@class2) goto OnWarp;
+	if (Class==@class3) goto OnWarp;
+	if (Class==@class4) goto OnWarp;
+	if (Class==@class5) goto OnWarp;
+	if (Class==@class6) goto OnWarp;
+	if (Class==@class7) goto OnWarp;
+	if (Class==@class8) goto OnWarp;
+	if (Class==@class9) goto OnWarp;
+	if (Class==@class10) goto OnWarp;
+	if (Class==@class11) goto OnWarp;
+	if (Class==@class12) goto OnWarp;
+	if (Class==@class13) goto OnWarp;
+	if (Class==@class14) goto OnWarp;
+	if (Class==@class15) goto OnWarp;
+	if (Class==@class16) goto OnWarp;
+	if (Class==@class17) goto OnWarp;
+	if (Class==@class18) goto OnWarp;
+	if (Class==@class19) goto OnWarp;
+	if (Class==@class20) goto OnWarp;
+	if (Class==@class21) goto OnWarp;
+	if (Class==@class22) goto OnWarp;
+	if (Class==@class23) goto OnWarp;
+	if (Class==@class24) goto OnWarp;
+	if (Class==@class25) goto OnWarp;
+	if (Class==@class26) goto OnWarp;
+	if (Class==@class27) goto OnWarp;
+	if (Class==@class28) goto OnWarp;
+	if (Class==@class29) goto OnWarp;
+	if (Class==@class30) goto OnWarp;
+	if (Class==@class31) goto OnWarp;
+	if (Class==@class32) goto OnWarp;
+	if (Class==@class33) goto OnWarp;
+	if (Class==@class34) goto OnWarp;
+	if (Class==@class35) goto OnWarp;
+	if (Class==@class36) goto OnWarp;
+	if (Class==@class37) goto OnWarp;
+	if (Class==@class38) goto OnWarp;
+	if (Class==23) goto OnWarp;
+	if (Class==Job_Novice) goto OnWarp;
+	if (Class==Job_Thief) goto OnWarp;
+	if (Class==Job_Knight) goto OnWarp;
+	if (Class==Job_Priest) goto OnWarp;
+	if (Class==Job_Wizard) goto OnWarp;
+	if (Class==Job_Blacksmith) goto OnWarp;
+	if (Class==Job_Assassin) goto OnWarp;
+	if (Class==Job_Knight2) goto OnWarp;
+	if (Class==Job_Crusader) goto OnWarp;
+	if (Class==Job_Monk) goto OnWarp;
+	if (Class==Job_Sage) goto OnWarp;
+	if (Class==Job_Rogue) goto OnWarp;
+	if (Class==Job_Alchemist) goto OnWarp;
+	if (Class==Job_Bard) goto OnWarp;
+	if (Class==Job_Dancer) goto OnWarp;
+	if (Class==Job_Crusader2) goto OnWarp;
+	if (Class==Job_Wedding) goto OnWarp;
+	if (Class==Job_Gunslinger) goto OnWarp;
+	if (Class==Job_Ninja) goto OnWarp;
+	if (Class==Job_Xmas) goto OnWarp;
+	if (Class==Job_Swordman_High) goto OnWarp;
+	if (Class==Job_Mage_High) goto OnWarp;
+	if (Class==Job_Archer_High) goto OnWarp;
+
+	if (Class==Job_Acolyte_High) goto OnWarp;
+	if (Class==Job_Merchant_High) goto OnWarp;
+	if (Class==Job_Thief_High) goto OnWarp;
+	if (Class==Job_Lord_Knight) goto OnWarp;
+	if (Class==Job_High_Priest) goto OnWarp;
+	if (Class==Job_High_Wizard) goto OnWarp;
+	if (Class==Job_Whitesmith) goto OnWarp;
+	if (Class==Job_Sniper) goto OnWarp;
+	if (Class==Job_Assassin_Cross) goto OnWarp;
+	if (Class==Job_Lord_Knight2) goto OnWarp;
+	if (Class==Job_Paladin) goto OnWarp;
+	if (Class==Job_Champion) goto OnWarp;
+	if (Class==Job_Professor) goto OnWarp;
+	if (Class==Job_Stalker) goto OnWarp;
+	if (Class==Job_Creator) goto OnWarp;
+	if (Class==Job_Clown) goto OnWarp;
+	if (Class==Job_Gypsy) goto OnWarp;
+	if (Class==Job_Paladin2) goto OnWarp;
+	if (Class==Job_Taekwon) goto OnWarp;
+	if (Class==Job_Star_Gladiator) goto OnWarp;
+	if (Class==Job_Star_Gladiator2) goto OnWarp;
+	if (Class==Job_Soul_Linker) goto OnWarp;
+
+	if (Class==Job_Rune_Knight) goto Warp3rd;
+	if (Class==Job_Warlock) goto Warp3rd;
+	if (Class==Job_Ranger) goto Warp3rd;
+	if (Class==Job_Arch_Bishop) goto Warp3rd;
+	if (Class==Job_Mechanic) goto Warp3rd;
+	if (Class==Job_Guillotine_Cross) goto Warp3rd;
+	if (Class==Job_Rune_Knight_T) goto Warp3rd;
+	if (Class==Job_Warlock_T) goto Warp3rd;
+	if (Class==Job_Ranger_T) goto Warp3rd;
+	if (Class==Job_Arch_Bishop_T) goto Warp3rd;
+	if (Class==Job_Mechanic_T) goto Warp3rd;
+	if (Class==Job_Guillotine_Cross_T) goto Warp3rd;
+	if (Class==Job_Royal_Guard) goto Warp3rd;
+	if (Class==Job_Sorcerer) goto Warp3rd;
+	if (Class==Job_Minstrel) goto Warp3rd;
+	if (Class==Job_Wanderer) goto Warp3rd;
+	if (Class==Job_Sura) goto Warp3rd;
+	if (Class==Job_Genetic) goto Warp3rd;
+	if (Class==Job_Shadow_Chaser) goto Warp3rd;
+	if (Class==Job_Royal_Guard_T) goto Warp3rd;
+	if (Class==Job_Sorcerer_T) goto Warp3rd;
+	if (Class==Job_Minstrel_T) goto Warp3rd;
+	if (Class==Job_Wanderer_T) goto Warp3rd;
+	if (Class==Job_Sura_T) goto Warp3rd;
+	if (Class==Job_Minstrel) goto Warp3rd;
+	if (Class==Job_Wanderer) goto Warp3rd;
+	if (Class==Job_Sura) goto Warp3rd;
+	if (Class==Job_Shadow_Chaser_T) goto Warp3rd;
+	if (Class==Job_Genetic_T) goto Warp3rd;
+	if (Class==Job_Job_Rune_Knight2) goto Warp3rd;
+	if (Class==Job_Rune_Knight_T2) goto Warp3rd;
+	if (Class==Job_Royal_Guard2) goto Warp3rd;
+	if (Class==Job_Royal_Guard_T2) goto Warp3rd;
+	if (Class==Job_Ranger2) goto Warp3rd;
+	if (Class==Job_Ranger_T2) goto Warp3rd;
+
+
+
+	mes "[PVP Warper]";
+	mes "Ocurrio un error, de inmediato notifica a tus administradores para que lo solucionen lo antes posible";
+	close;	
+NOGMS:
+	mes "[PVP Warper]";
+	mes "^FF0000 hey puto gm el si estas leyendo esto es para evitar";
+	mes "^FF0000 que vallas a pvp a abusar de tu nivel recuerda";
+	mes "^FF0000 ke no deves estar aki asi ke no te permitire usar este npc para evitar reclamaciones";
+	mes "^FF0000 y quejas que ya son muchas";
+	mes "^FF0000 dx ^000000";
+	mes "Usa tu cuenta normal e.e";
+	mes "Bueno te dejare entrar a pvp pero no abuses e.e";
+	next;
+	mes "[PVP Warper]";
+	mes "sala 2 job ^6666FF "+ getmapusers("pvp_sindu2") +" ^000000 jugadores.";
+	mes "sala 3 job ^6666FF "+ getmapusers("pvp_sindu1") +" ^000000 jugadores.";
+	mes "Y ^FF0000 "+ getmapusers("guild_vs2") +" ^000000 todos contra todos.";
+	menu "Todos contra todos",free_4_all,"Tu sala",-,"Ranking",Ranking,"Guardar Ubicacion",SAVEALL,"Salir",exit_e;
+	sc_end SC_ASSUMPTIO;
+	sc_end SC_KAIZEL;
+	sc_end SC_KAAHI;
+	sc_end SC_KAUPE;
+	sc_end SC_SPIRIT;
+	sc_end SC_KAITE;
+	warp "pvp_sindu1",0,0;
+	end;
+	
+	close;
+
+Warp3rd:
+	mes "[PVP Warper]";
+	mes "sala 2 job ^6666FF "+ getmapusers("pvp_sindu2") +" ^000000 jugadores.";
+	mes "sala 3 job ^6666FF "+ getmapusers("pvp_sindu1") +" ^000000 jugadores.";
+	mes "Y ^FF0000 "+ getmapusers("guild_vs2") +" ^000000 todos contra todos.";
+	menu "Todos contra todos",free_4_all,"Tu sala",-,"Ranking",Ranking,"Guardar Ubicacion",SAVEALL,"Salir",exit_e;
+	sc_end SC_ASSUMPTIO;
+	sc_end SC_KAIZEL;
+	sc_end SC_KAAHI;
+	sc_end SC_KAUPE;
+	sc_end SC_SPIRIT;
+	sc_end SC_KAITE;
+	warp "pvp_sindu1",0,0;
+	end;
+
+OnWarp:
+	mes "[PVP Warper]";
+	mes "sala 2 job ^6666FF "+ getmapusers("pvp_sindu2") +" ^000000 jugadores.";
+	mes "sala 3 job ^6666FF "+ getmapusers("pvp_sindu1") +" ^000000 jugadores.";
+	mes " Y ^FF0000 "+ getmapusers("guild_vs2") +" ^000000 todos contra todos.";
+	menu "Todos contra todos",free_4_all,"Tu sala",-,"Ranking",Ranking,"Guardar Ubicacion",SAVEALL,"Salir",exit_e;
+	sc_end SC_ASSUMPTIO;
+	sc_end SC_KAIZEL;
+	sc_end SC_KAAHI;
+	sc_end SC_KAUPE;
+	sc_end SC_SPIRIT;
+	sc_end SC_KAITE;
+	warp "pvp_sindu2",0,0;
+	end;
+free_4_all:
+	sc_end SC_ASSUMPTIO;
+	sc_end SC_KAIZEL;
+	sc_end SC_KAAHI;
+	sc_end SC_KAUPE;
+	sc_end SC_SPIRIT;
+	sc_end SC_KAITE;
+	warp "guild_vs2",0,0;
+	end;
+
+exit_e:
+	end;
+
+
+
+SAVEALL:
+next;
+	mes "[PVP Warper]";
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "yo puedo puedo hacer que cada ves que te maten aparescas en la ubicacion en la que estas";
+	mes "asi caminaras menos para ir a pvp";
+	menu "Si",SIALAVERGA,"No",exit_e;
+
+SIALAVERGA:
+	next;
+	mes "[PVP Warper]";
+	mes "listo tu ubicacion ah sido Guardada";
+	atcommand "@save";
+	close;
+
+
+
+
+Ranking2:
+next;
+	set @ctr,0;
+	query_sql("select char_id,pvp_kills,pvp_deaths,char_name from `"+$@pvpsystable$+"` ORDER BY `pvp_kills`  DESC  LIMIT 100", @charid, @kills, @deaths,@names$);
+	
+	if(getarraysize(.charid))
+	{
+		mes .name$;
+		mes "No entries found.";
+			close;
+	}
+	
+	while(@ctr<getarraysize(@charid))
+	{
+		mes .name$;
+		mes "#Asesinatos,Muertes,Nombre";
+		set @start,@ctr;
+		while((@ctr<@start+10) && @charid[@ctr])
+		{
+			mes (@ctr+1)+"    "+@kills[@ctr]+"    "+@deaths[@ctr]+"    "+@names$[@ctr];
+			set @ctr,@ctr+1;
+		
+		}
+		next;
+	}
+	
+	mes .name$;
+	mes "You reached the end of the list.";
+	close;
+
+
+Ranking:
+next;
+mes "[^FF0000Rank PvP^000000]";
+mes "Top 1: ^0000FF" +$top1pvp$ +"^000000 muertes: ^FF0000" +$top1pvp +"^000000.";
+mes "Top 2: ^0000FF" +$top2pvp$ +"^000000 muertes: ^FF0000" +$top2pvp +"^000000.";
+mes "Top 3: ^0000FF" +$top3pvp$ +"^000000 muertes: ^FF0000" +$top3pvp +"^000000.";
+mes "Top 4: ^0000FF" +$top4pvp$ +"^000000 muertes: ^FF0000" +$top4pvp +"^000000.";
+mes "Top 5: ^0000FF" +$top5pvp$ +"^000000 muertes: ^FF0000" +$top5pvp +"^000000.";
+close;
+
+OnInit:
+	do {
+		delwaitingroom;
+		waitingroom "PVP ["+ getmapusers("guild_vs2") +"] En La sala",60,"PvPWarp::OnStartArena",60;
+	sleep 50; // Evites super infinity loop
+	} while(1); // End Loop
+end;
+OnStartArena:
+warpwaitingpc "guild_vs2",0,0;
+end;
+} // End Script
+
+
+	-	script	PvPAnnounce	-1,{
+OnPCKillEvent:
+	getmapxy(.@mapa$,.@x,.@y,0);
+	if (.@mapa$ != "pvp_sindu1") end;
+	if (rid2name(killedrid) == strcharinfo(0)) {
+		mapannounce .@mapa$,"El jugador [" +strcharinfo(0) +"] se ha suicidado.",bc_blue;
+	} else {
+		mapannounce .@mapa$,"El jugador [" +strcharinfo(0) +"] ha asesinado a [" +rid2name(killedrid) +"]",bc_blue;
+		set Muertes, Muertes + 1;
+		callfunc ("PvPRank",Muertes,strcharinfo(0));
+	} // End if
+end;
+} // End Script
+	-	script	PvPAnnounce2	-1,{
+OnPCKillEvent:
+	getmapxy(.@mapa$,.@x,.@y,0);
+	if (.@mapa$ != "guild_vs2") end;
+	if (rid2name(killedrid) == strcharinfo(0)) {
+		mapannounce .@mapa$,"El jugador [" +strcharinfo(0) +"] se ha suicidado.",bc_blue;
+	} else {
+		mapannounce .@mapa$,"El jugador [" +strcharinfo(0) +"] ha asesinado a [" +rid2name(killedrid) +"]",bc_blue;
+		set Muertes, Muertes + 1;
+		callfunc ("PvPRank",Muertes,strcharinfo(0));
+	} // End if
+end;
+} // End Script
+	-	script	PvPAnnounce3	-1,{
+OnPCKillEvent:
+	getmapxy(.@mapa$,.@x,.@y,0);
+	if (.@mapa$ != "pvp_sindu2") end;
+	if (rid2name(killedrid) == strcharinfo(0)) {
+		mapannounce .@mapa$,"El jugador [" +strcharinfo(0) +"] se ha suicidado.",bc_blue;
+	} else {
+		mapannounce .@mapa$,"El jugador [" +strcharinfo(0) +"] ha asesinado a [" +rid2name(killedrid) +"]",bc_blue;
+		set Muertes, Muertes + 1;
+		callfunc ("PvPRank",Muertes,strcharinfo(0));
+	} // End if
+end;
+} // End Script
+
+pvp_sindu1	mapflag	nopenalty
+pvp_sindu2	mapflag	nopenalty
+guild_vs2	mapflag	nopenalty
+
+-	script	MapLoad	-1,{
+OnPCLoadMapEvent:
+	getmapxy (.@mapa$,.@x,.@y,0);
+	if (.@mapa$ != "pvp_sindu1") end;
+	dispbottom "[PvP Rank]: Has matado : " +Muertes +" en PvP.";
+end;
+} // End Script
+-	script	MapLoad3	-1,{
+OnPCLoadMapEvent:
+	getmapxy (.@mapa$,.@x,.@y,0);
+	if (.@mapa$ != "guild_vs2") end;
+	dispbottom "[PvP Rank]: Has matado : " +Muertes +" en PvP.";
+end;
+} // End Script
+-	script	MapLoad2	-1,{
+OnPCLoadMapEvent:
+	getmapxy (.@mapa$,.@x,.@y,0);
+	if (.@mapa$ != "pvp_sindu2") end;
+	dispbottom "[PvP Rank]: Has matado : " +Muertes +" en PvP.";
+end;
+} // End Script
+
+pvp_sindu1	mapflag	loadevent
+guild_vs2	mapflag	loadevent
+pvp_sindu2	mapflag	loadevent
+
+
+function	script	PvPRank	{
+set @mvptotal, getarg(0);
+set @nomb$, getarg(1);
+
+if (@mvptotal > $top1pvp) {
+	if ($top1pvp$ == strcharinfo(0)) { // Si estamos en top 1
+		// Simplemente seguimos contando
+		set $top1pvp, @mvptotal;
+		set $top1pvp$, @nomb$;
+	} else { // Si alcanzamos el top 1
+		// Almacenamos el antiguo top 1
+		set @aux, $top1pvp;
+		set @aux$, $top1pvp$;
+		// Nos asignamos al top 1
+		set $top1pvp, @mvptotal;
+		set $top1pvp$, @nomb$;
+		// El viejo top 1 ahora es top 2
+		set $top2pvp, @aux;
+		set $top2pvp$, @aux$;
+	} // End if
+} else if (@mvptotal > $top2pvp) {
+	if ($top2pvp$ == strcharinfo(0)) { // Si estamos en top 2
+		// Seguimos contando las muertes del top 2
+		set $top2pvp, @mvptotal;
+		set $nomb2, @nomb$;
+	} else { // Si alcanzamos el top 2
+		// Almacenamos el antiguo top 2
+		set @aux, $top2pvp;
+		set @aux$, $top2pvp$;
+		// Nos asignamos al top 2
+		set $top2pvp, @mvptotal;
+		set $top2pvp$, @nomb$;
+		// El viejo top 2 ahora es top 3
+		set $top3pvp, @aux;
+		set $top3pvp$, @aux$;
+	} // End if
+} else if (@mvptotal > $top3pvp) {
+	if ($top3pvp$ == strcharinfo(0)) { // Si estamos en top 3
+		// Seguimos contando el top 3
+		set $top3pvp, @mvptotal;
+		set $top3pvp$, @nomb$;
+	} else { // Si alcanzamos el top 3
+		// Almacenamos el antiguo top 3
+		set @aux, $top3pvp;
+		set @aux$, $top3pvp$;
+		// Nos asignamos al top 3
+		set $top3pvp, @mvptotal;
+		set $top3pvp$, @nomb$;
+		// El viejo top 3 ahora es top 4
+		set $top4pvp, @aux;
+		set $top4pvp$, @aux$;
+	} // End if
+} else if (@mvptotal > $top4pvp) {
+	if ($top4pvp$ == strcharinfo(0)) { // Si estamos en top 4
+		// Seguimos contando el top 4
+		set $top4pvp, @mvptotal;
+		set $top4pvp$, @nomb$;
+	} else { // Si alcanzamos el top 4
+		// Almacenamos el antiguo top 4
+		set @aux, $top4pvp;
+		set @aux$, $top4pvp$;
+		// Nos asignamos al top 4
+		set $top4pvp, @mvptotal;
+		set $top4pvp$, @nomb$;
+		// El viejo top 4 es ahora top 5
+		set $top5pvp, @aux;
+		set $top5pvp$, @aux$;
+	} // End if
+} else if (@mvptotal > $top5pvp) {
+	if ($top5pvp$ == strcharinfo(0)) { // Si estamos en top 5
+		// Seguimos contando el top5
+		set $top5pvp, @mvptotal;
+		set $nomb5, @nomb$;
+	} else { // Si alcanzamos el top 5
+		// Directamente nos sobreescribimos en el top 5
+		set $top5pvp, @mvptotal;
+		set $top5pvp$, @nomb$;
+	} // End if
+} // End if
+return;
+} // End function
+

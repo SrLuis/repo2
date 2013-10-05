@@ -1,0 +1,23 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+-	script	DLogin	-1,{
+
+OnPCLoginEvent:
+if(getcharid(3) <= 2000102) end;
+if(getcharid(3) == 2000105) end;
+announce "Modo mantenimiento disculpe las molestias revise la web constantemente ahi avisaremos cuando salgamos del modo mantenimiento gracias..",bc_self,0xff0000;
+
+sleep2 15000;
+		atcommand "@kick "+strcharinfo(0);
+		end;
+		}

@@ -1,0 +1,187 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+
+quest.gat,36,36,7	script	Middle Hat	795,{
+// Variables
+set	@name$,"[Middle Hat]";	//nombre NPC
+	if (GetGMLevel()>98) goto GMS;
+// Quest Script
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Tengo algunos Middle hats para ti quieres saber cuales son?";//-----------------------------//--------------//======//
+	mes "Muy bien tengo los siguientes";
+	if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],5389,5135,5421,5471,5315,5043,5325,5397;
+		callfunc "DoTestHats";
+		end;
+	}
+
+	menu "Angel Spirit",QUEST1,"Cyclops eye",QUEST2,"Ears of Ifrit",QUEST3,"Hairband of Reginleif",QUEST4,"Observer",QUEST5,"Opera Mask",QUEST6,"Robo Eye",QUEST7,"Scuba Gear",QUEST8;
+
+GMS:
+	mes "Hola gm escoje entre estas opciones";
+	menu "Sacar un item",SAKARITEM,"Menu User",MENUUSER;
+MENUUSER:
+	
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Tengo algunos Middle hats para ti quieres saber cuales son?";///-----------------------------//--------------//======//
+	mes "Muy bien tengo los siguientes";
+	if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],5389,5135,5421,5471,5315,5043,5325,5397;
+		callfunc "DoTestHats";
+		end;
+	}
+	mes "Muy bien los siguientes";
+	menu "Angel Spirit",QUEST1,"Cyclops eye",QUEST2,"Ears of Ifrit",QUEST3,"Hairband of Reginleif",QUEST4,"Observer",QUEST5,"Opera Mask",QUEST6,"Robo Eye",QUEST7,"Scuba Gear",QUEST8;
+SAKARITEM:
+	menu "Angel Spirit",QUEST1a,"Cyclops eye",QUEST2a,"Ears of Ifrit",QUEST3a,"Hairband of Reginleif",QUEST4a,"Observer",QUEST5a,"Opera Mask",QUEST6a,"Robo Eye",QUEST7a,"Scuba Gear",QUEST8a;
+QUEST1a:
+	getitem 5389,1;
+	close;
+QUEST2a:
+	getitem 5135,1;
+	close;
+QUEST3a:
+	getitem 5421,1;
+	close;
+QUEST4a:
+	getitem 5471,1;
+	close;
+QUEST5a:
+	getitem 5315,1;
+	close;
+QUEST6a:
+	getitem 5043,1;
+	close;
+QUEST7a:
+	getitem 5325,1;
+	close;
+QUEST8a:
+	getitem 5397,1;
+	close;
+
+	
+QUEST1:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5389,1;
+	close;
+	
+QUEST2:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5135,1;
+	close;
+QUEST3:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5421,1;
+	close;
+QUEST4:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5471,1;
+	close;
+QUEST5:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5315,1;
+	close;
+	
+QUEST6:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5043,1;
+	close;
+QUEST7:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5325,1;
+	close;
+QUEST8:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5397,1;
+	close;
+
+
+falta:
+	mes "Creo que algo falta, Aun no tienes lo necesario checa bien, vuelve cuando lo tengas buena suerte ..";
+	close;
+	npctalk "~ NPC SrLuis ~";
+}
+prontera,165,189,4	duplicate(Middle Hat)	Middle Hat#01	878
+prontera,244,84,4	duplicate(Middle Hat)	Middle Hat#02	878
+
+

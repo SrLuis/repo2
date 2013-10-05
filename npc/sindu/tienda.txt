@@ -1,0 +1,66 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+prontera,147,175,6	script	Tienda de Items	987,{
+
+	///////////////////////////////////////////////////
+	// ----------------- NPC Settings -----------------
+	/////-- server name --/////////////////////////////
+	set .serverName$, "SinduRO"; // Server Name
+	/////-- npc name --////////////////////////////////
+	set .npcName$, "[Item Shop]"; 
+	///////////////////////////////////////////////////
+
+	
+	mes .npcName$;
+	mes "Hola " + (Sex ? "Caballero!" : "Bella Dama!");
+	mes "En que te puedo ayudar?";
+	next;
+	prompt("Quiero reclamar mi item:Quien eres tu?:Solo paseaba!");
+	mes .npcName$;
+	switch(@menu) {
+		case 1:
+			query_sql "SELECT `id`, `item_id`, `quantity` FROM `cp_choko_shop_order` WHERE `account_id` = " + getcharid(3) + " AND `claim` = 0 LIMIT 128", .@id, .@nameid, .@quantity;
+			if (getarraysize(.@id) > 0) {
+				set .@tempMenu, "";
+				for (set .@i, 0; .@i < getarraysize(.@id); set .@i, .@i+1) {
+					set .@tempMenu$, .@tempMenu$ + (.@quantity[.@i] + " x " + getitemname(.@nameid[.@i])) + ":";
+				}
+				mes "Porfavor Selecciona el item que va a canjear.";
+				next;
+				set .@option, select(.@tempMenu$)-1;
+				
+				if (checkweight(.@nameid[.@option],.@quantity[.@option]) == 0) {
+					mes .npcName$;
+					mes "Lo siento pero no te puedo dar los items tienes sobrepeso.";
+				} else {
+					query_sql "UPDATE `cp_choko_shop_order` SET `claim` = 1, `claim_date` = NOW(), `claim_char_id` = " + getcharid(0) + " WHERE `id` = " + .@id[.@option];
+					getitem .@nameid[.@option],.@quantity[.@option];
+					mes .npcName$;
+					mes "Gracias por su patrocinio!";
+					mes "Porfavor disfrute de su estancia en " + .serverName$ + "!";
+				}
+			} else {
+				mes "Mis registros me indican que usted no ah realizado ninguna compra.";
+				mes "Mis sinceras disculpas por el malentendido.";
+			}
+		break;
+		case 2:
+			mes "Estoy aqui para distribuir los articulos comprado en la web de " + .serverName$ + " .";
+		break;
+		default:
+			mes "Muy bien entonces.";
+			mes "Que tenga un buen dia.";
+		break;
+	}
+	close;
+}

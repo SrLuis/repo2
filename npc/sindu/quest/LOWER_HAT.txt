@@ -1,0 +1,248 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+
+quest.gat,36,34,7	script	Lower Hat	795,{
+// Variables
+set	@name$,"[Lower Hat]";	//nombre NPC
+	if (GetGMLevel()>98) goto GMS;
+
+mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Tengo algunos hats para ti todos son Lower hat quieres saber cuales son?";//-----------------------------//--------------//======//
+	mes "Muy bien tengo los siguientes";
+	if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],5596,5597,5445,5657,5775,5107,5594,5361,5305,5767,5536,5574;
+		callfunc "DoTestHats";
+		end;
+	}
+
+	menu "4leaf",QUEST1,"Buble Gum",QUEST2,"Candy Cane",QUEST3,"Capitan Pipe",QUEST4,"Choco Donut",QUEST5,"Cruch tost",QUEST6,"Donut",QUEST7,"Gangster Scarf",QUEST8,"Pirate Daguer",QUEST9,"Samurai mask",QUEST10,"Spore Card",QUEST11,"Penal",QUEST12;
+GMS:
+	mes "Hola gm escoje entre estas opciones";
+	menu "Sacar un item",SAKARITEM,"Menu User",MENUUSER;
+MENUUSER:
+	
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Tengo algunos hats para ti todos son Lower hat quieres saber cuales son?";//-----------------------------//--------------//======//
+	mes "Muy bien tengo los siguientes";
+	if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],5596,5597,5445,5657,5775,5107,5594,5361,5305,5767,5536,5574;
+		callfunc "DoTestHats";
+		end;
+	}
+	mes "Muy bien los siguientes";
+	menu "4leaf",QUEST1,"Buble Gum",QUEST2,"Candy Cane",QUEST3,"Capitan Pipe",QUEST4,"Choco Donut",QUEST5,"Cruch tost",QUEST6,"Donut",QUEST7,"Gangster Scarf",QUEST8,"Pirate Daguer",QUEST9,"Samurai mask",QUEST10,"Spore Card",QUEST11,"Penal",QUEST12;
+SAKARITEM:
+	menu "4leaf",QUEST1a,"Buble Gum",QUEST2a,"Candy Cane",QUEST3a,"Capitan Pipe",QUEST4a,"Choco Donut",QUEST5a,"Cruch tost",QUEST6a,"Donut",QUEST7a,"Gangster Scarf",QUEST8a,"Pirate Daguer",QUEST9a,"Samurai mask",QUEST10a,"Spore Card",QUEST11a,"Penal",QUEST12a;
+QUEST1a:
+	getitem 5596,1;
+	close;
+QUEST2a:
+	getitem 5597,1;
+	close;
+QUEST3a:
+	getitem 5445,1;
+	close;
+QUEST4a:
+	getitem 5657,1;
+	close;
+QUEST5a:
+	getitem 5775,1;
+	close;
+QUEST6a:
+	getitem 5107,1;
+	close;
+QUEST7a:
+	getitem 5594,1;
+	close;
+QUEST8a:
+	getitem 5361,1;
+	close;
+QUEST9a:
+	getitem 5305,1;
+	close;
+QUEST10a:
+	getitem 5767,1;
+	close;
+QUEST11a:
+	getitem 5536,1;
+	close;
+
+QUEST12a:
+	getitem 5574,1;
+	close;
+
+
+QUEST1:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5596,1;
+	close;
+
+	
+QUEST2:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5597,1;
+	close;
+	
+QUEST3:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5445,1;
+	close;
+QUEST4:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5657,1;
+	close;
+QUEST5:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5775,1;
+	close;
+QUEST6:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5107,1;
+	close;
+	
+QUEST7:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5594,1;
+	close;
+QUEST8:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5361,1;
+	close;
+QUEST9:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5305,1;
+	close;
+QUEST10:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5767,1;
+	close;
+QUEST11:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5536,1;
+	close;
+QUEST12:
+	next;
+	mes "Necesitaras Todo esto:";
+	mes "2 Poring Coin xD";
+	next;
+	if(countitem(7539)<2)goto falta;
+	next;
+	mes "muy bien aqui lo tienes. Grasias...";
+	next;
+	delitem 7539,2;
+	getitem 5574,1;
+	close;
+
+falta:
+	mes "Creo que algo falta, Aun no tienes lo necesario checa bien, vuelve cuando lo tengas buena suerte ..";
+	close;
+	npctalk "~ NPC SrLuis ~";
+}
+prontera,167,191,4	duplicate(Lower Hat)	Lower Hat#01	878
+prontera,244,86,4	duplicate(Lower Hat)	Lower Hat#02	878
+
+

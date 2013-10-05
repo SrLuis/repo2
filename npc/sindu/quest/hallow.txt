@@ -1,0 +1,142 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+mag_dun01,199,55,2	script	TELOM	843,{
+mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+mes "hey como me encontraste";
+next;
+menu "Solo pasaba",SI,"Alguien me mando",SIa;
+next;
+SI:
+mes "Casualidad Supongo... Adios";
+close;
+SIa:
+mes "Aaa ya veo me andabas buscando";
+next;
+mes "Si... Si te envió Cleto por esa Premonición suya solo te mintió ";
+next;
+mes "si es por eso verdad";
+menu "la verdad si",SIb,"no para nada",SIc,"Tengo algo para ti",SId;
+close;
+next;
+SIb:
+mes "Eres Honesto pero creo que es mucho poder y responsabilidad para ti... cuidate";
+close;
+SIc:
+mes "Aaa el no te ah dicho nada bueno casualidad como lo dije antes";
+close;
+SId:
+next;
+if(countitem(12143)<10)goto falta;
+delitem 12143,10;
+mes "Haha Crees que podras converserme con... Dios!! Coca-Cola's Frias en este calor Inmenso hehe! esta bien";
+mes "Casi me convenses de que te diga como crear El Hallowen Set.";
+next;
+mes "Si te encargo mas coca-colas Frias me las traerias?";
+mes "en realidad no pido muchas solo para pasar un buen rato";
+next;
+mes "me traerias unas humm... 25,000 porfavor";
+next;
+mes "hehe no me agas caso, solo pido 10 con tu permiso tomare lo que es mio!";
+next;
+mes "Bueno y que te dijo el aburrido de Cleto supongo que ya tienes la mascara!";
+mes "Porque para poder forgarte ese Set Ocupare muchos Tiket de Halloween";
+next;
+mes "Primero que nada Ocuparas 45 mil tiket's";
+mes "Segundo... a no recuerdo que mas o si... si gustas puedes traerme 1000 Coca-Cola's hehe Gracias...";
+next;
+mes "hehe anda a juntarlos, Una ves juntes 15 mil tikets vienes conmigo para forjarte una pieza!";
+next;
+menu "Tengo 15 mil tikets",SIe,"Ok ire a buscarlos",SIf;
+next;
+SIf:
+mes "mucha suerte esfuerzate mucho!!";
+close;
+SIe:
+mes "Woow Si que fue rapido";
+mes "bueno mientras mas rapido mejor";
+mes "Dejame ver....";
+next;
+if(countitem(7941)<15000)goto falta1;
+next;
+mes "no puedo ceerlo eres imprecionante";
+mes "dime que parte del set te gustaria que te creeara!!";
+menu "Cachos",SIg,"Alas",SIh,"Cola",SIi;
+next;
+SIg:
+mes "Lo prometido es Deuda";
+delitem 7941,15000;
+getitem 31780,1;
+next;
+mes "olle no olvides traerme mis 1000 Coca-colas";
+if(countitem(12143)<1000)goto falta2;
+next;
+mes "increible Coca-Cola's Para toda la vida Muchas gracias";
+delitem 12143,1000;
+next;
+mes "te dare una gran renconpenza por traerme las Coca-Colas";
+mes "enserio pense que no me las traerias";
+mes "Aqui tienes 1 de las 3 maskaras Eventuales de Hallow que guardaba durante tanto tiempo";
+getitem 31188,1;
+next;
+mes "Noo gracias a ti te lo agradesco cuidate!!";
+close;
+SIh:
+mes "Lo prometido es Deuda";
+delitem 7941,15000;
+getitem 31779,1;
+next;
+mes "olle no olvides traerme mis 1000 Coca-colas";
+if(countitem(12143)<1000)goto falta2;
+next;
+mes "increible Coca-Cola's Para toda la vida Muchas gracias";
+delitem 12143,1000;
+next;
+mes "te dare una gran renconpenza por traerme las Coca-Colas";
+mes "enserio pense que no me las traerias";
+mes "Aqui tienes 1 de las 3 maskaras Eventuales de Hallow que guardaba durante tanto tiempo";
+getitem 31197,1;
+next;
+mes "Noo gracias a ti te lo agradesco cuidate!!";
+close;
+SIi:
+mes "Lo prometido es Deuda";
+delitem 7941,15000;
+getitem 31781,1;
+next;
+mes "olle no olvides traerme mis 1000 Coca-colas";
+if(countitem(12143)<1000)goto falta2;
+next;
+mes "increible Coca-Cola's Para toda la vida Muchas gracias";
+delitem 12143,1000;
+next;
+mes "te dare una gran renconpenza por traerme las Coca-Colas";
+mes "enserio pense que no me las traerias";
+mes "Aqui tienes 1 de las 3 maskaras Eventuales de Hallow que guardaba durante tanto tiempo";
+getitem 31269,1;
+next;
+mes "Noo gracias a ti te lo agradesco cuidate!!";
+close;
+
+falta2:
+mes "no me has dado ni la mitad";
+mes "ok cuidate sigue en lo tuyo";
+close;
+falta1:
+mes "lo suponia solo jugabas nadie es tan rapido";
+close;
+falta:
+mes "NOoo que le hiciste a mis Coca-colas U.U";
+close;
+end;
+
+}

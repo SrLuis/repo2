@@ -1,0 +1,291 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+
+quest.gat,49,52,4	script	Baby Dragon	828,{
+// Variables
+set	@name$,"[Bb Dragon Hat]";	//nombre NPC
+	if (GetGMLevel()>98) goto GMS;
+// Quest Script
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Esta  quest te  Brinda status a +90 exepto luk y vitalidad. Velocidad para caminar a 25% te deseo suerte";//-
+	mes "Escoje el color Baby Dragon Hat que deseas hacer";
+	if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],31742,31743,31744,31745,31746,31747,31748;
+		callfunc "DoTestHats";
+		end;
+	}
+
+	menu "negro",QUEST1,"azul",QUEST2,"Cafe",QUEST3,"Cyan",QUEST4,"Purpura",QUEST5,"Rojo",QUEST6,"blanco",QUEST7;
+
+GMS:
+	mes "Hola gm escoje entre estas opciones";
+	menu "Sacar un item",SAKARITEM,"Menu User",MENUUSER;
+MENUUSER:
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Esta  quest te  Brinda status a +90 exepto luk y vitalidad. Velocidad para caminar a 25% te deseo suerte";//-----------------------------//--------------//======//
+	next;
+	if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],31742,31743,31744,31745,31746,31747,31748;
+		callfunc "DoTestHats";
+		end;
+	}
+	mes "Escoje el item que deseas hacer";
+	menu "negro",QUEST1,"azul",QUEST2,"Cafe",QUEST3,"Cyan",QUEST4,"Purpura",QUEST5,"Rojo",QUEST6,"blanco",QUEST7;
+
+SAKARITEM:
+	menu "negro",QUEST1a,"azul",QUEST2a,"Cafe",QUEST3a,"Cyan",QUEST4a,"Purpura",QUEST5a,"Rojo",QUEST6a,"blanco",QUEST7a;	
+QUEST1a:
+	getitem 31742,1;
+	close;
+QUEST2a:
+	getitem 31743,1;
+	close;
+QUEST3a:
+	getitem 31744,1;
+	close;
+QUEST4a:
+	getitem 31745,1;
+	close;
+QUEST5a:
+	getitem 31746,1;
+	close;
+QUEST6a:
+	getitem 31747,1;
+	close;
+QUEST7a:
+	getitem 31748,1;
+	close;
+
+//31742,Black_Baby_Dragon_Hat,Black_Baby_Dragon_Hat,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1716,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31743,Blue_Baby_Dragon_Hat,Blue_Baby_Dragon_Hat,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1717,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31744,Brown_Baby_Dragon_Hat,Brown_Baby_Dragon_Hat,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1718,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31745,Cyan_Baby_Dragon_Hat,Cyan_Baby_Dragon_Hat,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1719,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31746,Purple_Baby_Dragon_Hat,Purple_Baby_Dragon_Hat,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1720,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31747,Red_Baby_Dragon_Hat,Red_Baby_Dragon_Hat,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1721,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+//31748,White_Baby_Dragon_Hat,White_Baby_Dragon_Hat,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1722,{ bonus bAllStats,90; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,20; },{},{}
+
+
+QUEST1:
+	next;
+	mes "Necesitaras esto:";
+	mes "15 Fragment Of Rosata";
+	mes "15 Fang Of Garm";
+	mes "10 Poring Coin ";
+	mes "15 Fire Dragon Scale";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7211)<15)goto falta;
+	if(countitem(7036)<15)goto falta;
+	if(countitem(7539)<10)goto falta;
+	if(countitem(7451)<15)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7211,15;
+	delitem 7036,15;
+	delitem 7539,10;
+	delitem 7451,15;
+	delitem 974,5;
+	getitem 31742,1;
+	close;
+
+	npctalk "~ NPC hecho SrLuis ~";
+	
+QUEST2:
+	next;
+	mes "Necesitaras esto:";
+	mes "15 Fragment Of Rosata";
+	mes "15 Fang Of Garm";
+	mes "10 Poring Coin ";
+	mes "15 Fire Dragon Scale";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7211)<15)goto falta;
+	if(countitem(7036)<15)goto falta;
+	if(countitem(7539)<10)goto falta;
+	if(countitem(7451)<15)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7211,15;
+	delitem 7036,15;
+	delitem 7539,10;
+	delitem 7451,15;
+	delitem 974,5;
+	getitem 31743,1;
+	close;
+
+	
+QUEST3:
+	next;
+	mes "Necesitaras esto:";
+	mes "15 Fragment Of Rosata";
+	mes "15 Fang Of Garm";
+	mes "10 Poring Coin ";
+	mes "15 Fire Dragon Scale";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7211)<15)goto falta;
+	if(countitem(7036)<15)goto falta;
+	if(countitem(7539)<10)goto falta;
+	if(countitem(7451)<15)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7211,15;
+	delitem 7036,15;
+	delitem 7539,10;
+	delitem 7451,15;
+	delitem 974,5;
+	getitem 31744,1;
+	close;
+
+	
+QUEST4:
+	next;
+	mes "Necesitaras esto:";
+	mes "15 Fragment Of Rosata";
+	mes "15 Fang Of Garm";
+	mes "10 Poring Coin ";
+	mes "15 Fire Dragon Scale";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7211)<15)goto falta;
+	if(countitem(7036)<15)goto falta;
+	if(countitem(7539)<10)goto falta;
+	if(countitem(7451)<15)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7211,15;
+	delitem 7036,15;
+	delitem 7539,10;
+	delitem 7451,15;
+	delitem 974,5;
+	getitem 31745,1;
+	close;
+
+QUEST5:
+	next;
+	mes "Necesitaras esto:";
+	mes "15 Fragment Of Rosata";
+	mes "15 Fang Of Garm";
+	mes "10 Poring Coin ";
+	mes "15 Fire Dragon Scale";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7211)<15)goto falta;
+	if(countitem(7036)<15)goto falta;
+	if(countitem(7539)<10)goto falta;
+	if(countitem(7451)<15)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7211,15;
+	delitem 7036,15;
+	delitem 7539,10;
+	delitem 7451,15;
+	delitem 974,5;
+	getitem 31746,1;
+	close;
+
+QUEST6:
+	next;
+	mes "Necesitaras esto:";
+	mes "15 Fragment Of Rosata";
+	mes "15 Fang Of Garm";
+	mes "10 Poring Coin ";
+	mes "15 Fire Dragon Scale";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7211)<15)goto falta;
+	if(countitem(7036)<15)goto falta;
+	if(countitem(7539)<10)goto falta;
+	if(countitem(7451)<15)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7211,15;
+	delitem 7036,15;
+	delitem 7539,10;
+	delitem 7451,15;
+	delitem 974,5;
+	getitem 31747,1;
+	close;
+
+QUEST7:
+	next;
+	mes "Necesitaras esto:";
+	mes "15 Fragment Of Rosata";
+	mes "15 Fang Of Garm";
+	mes "10 Poring Coin ";
+	mes "15 Fire Dragon Scale";
+	mes "5 Mixture";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7211)<15)goto falta;
+	if(countitem(7036)<15)goto falta;
+	if(countitem(7539)<10)goto falta;
+	if(countitem(7451)<15)goto falta;
+	if(countitem(974)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7211,15;
+	delitem 7036,15;
+	delitem 7539,10;
+	delitem 7451,15;
+	delitem 974,5;
+	getitem 31748,1;
+	close;
+
+
+
+falta:
+	mes "Creo que algo falta, Aun no tienes lo necesario checa bien, vuelve cuando lo tengas buena suerte ..";
+	close;
+	npctalk "~ NPC SrLuis ~";
+}
+prontera,244,78,4	duplicate(Baby Dragon)	Baby Dragon#01	828

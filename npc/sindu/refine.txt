@@ -1,0 +1,805 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+function	script	refinemain	{
+	mes "[" + getarg(0) + "]";
+	mes "Hola forastero.";
+	mes "Yo puedo refinar tu equipo ";
+	mes "Puede ser accesorios, armas, armaduras, botas, etc...";
+	mes "Elije lo que gustes refinar";
+	next;
+	menu "Upper [" + getequipname(1) + "]",-,"Middle [" + getequipname(9) + "]",Mid_m,"Low [" + getequipname(10) + "]",Low_l,"Armadura [" + getequipname(2) + "]",Arm_a,"Arma Der [" + getequipname(4) + "]",Han_r,"Arma Izq [" + getequipname(3) + "]",Han_l,"Garment [" + getequipname(5) + "]",Gar_g,"Botas [" + getequipname(6) + "]",Bot_b,"Acc Izq [" + getequipname(7) + "]",Acc_i,"Acc Der [" + getequipname(8) + "]",Acc_d;
+
+
+	if(!getequipisequiped(1)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento";
+		mes "No tienes equipado";
+		mes "Para que pueda refinar.";
+		emotion 6;
+		close;
+	}
+	//revisa si es refinable...
+	if(!getequipisenableref(1)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento amigo";
+		mes "No puedo trabajar con ese item...";
+		close;
+	}
+	//REVISA SI EL ITEM ESTA IDENTIFICADO XDDD
+//	if(!getequipisidentify(1)) {
+//		mes "[" + getarg(0) + "]";
+//		mes "No se como le has hecho";
+//		mes "pero deves primero";
+//		mes "identificar tu item";
+//		mes "para despues refinarlo";
+//		close;
+//	}
+	//REVISA SI ESTA +20 +10
+	if(getequiprefinerycnt(1) >= 20) {
+		mes "[" + getarg(0) + "]";
+		mes "Ya no puedo hacer mas con";
+		mes "ese item ya esta refinado a +20";
+		close;
+	}
+	
+	//set .@refineitemid, getequipid(.@part); // Guarda el id del item
+	//set .@refinerycnt, getequiprefinerycnt(.@part); //cuenta el refinado xD
+	set .@material,985;
+	set .@cantidad,10; 
+	
+	if(.@features != 1) {
+		mes "[" + getarg(0) + "]";
+		mes "lo que nesesitas para refinar es";
+		mes "10 ^003366"+getitemname(.@material)+"^000000";
+		mes "Estas seguro que deseas continuar?";
+		next;
+		if(select("Si:No") == 2){
+			mes "[" + getarg(0) + "]";
+			mes "see...";
+			mes "como tu quieras";
+			mes "asi no perdere tanto tiempo.";
+			close;
+		}
+		
+		if(countitem(.@material)<.@cantidad)goto falta;
+		delitem .@material,.@cantidad;
+		mes "["+getarg(0)+"]";
+		successrefitem 1;
+		Emotion e_heh;
+		set .@win,rand(1,3);
+		if (.@win == 1) {
+			mes "["+getarg(0)+"]";
+			mes "Perfecto!";
+			mes "Heh heh!";
+			mes "Todo salio bien,";
+		} else if(.@win == 2) {
+			mes "["+getarg(0)+"]";
+			mes "Terminamos...!";
+			mes "todo salio a la perfeccion";
+			
+		} else {
+			mes "["+getarg(0)+"]";
+			mes "Heh heh!";
+			mes "No se procupe con migo siempre salen las cosas bien.";
+			
+		}
+		close;
+
+Mid_m:
+	if(!getequipisequiped(9)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento";
+		mes "No tienes equipado";
+		mes "Para que pueda refinar.";
+		emotion 6;
+		close;
+	}
+	//revisa si es refinable...
+	if(!getequipisenableref(9)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento amigo";
+		mes "No puedo trabajar con ese item...";
+		close;
+	}
+	//REVISA SI EL ITEM ESTA IDENTIFICADO XDDD
+//	if(!getequipisidentify(9)) {
+//		mes "[" + getarg(0) + "]";
+//		mes "No se como le has hecho";
+//		mes "pero deves primero";
+//		mes "identificar tu item";
+//		mes "para despues refinarlo";
+//		close;
+//	}
+	//REVISA SI ESTA +20 +10
+	if(getequiprefinerycnt(9) >= 20) {
+		mes "[" + getarg(0) + "]";
+		mes "Ya no puedo hacer mas con";
+		mes "ese item ya esta refinado a +20";
+		close;
+	}
+	
+	//set .@refineitemid, getequipid(.@part); // Guarda el id del item
+	//set .@refinerycnt, getequiprefinerycnt(.@part); //cuenta el refinado xD
+	set .@material,985;
+	set .@cantidad,10; 
+	
+	if(.@features != 1) {
+		mes "[" + getarg(0) + "]";
+		mes "lo que nesesitas para refinar es";
+		mes "10 ^003366"+getitemname(.@material)+"^000000";
+		mes "Estas seguro que deseas continuar?";
+		next;
+		if(select("Si:No") == 2){
+			mes "[" + getarg(0) + "]";
+			mes "see...";
+			mes "como tu quieras";
+			mes "asi no perdere tanto tiempo.";
+			close;
+		}
+		
+		if(countitem(.@material)<.@cantidad)goto falta;
+		delitem .@material,.@cantidad;
+		mes "["+getarg(0)+"]";
+		successrefitem 9;
+		Emotion e_heh;
+		set .@win,rand(1,3);
+		if (.@win == 1) {
+			mes "["+getarg(0)+"]";
+			mes "Perfecto!";
+			mes "Heh heh!";
+			mes "Todo salio bien,";
+		} else if(.@win == 2) {
+			mes "["+getarg(0)+"]";
+			mes "Terminamos...!";
+			mes "todo salio a la perfeccion";
+			
+		} else {
+			mes "["+getarg(0)+"]";
+			mes "Heh heh!";
+			mes "No se procupe con migo siempre salen las cosas bien.";
+			
+		}
+		close;	
+		
+Low_l:
+	if(!getequipisequiped(10)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento";
+		mes "No tienes equipado";
+		mes "Para que pueda refinar.";
+		emotion 6;
+		close;
+	}
+	//revisa si es refinable...
+	if(!getequipisenableref(10)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento amigo";
+		mes "No puedo trabajar con ese item...";
+		close;
+	}
+//	//REVISA SI EL ITEM ESTA IDENTIFICADO XDDD
+//	if(!getequipisidentify(10)) {
+//		mes "[" + getarg(0) + "]";
+//		mes "No se como le has hecho";
+//		mes "pero deves primero";
+//		mes "identificar tu item";
+//		mes "para despues refinarlo";
+//		close;
+//	}
+	//REVISA SI ESTA +20 +10
+	if(getequiprefinerycnt(10) >= 20) {
+		mes "[" + getarg(0) + "]";
+		mes "Ya no puedo hacer mas con";
+		mes "ese item ya esta refinado a +20";
+		close;
+	}
+	
+	//set .@refineitemid, getequipid(.@part); // Guarda el id del item
+	//set .@refinerycnt, getequiprefinerycnt(.@part); //cuenta el refinado xD
+	set .@material,985;
+	set .@cantidad,10; 
+	
+	if(.@features != 1) {
+		mes "[" + getarg(0) + "]";
+		mes "lo que nesesitas para refinar es";
+		mes "10 ^003366"+getitemname(.@material)+"^000000";
+		mes "Estas seguro que deseas continuar?";
+		next;
+		if(select("Si:No") == 2){
+			mes "[" + getarg(0) + "]";
+			mes "see...";
+			mes "como tu quieras";
+			mes "asi no perdere tanto tiempo.";
+			close;
+		}
+		
+		if(countitem(.@material)<.@cantidad)goto falta;
+		delitem .@material,.@cantidad;
+		mes "["+getarg(0)+"]";
+		successrefitem 10;
+		Emotion e_heh;
+		set .@win,rand(1,3);
+		if (.@win == 1) {
+			mes "["+getarg(0)+"]";
+			mes "Perfecto!";
+			mes "Heh heh!";
+			mes "Todo salio bien,";
+		} else if(.@win == 2) {
+			mes "["+getarg(0)+"]";
+			mes "Terminamos...!";
+			mes "todo salio a la perfeccion";
+			
+		} else {
+			mes "["+getarg(0)+"]";
+			mes "Heh heh!";
+			mes "No se procupe con migo siempre salen las cosas bien.";
+			
+		}
+		close;
+Arm_a:
+	if(!getequipisequiped(2)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento";
+		mes "No tienes equipado";
+		mes "Para que pueda refinar.";
+		emotion 6;
+		close;
+	}
+	//revisa si es refinable...
+	if(!getequipisenableref(2)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento amigo";
+		mes "No puedo trabajar con ese item...";
+		close;
+	}
+	//REVISA SI EL ITEM ESTA IDENTIFICADO XDDD
+//	if(!getequipisidentify(2)) {
+//		mes "[" + getarg(0) + "]";
+//		mes "No se como le has hecho";
+//		mes "pero deves primero";
+//		mes "identificar tu item";
+//		mes "para despues refinarlo";
+//		close;
+//	}
+	//REVISA SI ESTA +20 +10
+	if(getequiprefinerycnt(2) >= 10) {
+		mes "[" + getarg(0) + "]";
+		mes "Ya no puedo hacer mas con";
+		mes "ese item ya esta refinado a +10";
+		close;
+	}
+	
+	//set .@refineitemid, getequipid(.@part); // Guarda el id del item
+	//set .@refinerycnt, getequiprefinerycnt(.@part); //cuenta el refinado xD
+	set .@material,985;
+	set .@cantidad,10; 
+	
+	if(.@features != 1) {
+		mes "[" + getarg(0) + "]";
+		mes "lo que nesesitas para refinar es";
+		mes "10 ^003366"+getitemname(.@material)+"^000000";
+		mes "Estas seguro que deseas continuar?";
+		next;
+		if(select("Si:No") == 2){
+			mes "[" + getarg(0) + "]";
+			mes "see...";
+			mes "como tu quieras";
+			mes "asi no perdere tanto tiempo.";
+			close;
+		}
+		
+		if(countitem(.@material)<.@cantidad)goto falta;
+		delitem .@material,.@cantidad;
+		mes "["+getarg(0)+"]";
+		successrefitem 2;
+		Emotion e_heh;
+		set .@win,rand(1,3);
+		if (.@win == 1) {
+			mes "["+getarg(0)+"]";
+			mes "Perfecto!";
+			mes "Heh heh!";
+			mes "Todo salio bien,";
+		} else if(.@win == 2) {
+			mes "["+getarg(0)+"]";
+			mes "Terminamos...!";
+			mes "todo salio a la perfeccion";
+			
+		} else {
+			mes "["+getarg(0)+"]";
+			mes "Heh heh!";
+			mes "No se procupe con migo siempre salen las cosas bien.";
+			
+		}
+		close;
+Han_r:
+	if(!getequipisequiped(4)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento";
+		mes "No tienes equipado";
+		mes "Para que pueda refinar.";
+		emotion 6;
+		close;
+	}
+	//revisa si es refinable...
+	if(!getequipisenableref(4)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento amigo";
+		mes "No puedo trabajar con ese item...";
+		close;
+	}
+	//REVISA SI EL ITEM ESTA IDENTIFICADO XDDD
+//	if(!getequipisidentify(4)) {
+//		mes "[" + getarg(0) + "]";
+//		mes "No se como le has hecho";
+//		mes "pero deves primero";
+//		mes "identificar tu item";
+//		mes "para despues refinarlo";
+//		close;
+//	}
+	//REVISA SI ESTA +20 +10
+	if(getequiprefinerycnt(4) >= 20) {
+		mes "[" + getarg(0) + "]";
+		mes "Ya no puedo hacer mas con";
+		mes "ese item ya esta refinado a +20";
+		close;
+	}
+	
+	//set .@refineitemid, getequipid(.@part); // Guarda el id del item
+	//set .@refinerycnt, getequiprefinerycnt(.@part); //cuenta el refinado xD
+	set .@material,984;
+	set .@cantidad,10; 
+	
+	if(.@features != 1) {
+		mes "[" + getarg(0) + "]";
+		mes "lo que nesesitas para refinar es";
+		mes "10 ^003366"+getitemname(.@material)+"^000000";
+		mes "Estas seguro que deseas continuar?";
+		next;
+		if(select("Si:No") == 2){
+			mes "[" + getarg(0) + "]";
+			mes "see...";
+			mes "como tu quieras";
+			mes "asi no perdere tanto tiempo.";
+			close;
+		}
+		
+		if(countitem(.@material)<.@cantidad)goto falta;
+		delitem .@material,.@cantidad;
+		mes "["+getarg(0)+"]";
+		successrefitem 4;
+		Emotion e_heh;
+		set .@win,rand(1,3);
+		if (.@win == 1) {
+			mes "["+getarg(0)+"]";
+			mes "Perfecto!";
+			mes "Heh heh!";
+			mes "Todo salio bien,";
+		} else if(.@win == 2) {
+			mes "["+getarg(0)+"]";
+			mes "Terminamos...!";
+			mes "todo salio a la perfeccion";
+			
+		} else {
+			mes "["+getarg(0)+"]";
+			mes "Heh heh!";
+			mes "No se procupe con migo siempre salen las cosas bien.";
+			
+		}
+		close;	
+		
+Han_l:
+	if(!getequipisequiped(3)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento";
+		mes "No tienes equipado";
+		mes "Para que pueda refinar.";
+		emotion 6;
+		close;
+	}
+	//revisa si es refinable...
+	if(!getequipisenableref(3)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento amigo";
+		mes "No puedo trabajar con ese item...";
+		close;
+	}
+	////REVISA SI EL ITEM ESTA IDENTIFICADO XDDD
+	//if(!getequipisidentify(3)) {
+	//	mes "[" + getarg(0) + "]";
+	//	mes "No se como le has hecho";
+	//	mes "pero deves primero";
+	//	mes "identificar tu item";
+	//	mes "para despues refinarlo";
+	//	close;
+	//}
+	//REVISA SI ESTA +20 +10
+	if(getequiprefinerycnt(3) >= 20) {
+		mes "[" + getarg(0) + "]";
+		mes "Ya no puedo hacer mas con";
+		mes "ese item ya esta refinado a +20";
+		close;
+	}
+	
+	//set .@refineitemid, getequipid(.@part); // Guarda el id del item
+	//set .@refinerycnt, getequiprefinerycnt(.@part); //cuenta el refinado xD
+	set .@material,984;
+	set .@cantidad,10; 
+	
+	if(.@features != 1) {
+		mes "[" + getarg(0) + "]";
+		mes "lo que nesesitas para refinar es";
+		mes "10 ^003366"+getitemname(.@material)+"^000000";
+		mes "Estas seguro que deseas continuar?";
+		next;
+		if(select("Si:No") == 2){
+			mes "[" + getarg(0) + "]";
+			mes "see...";
+			mes "como tu quieras";
+			mes "asi no perdere tanto tiempo.";
+			close;
+		}
+		
+		if(countitem(.@material)<.@cantidad)goto falta;
+		delitem .@material,.@cantidad;
+		mes "["+getarg(0)+"]";
+		successrefitem 3;
+		Emotion e_heh;
+		set .@win,rand(1,3);
+		if (.@win == 1) {
+			mes "["+getarg(0)+"]";
+			mes "Perfecto!";
+			mes "Heh heh!";
+			mes "Todo salio bien,";
+		} else if(.@win == 2) {
+			mes "["+getarg(0)+"]";
+			mes "Terminamos...!";
+			mes "todo salio a la perfeccion";
+			
+		} else {
+			mes "["+getarg(0)+"]";
+			mes "Heh heh!";
+			mes "No se procupe con migo siempre salen las cosas bien.";
+			
+		}
+		close;	
+		
+Gar_g:
+	if(!getequipisequiped(5)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento";
+		mes "No tienes equipado";
+		mes "Para que pueda refinar.";
+		emotion 6;
+		close;
+	}
+	//revisa si es refinable...
+	if(!getequipisenableref(5)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento amigo";
+		mes "No puedo trabajar con ese item...";
+		close;
+	}
+	//REVISA SI EL ITEM ESTA IDENTIFICADO XDDD
+	//if(!getequipisidentify(5)) {
+	//	mes "[" + getarg(0) + "]";
+	//	mes "No se como le has hecho";
+	//	mes "pero deves primero";
+	//	mes "identificar tu item";
+	//	mes "para despues refinarlo";
+	//	close;
+	//}
+	//REVISA SI ESTA +20 +10
+	if(getequiprefinerycnt(5) >= 5) {
+		mes "[" + getarg(0) + "]";
+		mes "Ya no puedo hacer mas con";
+		mes "ese item ya esta refinado a +5";
+		close;
+	}
+	
+	//set .@refineitemid, getequipid(.@part); // Guarda el id del item
+	//set .@refinerycnt, getequiprefinerycnt(.@part); //cuenta el refinado xD
+	set .@material,985;
+	set .@cantidad,10; 
+	
+	if(.@features != 1) {
+		mes "[" + getarg(0) + "]";
+		mes "lo que nesesitas para refinar es";
+		mes "10 ^003366"+getitemname(.@material)+"^000000";
+		mes "Estas seguro que deseas continuar?";
+		next;
+		if(select("Si:No") == 2){
+			mes "[" + getarg(0) + "]";
+			mes "see...";
+			mes "como tu quieras";
+			mes "asi no perdere tanto tiempo.";
+			close;
+		}
+		
+		if(countitem(.@material)<.@cantidad)goto falta;
+		delitem .@material,.@cantidad;
+		mes "["+getarg(0)+"]";
+		successrefitem 5;
+		Emotion e_heh;
+		set .@win,rand(1,3);
+		if (.@win == 1) {
+			mes "["+getarg(0)+"]";
+			mes "Perfecto!";
+			mes "Heh heh!";
+			mes "Todo salio bien,";
+		} else if(.@win == 2) {
+			mes "["+getarg(0)+"]";
+			mes "Terminamos...!";
+			mes "todo salio a la perfeccion";
+			
+		} else {
+			mes "["+getarg(0)+"]";
+			mes "Heh heh!";
+			mes "No se procupe con migo siempre salen las cosas bien.";
+			
+		}
+		close;
+Bot_b:
+	if(!getequipisequiped(6)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento";
+		mes "No tienes equipado";
+		mes "Para que pueda refinar.";
+		emotion 6;
+		close;
+	}
+	//revisa si es refinable...
+	if(!getequipisenableref(6)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento amigo";
+		mes "No puedo trabajar con ese item...";
+		close;
+	}
+	//REVISA SI EL ITEM ESTA IDENTIFICADO XDDD
+	//if(!getequipisidentify(6)) {
+	//	mes "[" + getarg(0) + "]";
+	//	mes "No se como le has hecho";
+	//	mes "pero deves primero";
+	//	mes "identificar tu item";
+	//	mes "para despues refinarlo";
+	//	close;
+	//}
+	//REVISA SI ESTA +20 +10
+	if(getequiprefinerycnt(1) >= 10) {
+		mes "[" + getarg(0) + "]";
+		mes "Ya no puedo hacer mas con";
+		mes "ese item ya esta refinado a +10";
+		close;
+	}
+	
+	//set .@refineitemid, getequipid(.@part); // Guarda el id del item
+	//set .@refinerycnt, getequiprefinerycnt(.@part); //cuenta el refinado xD
+	set .@material,985;
+	set .@cantidad,10; 
+	
+	if(.@features != 1) {
+		mes "[" + getarg(0) + "]";
+		mes "lo que nesesitas para refinar es";
+		mes "10 ^003366"+getitemname(.@material)+"^000000";
+		mes "Estas seguro que deseas continuar?";
+		next;
+		if(select("Si:No") == 2){
+			mes "[" + getarg(0) + "]";
+			mes "see...";
+			mes "como tu quieras";
+			mes "asi no perdere tanto tiempo.";
+			close;
+		}
+		
+		if(countitem(.@material)<.@cantidad)goto falta;
+		delitem .@material,.@cantidad;
+		mes "["+getarg(0)+"]";
+		successrefitem 6;
+		Emotion e_heh;
+		set .@win,rand(1,3);
+		if (.@win == 1) {
+			mes "["+getarg(0)+"]";
+			mes "Perfecto!";
+			mes "Heh heh!";
+			mes "Todo salio bien,";
+		} else if(.@win == 2) {
+			mes "["+getarg(0)+"]";
+			mes "Terminamos...!";
+			mes "todo salio a la perfeccion";
+			
+		} else {
+			mes "["+getarg(0)+"]";
+			mes "Heh heh!";
+			mes "No se procupe con migo siempre salen las cosas bien.";
+			
+		}
+		close;	
+Acc_i:
+	if(!getequipisequiped(7)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento";
+		mes "No tienes equipado";
+		mes "Para que pueda refinar.";
+		emotion 6;
+		close;
+	}
+	//revisa si es refinable...
+	if(!getequipisenableref(7)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento amigo";
+		mes "No puedo trabajar con ese item...";
+		close;
+	}
+	//REVISA SI EL ITEM ESTA IDENTIFICADO XDDD
+	//if(!getequipisidentify(7)) {
+	//	mes "[" + getarg(0) + "]";
+	//	mes "No se como le has hecho";
+	//	mes "pero deves primero";
+	//	mes "identificar tu item";
+	//	mes "para despues refinarlo";
+	//	close;
+	//}
+	//REVISA SI ESTA +20 +10
+	if(getequiprefinerycnt(1) >= 10) {
+		mes "[" + getarg(0) + "]";
+		mes "Ya no puedo hacer mas con";
+		mes "ese item ya esta refinado a +10";
+		close;
+	}
+	
+	//set .@refineitemid, getequipid(.@part); // Guarda el id del item
+	//set .@refinerycnt, getequiprefinerycnt(.@part); //cuenta el refinado xD
+	set .@material,985;
+	set .@cantidad,10; 
+	
+	if(.@features != 1) {
+		mes "[" + getarg(0) + "]";
+		mes "lo que nesesitas para refinar es";
+		mes "10 ^003366"+getitemname(.@material)+"^000000";
+		mes "Estas seguro que deseas continuar?";
+		next;
+		if(select("Si:No") == 2){
+			mes "[" + getarg(0) + "]";
+			mes "see...";
+			mes "como tu quieras";
+			mes "asi no perdere tanto tiempo.";
+			close;
+		}
+		
+		if(countitem(.@material)<.@cantidad)goto falta;
+		delitem .@material,.@cantidad;
+		mes "["+getarg(0)+"]";
+		successrefitem 7;
+		Emotion e_heh;
+		set .@win,rand(1,3);
+		if (.@win == 1) {
+			mes "["+getarg(0)+"]";
+			mes "Perfecto!";
+			mes "Heh heh!";
+			mes "Todo salio bien,";
+		} else if(.@win == 2) {
+			mes "["+getarg(0)+"]";
+			mes "Terminamos...!";
+			mes "todo salio a la perfeccion";
+			
+		} else {
+			mes "["+getarg(0)+"]";
+			mes "Heh heh!";
+			mes "No se procupe con migo siempre salen las cosas bien.";
+			
+		}
+		close;	
+			
+Acc_d:
+	if(!getequipisequiped(8)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento";
+		mes "No tienes equipado";
+		mes "Para que pueda refinar.";
+		emotion 6;
+		close;
+	}
+	//revisa si es refinable...
+	if(!getequipisenableref(8)) {
+		mes "[" + getarg(0) + "]";
+		mes "Lo siento amigo";
+		mes "No puedo trabajar con ese item...";
+		close;
+	}
+	//REVISA SI EL ITEM ESTA IDENTIFICADO XDDD
+	//if(!getequipisidentify(8)) {
+	//	mes "[" + getarg(0) + "]";
+	//	mes "No se como le has hecho";
+	//	mes "pero deves primero";
+	//	mes "identificar tu item";
+	//	mes "para despues refinarlo";
+	//	close;
+	//}
+	//REVISA SI ESTA +20 +10
+	if(getequiprefinerycnt(1) >= 10) {
+		mes "[" + getarg(0) + "]";
+		mes "Ya no puedo hacer mas con";
+		mes "ese item ya esta refinado a +10";
+		close;
+	}
+	
+	//set .@refineitemid, getequipid(.@part); // Guarda el id del item
+	//set .@refinerycnt, getequiprefinerycnt(.@part); //cuenta el refinado xD
+	set .@material,985;
+	set .@cantidad,10; 
+	
+	if(.@features != 1) {
+		mes "[" + getarg(0) + "]";
+		mes "lo que nesesitas para refinar es";
+		mes "10 ^003366"+getitemname(.@material)+"^000000";
+		mes "Estas seguro que deseas continuar?";
+		next;
+		if(select("Si:No") == 2){
+			mes "[" + getarg(0) + "]";
+			mes "see...";
+			mes "como tu quieras";
+			mes "asi no perdere tanto tiempo.";
+			close;
+		}
+		
+		if(countitem(.@material)<.@cantidad)goto falta;
+		delitem .@material,.@cantidad;
+		mes "["+getarg(0)+"]";
+		successrefitem 8;
+		Emotion e_heh;
+		set .@win,rand(1,3);
+		if (.@win == 1) {
+			mes "["+getarg(0)+"]";
+			mes "Perfecto!";
+			mes "Heh heh!";
+			mes "Todo salio bien,";
+		} else if(.@win == 2) {
+			mes "["+getarg(0)+"]";
+			mes "Terminamos...!";
+			mes "todo salio a la perfeccion";
+			
+		} else {
+			mes "["+getarg(0)+"]";
+			mes "Heh heh!";
+			mes "No se procupe con migo siempre salen las cosas bien.";
+			
+		}
+		close;	
+			
+		
+		
+		
+		
+falta:
+	mes "Lo siento amigo no tienes los items que nesesito para refinar";
+	close;
+}
+
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+
+//==============================================================================
+//= NPC POSICIONES
+//==============================================================================
+prontera,147,160,4	script	Refinador	85,{
+	set @nombre$,"Nicolas";
+	callfunc "refinemain","Nicolas",0;
+	end;
+}

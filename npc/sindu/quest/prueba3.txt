@@ -1,0 +1,132 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+quest.gat,41,34,7	script	Arem	748,{
+mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+mes "Te gustaria realizar esta quest?";
+mes "Antes que nada te informo que no será sencilla";
+mes "Quieres saver mas?";
+next;
+menu "Si",abc,"No",abc1,"Que es un Observer",abc2;
+abc:
+mes "Ok necesito que juntes unos ítems para un amigo, ya que yo no eh podido llevárselos te daré algunos pero tu tienes que encargarte de llevarle los demás vale!";
+next;
+mes "Su nombre es BRUNE y solo se que vive en geffen";
+mes "Esto tienes q llevarle, el se encargara de decir lo que falta";
+next;
+menu "Tomar las cosas",abc10,"No tomarlas",abc11;
+abc10:
+getitem 5102,1;
+getitem 5516,1;
+next;
+abc11:
+next;
+mes "Ok recuerda que nesesitas llevarle los items";
+next;
+mes "suerte en tu busqueda preguntale por el robo eye el puede crearlos creo...";
+next;
+menu "Gracias ire a buscarle",abc3,"Tengo el Item que ocupas",abc4;
+abc3:
+mes "Vale con cuidado!";
+close;
+abc2:
+mes "Es un rastreador, te permite ver el nivel de poder de tus enemigos no se podran esconder de ti, tambien te da grandes poderes";
+next;
+mes "Que!! quieres saver los effectos stats y skill que brinda...? No lo creo haslo si gustas!";
+close;
+abc4:
+mes "Enserio tienes el item que nesesito? olle casi lo olvido tambien seran 10 pc";
+mes "Beamos si las tienes!";
+next;
+if(countitem(32101)<1)goto falta;
+if(countitem(7539)<10)goto falta;
+mes "Enserio tienes todo WOoow jeje escoje el color del Observer que quieras!";
+menu "Negro",sopa,"Azul",sopa1,"Cyan",sopa2,"Dorado",sopa3,"Verde",sopa4,"Purpura",sopa5,"Rojo",sopa6;
+next;
+sopa:
+delitem 32101,1;
+delitem 7539,10;
+getitem 31908,1;
+next;
+mes "Aqui esta el Item Gracias!";
+close;
+sopa1:
+delitem 32101,1;
+delitem 7539,10;
+getitem 31917,1;
+next;
+mes "Aqui esta el Item Gracias!";
+close;
+sopa2:
+delitem 32101,1;
+delitem 7539,10;
+getitem 31926,1;
+next;
+mes "Aqui esta el Item Gracias!";
+close;
+sopa3:
+delitem 32101,1;
+delitem 7539,10;
+getitem 31974,1;
+next;
+mes "Aqui esta el Item Gracias!";
+close;
+sopa4:
+delitem 32101,1;
+delitem 7539,10;
+getitem 31983,1;
+next;
+mes "Aqui esta el Item Gracias!";
+close;
+sopa5:
+delitem 32101,1;
+delitem 7539,10;
+getitem 32029,1;
+next;
+mes "Aqui esta el Item Gracias!";
+close;
+sopa6:
+delitem 32101,1;
+delitem 7539,10;
+getitem 32038,1;
+next;
+mes "Aqui esta el Item Gracias!";
+close;
+
+
+falta:
+mes "Creo que algo te falta revisa vien tu inventario";
+close;
+abc1:
+mes "Vale no hay problema";
+close;
+//OBSERVER MID's Hat's
+//31908
+//31917
+//31926
+//31974
+//31983
+//32029
+//32038
+//ROBO EYE  MID HAT's
+//31909
+//31918
+//31929
+//31975
+//31984
+//32030
+//32039
+
+end;
+
+}
+prontera,231,62,7	duplicate(Arem)	Arem#01	748

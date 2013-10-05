@@ -1,0 +1,82 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+gef_dun00,88,106,1	script	Aldo	848,{
+mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+mes "Me llamo ALdo";
+mes "Que te trae por este lugar andas en busca de hat de Capricornio?";
+next;
+menu "No solo pasaba",abc1,"Si quiero el hat",abc2;
+next;
+abc2:
+mes "Entiendo entonces hablaste ya con Travel debió darte algo para mi cierto! Muéstramelo si lo tienes y te diré como crear este hat";
+next;
+if(countitem(12350)<1)goto falta1;
+next;
+delitem 12350,1;
+next;
+mes "Bien Para hacer esta quest necesitaras traerme ítems que salen en las 3 cavernas de este lugar";
+mes "Espero estes dispuesto a recolectarmelos";
+mes "Te dire lo que nesesitaras";
+next;
+mes "100 Poison Spore";
+mes "100 Horrendous Mouth";
+mes "100 Pumpkin";
+mes "100 Little Evil Horn";
+mes "100 Horseshoe";
+mes "Claro tambien ocupare unp poco de zeny";
+mes "Te parese bien 100 millones";
+mes "Eso Seria todo yo te dare acambio 2000 tiket's que le entregaras a Travel tambien te pedira 15 pc";
+next;
+mes "El ocupa Organizar las grandes fiestas de Halloween para ello los tiket's";
+next;
+menu "Ok lo intentare",abc3,"Ya lo tengo!",abc4;
+next;
+abc4:
+mes "Enserio ya los tienes... dejame verlos";
+next;
+if(countitem(7033)<100)goto falta;
+if(countitem(958)<100)goto falta;
+if(countitem(535)<100)goto falta;
+if(countitem(1038)<100)goto falta;
+if(countitem(944)<100)goto falta;
+if(Zeny<100000000) goto falta;
+next;
+mes "ok ^5555FF" + strcharinfo(0) + "^000000!...GRACIAS POR TODO";
+mes "aqui estan tus tiket's";
+next;
+set Zeny, Zeny-100000000;
+delitem 7033,100;
+delitem 958,100;
+delitem 535,100;
+delitem 1038,100;
+delitem 944,100;
+getitem 7941,1750;
+close;
+
+
+falta:
+mes "Es una pena creo que aun no tienes todo loq que te pedi";
+close;
+abc3:
+mes "Si esfuerzate valdra la pena";
+close;
+falta1:
+mes "O que pena no tienes ninguna poción de ángel travel te dirá como conseguirla buena suerte";
+close;
+abc1:
+mes "ok mucha suerte viajero";
+close;
+
+end;
+
+}

@@ -1,0 +1,1039 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+twister	mapflag	nosave	SavePoint
+twister	mapflag	noskill
+twister	mapflag	noteleport
+twister	mapflag	nowarp
+twister	mapflag	nowarpto
+twister	mapflag	nomemo
+twister	mapflag	noreturn
+twister	mapflag	nosave	SavePoint
+twister	mapflag	nobranch
+
+twister,50,50,5	script	Twister	715,{
+mes "Twister";
+mes "Felicidades y gracias por participar";
+getitem 7539,3;
+close2;
+warp "prontera",150,150;
+sleep2 5000;
+announce "Twister: El ganador del evento de Twister ha sido "+strcharinfo(0)+", Felicidades.",bc_all,0x00ffff;
+hideonnpc "Twister";
+end;
+
+OnInit:
+	hideonnpc "Twister";
+	end;
+
+}//fin premio
+
+prontera,156,227,0	script	twPortal	45,2,2,{
+
+OnTouch:
+warp "twister",50,50; //Portal Evento Poring.
+end;
+
+OnInit:
+	hideonnpc "twPortal";
+	movenpc "twPortal",83,363;
+	end;
+}
+
+
+-	script	Pruebas	-1,{
+OnClock0801:
+OnClock1201:
+OnClock1601:
+OnClock2001:
+OnClock0001:
+OnClock0401:
+donpcevent "Pruebas::OnLcktw";
+end;
+
+
+OnLcktw:
+	hideoffnpc "twPortal";
+	movenpc "twPortal",156,227;
+	set $Encendido,6;
+	announce "Twister: El evento de Twister va a comenzar.",bc_npc,0x00ffff;
+	sleep2 5000;
+	announce "Twister: Tienen menos de 2 minutos para entrar por el portal que esta al norte de la plaza de prontera.",bc_npc,0x00ffff;
+	sleep2 25000;
+	announce "Twister: Queda 1 minuto y 30 segundos para que el portal que esta al norte de la plaza de prontera se cierre.",bc_npc,0x00ffff;
+	sleep2 30000;
+	announce "Twister: Queda 1 minuto para que el portal que esta al norte de la plaza de prontera se cierre.",bc_npc,0x00ffff;
+	sleep2 30000;
+	announce "Twister: Quedan 30 segundos para que el portal que esta al norte de la plaza de prontera se cierre.",bc_npc,0x00ffff;
+	sleep2 20000;
+	announce "Twister: Quedan 10 segundos para que el portal que esta al norte de la plaza de prontera se cierre.",bc_npc,0x00ffff;
+	sleep2 5000;
+	announce "Twister: 5 segundos.",bc_npc,0x00ffff;
+	sleep2 1000;
+	announce "Twister: 4 segundos.",bc_npc,0x00ffff;
+	sleep2 1000;
+	announce "Twister: 3 segundos.",bc_npc,0x00ffff;
+	sleep2 1000;
+	announce "Twister: 2 segundos.",bc_npc,0x00ffff;
+	sleep2 1000;
+	announce "Twister: 1 segundo.",bc_npc,0x00ffff;
+	sleep2 1000;
+	announce "Twister: El portal para el evento de Twister ha sido cerrado.",bc_npc,0x00ffff;
+	hideonnpc "twPortal";
+	movenpc "twPortal",83,363;
+	donpcevent "Pruebas::OnTwist";
+	end;
+
+
+
+OnTwist:
+	sleep2 5000;
+	if(getmapusers("twister") == 0){
+	sleep2 5000;
+	announce "Twister: Lastima nadie asistio al eventos.",bc_all,0x00ffff;
+	end;
+	}
+	mapannounce "twister","Twister: Bienvenido al evento Twister.",bc_map,0x00ffff;
+	sleep2 5000;
+	mapannounce "twister","Twister: Antes de comenzar, explicare brevemente de que trata el evento.",bc_map,0x00ffff;
+	sleep2 5000;
+	mapannounce "twister","Twister: Se dictara un color al azar y si no estas en ese color en 2 segundos perderas.",bc_map,0x00ffff;
+	sleep2 5000;
+	mapannounce "twister","Twister: Se iran dictando colores hasta que solo quede una persona en el mapa.",bc_map,0x00ffff;
+	sleep2 5000;
+	mapannounce "twister","Twister: Eso es todo, ojala se diviertan y que gane el mas agil.",bc_map,0x00ffff;
+	set $Encendido,1;
+	sleep2 3000;
+	mapwarp "twister","twister",0,0;
+	donpcevent "Pruebas::OnIniciar";
+	end;
+	
+	
+OnIniciar:	
+	set $colorD,rand(1,4);
+	sleep2 5000;
+	set $Encendido,1;
+	if($colorD == 1){
+	mapannounce "twister","Twister: El color elejido es Morado .",bc_map,0x00ffff;
+	set $Escojido,5;
+	goto Countaree;
+	}
+	if($colorD == 2){
+	mapannounce "twister","Twister: El color elejido es Verde .",bc_map,0x00ffff;
+	set $Escojido,10;
+	goto Countaree;
+	}
+	if($colorD == 3){
+	mapannounce "twister","Twister: El color elejido es Azul .",bc_map,0x00ffff;
+	set $Escojido,15;
+	goto Countaree;
+	}
+	if($colorD == 4){
+	mapannounce "twister","Twister: El color elejido es Amarillo .",bc_map,0x00ffff;
+	set $Escojido,20;
+	goto Countaree;
+	}
+Countaree:
+	sleep2 500;
+	mapannounce "twister","Twister: 1 segundo.",bc_map,0x00ffff;
+	sleep2 1000;
+	mapannounce "twister","Twister: 2 segundos.",bc_map,0x00ffff;
+	sleep2 500;
+	set $Encendido,6;
+	sleep2 7000;
+	if(getmapusers("twister") == 0){
+	announce "Twister: Lastima nadie gano el evento.",bc_all,0x00ffff;
+	end;
+	}
+	if(getmapusers("twister") == 1){
+	hideoffnpc "Twister";
+	mapannounce "twister","Twister: Felicidades acude al centro del mapa para reclamar tu premio.",bc_map,0x00ffff;
+	end;
+	}
+	if(getmapusers("twister") > 1){
+	mapannounce "twister","Twister: Siguiente ronda dictare otro color.",bc_map,0x00ffff;
+	set $Encendido,1;
+	sleep2 2000;
+	mapwarp "twister","twister",0,0;
+	sleep2 5000;
+	donpcevent "Pruebas::OnIniciar";
+	end;
+	}
+	
+	end;
+	
+	
+
+OnInit:
+set $Encendido,6;
+end;
+
+
+}//fin pruebas
+
+//Colores
+//Morado 5
+//verde  10
+//azul   15
+//amarillo 20
+
+
+-	script	TwistMorado	-1,{
+OnTouch:
+if($Encendido == 6)end;
+if(colortwis == 5)end;
+set colortwis,5;
+switch(rand(1,10)) {
+		Case 1:
+			goto SeguirMorado;
+			end;
+		Case 9:
+			sc_start SC_CONFUSION,1500,0;
+			emotion e_swt2,1;
+			goto SeguirMorado;
+		Case 2:
+			sc_start SC_STONE,1500,0;
+			goto SeguirMorado;
+			end;
+		Case 4:
+			sc_start SC_SLEEP,1500,0;
+			goto SeguirMorado;
+			end;
+		Case 6:
+			goto SeguirMorado;
+			end;
+		Case 3:
+		goto SeguirMorado;
+			end;
+		Case 5:
+		goto SeguirMorado;
+			end;
+		Case 7:
+			sc_start SC_FREEZE,1500,0;
+			emotion e_swt2,1;
+			goto SeguirMorado;
+			end;
+		Case 8:
+			sc_start SC_STUN,1500,0;
+			goto SeguirMorado;
+			end;
+		Case 10:
+			sc_start SC_CURSE,1500,0;
+			goto SeguirMorado;
+			end;
+		default:
+			goto SeguirMorado;
+			end;
+	}
+SeguirMorado:
+while (colortwis == 5) {
+		sleep2 1000;
+		if($Encendido != 6)set NoSacare,3;
+		if($Encendido == 6){
+		if(colortwis != $Escojido){
+			if(NoSacare == 1)end;
+			specialeffect2 30;
+			percentheal -100,-100;
+			sleep2 2000;
+			warp "prontera",150,150;
+			end;
+			}
+			set NoSacare,1;
+		end;
+		}
+	}
+end;
+
+}//fin morado
+
+
+-	script	TwistVerde	-1,{
+OnTouch:
+if($Encendido == 6)end;
+if(colortwis == 10)end;
+set colortwis,10;
+switch(rand(1,10)) {
+		Case 1:
+			goto SeguirVerde;
+			end;
+		Case 9:
+			sc_start SC_CONFUSION,1500,0;
+			emotion e_swt2,1;
+			goto SeguirVerde;
+		Case 2:
+			sc_start SC_STONE,1500,0;
+			goto SeguirVerde;
+			end;
+		Case 4:
+			sc_start SC_SLEEP,1500,0;
+			goto SeguirVerde;
+			end;
+		Case 6:
+			goto SeguirVerde;
+			end;
+		Case 3:
+		goto SeguirVerde;
+			end;
+		Case 5:
+		goto SeguirVerde;
+			end;
+		Case 7:
+			sc_start SC_FREEZE,1500,0;
+			emotion e_swt2,1;
+			goto SeguirVerde;
+			end;
+		Case 8:
+			sc_start SC_STUN,1500,0;
+			goto SeguirVerde;
+			end;
+		Case 10:
+			sc_start SC_CURSE,1500,0;
+			goto SeguirVerde;
+			end;
+		default:
+			goto SeguirVerde;
+			end;
+	}
+SeguirVerde:
+while (colortwis == 10) {
+		sleep2 1000;
+		if($Encendido != 6)set NoSacare,3;
+		if($Encendido == 6){
+		if(colortwis != $Escojido){
+			if(NoSacare == 1)end;
+			specialeffect2 30;
+			percentheal -100,-100;
+			sleep2 2000;
+			warp "prontera",150,150;
+			end;
+			}
+			set NoSacare,1;
+		end;
+		}
+	}
+end;
+}//fin Verde
+-	script	TwistAzul	-1,{
+OnTouch:
+if($Encendido == 6)end;
+if(colortwis == 15)end;
+set colortwis,15;
+switch(rand(1,10)) {
+		Case 1:
+			goto SeguirAzul;
+			end;
+		Case 9:
+			sc_start SC_CONFUSION,1500,0;
+			emotion e_swt2,1;
+			goto SeguirAzul;
+		Case 2:
+			sc_start SC_STONE,1500,0;
+			goto SeguirAzul;
+			end;
+		Case 4:
+			sc_start SC_SLEEP,1500,0;
+			goto SeguirAzul;
+			end;
+		Case 6:
+			goto SeguirAzul;
+			end;
+		Case 3:
+		goto SeguirAzul;
+			end;
+		Case 5:
+		goto SeguirAzul;
+			end;
+		Case 7:
+			sc_start SC_FREEZE,1500,0;
+			emotion e_swt2,1;
+			goto SeguirAzul;
+			end;
+		Case 8:
+			sc_start SC_STUN,1500,0;
+			goto SeguirAzul;
+			end;
+		Case 10:
+			sc_start SC_CURSE,1500,0;
+			goto SeguirAzul;
+			end;
+		default:
+			goto SeguirAzul;
+			end;
+	}
+SeguirAzul:
+while (colortwis == 15) {
+		sleep2 1000;
+		if($Encendido != 6)set NoSacare,3;
+		if($Encendido == 6){
+		if(colortwis != $Escojido){
+			if(NoSacare == 1)end;
+			specialeffect2 30;
+			percentheal -100,-100;
+			sleep2 2000;
+			warp "prontera",150,150;
+			end;
+			}
+			set NoSacare,1;
+		end;
+		}
+	}
+end;
+}//fin Azul
+
+-	script	TwistAmarillo	-1,{
+OnTouch:
+if($Encendido == 6)end;
+if(colortwis == 20)end;
+set colortwis,20;
+switch(rand(1,10)) {
+		Case 1:
+			goto SeguirAmarillo;
+			end;
+		Case 9:
+			sc_start SC_CONFUSION,1500,0;
+			emotion e_swt2,1;
+			goto SeguirAmarillo;
+		Case 2:
+			sc_start SC_STONE,1500,0;
+			goto SeguirAmarillo;
+			end;
+		Case 4:
+			sc_start SC_SLEEP,1500,0;
+			goto SeguirAmarillo;
+			end;
+		Case 6:
+			goto SeguirAmarillo;
+			end;
+		Case 3:
+		goto SeguirAmarillo;
+			end;
+		Case 5:
+		goto SeguirAmarillo;
+			end;
+		Case 7:
+			sc_start SC_FREEZE,1500,0;
+			emotion e_swt2,1;
+			goto SeguirAmarillo;
+			end;
+		Case 8:
+			sc_start SC_STUN,1500,0;
+			goto SeguirAmarillo;
+			end;
+		Case 10:
+			sc_start SC_CURSE,1500,0;
+			goto SeguirAmarillo;
+			end;
+		default:
+			goto SeguirAmarillo;
+			end;
+	}
+SeguirAmarillo:
+while (colortwis == 20) {
+		sleep2 1000;
+		if($Encendido != 6)set NoSacare,3;
+		if($Encendido == 6){
+		if(colortwis != $Escojido){
+			if(NoSacare == 1)end;
+			specialeffect2 30;
+			percentheal -100,-100;
+			sleep2 2000;
+			warp "prontera",150,150;
+			end;
+			}
+			set NoSacare,1;
+		end;
+		}
+	}
+end;
+
+}//fin Amarillo
+
+//=======Morado=========
+twister,72,28,0	duplicate(TwistMorado)	TwistMorado#7	-1,1,1
+twister,72,26,0	duplicate(TwistMorado)	TwistMorado#8	-1,1,0
+twister,70,28,0	duplicate(TwistMorado)	TwistMorado#9	-1,0,1
+twister,70,26,0	duplicate(TwistMorado)	TwistMorado#10	-1,0,0
+twister,56,28,0	duplicate(TwistMorado)	TwistMorado#11	-1,1,1
+twister,56,26,0	duplicate(TwistMorado)	TwistMorado#12	-1,1,0
+twister,54,28,0	duplicate(TwistMorado)	TwistMorado#13	-1,0,1
+twister,54,26,0	duplicate(TwistMorado)	TwistMorado#14	-1,0,0
+twister,40,28,0	duplicate(TwistMorado)	TwistMorado#15	-1,1,1
+twister,40,26,0	duplicate(TwistMorado)	TwistMorado#16	-1,1,0
+twister,38,28,0	duplicate(TwistMorado)	TwistMorado#17	-1,0,1
+twister,38,26,0	duplicate(TwistMorado)	TwistMorado#18	-1,0,0
+twister,68,32,0	duplicate(TwistMorado)	TwistMorado#20	-1,1,1
+twister,68,30,0	duplicate(TwistMorado)	TwistMorado#21	-1,1,0
+twister,66,32,0	duplicate(TwistMorado)	TwistMorado#22	-1,0,1
+twister,66,30,0	duplicate(TwistMorado)	TwistMorado#23	-1,0,0
+twister,52,32,0	duplicate(TwistMorado)	TwistMorado#24	-1,1,1
+twister,52,30,0	duplicate(TwistMorado)	TwistMorado#25	-1,1,0
+twister,50,32,0	duplicate(TwistMorado)	TwistMorado#26	-1,0,1
+twister,50,30,0	duplicate(TwistMorado)	TwistMorado#27	-1,0,0
+twister,36,32,0	duplicate(TwistMorado)	TwistMorado#28	-1,1,1
+twister,36,30,0	duplicate(TwistMorado)	TwistMorado#29	-1,1,0
+twister,34,32,0	duplicate(TwistMorado)	TwistMorado#30	-1,0,1
+twister,34,30,0	duplicate(TwistMorado)	TwistMorado#31	-1,0,0
+twister,64,36,0	duplicate(TwistMorado)	TwistMorado#32	-1,1,1
+twister,64,34,0	duplicate(TwistMorado)	TwistMorado#33	-1,1,0
+twister,62,36,0	duplicate(TwistMorado)	TwistMorado#34	-1,0,1
+twister,62,34,0	duplicate(TwistMorado)	TwistMorado#35	-1,0,0
+twister,48,36,0	duplicate(TwistMorado)	TwistMorado#36	-1,1,1
+twister,48,34,0	duplicate(TwistMorado)	TwistMorado#37	-1,1,0
+twister,46,36,0	duplicate(TwistMorado)	TwistMorado#38	-1,0,1
+twister,46,34,0	duplicate(TwistMorado)	TwistMorado#39	-1,0,0
+twister,32,36,0	duplicate(TwistMorado)	TwistMorado#40	-1,1,1
+twister,32,34,0	duplicate(TwistMorado)	TwistMorado#41	-1,1,0
+twister,30,36,0	duplicate(TwistMorado)	TwistMorado#42	-1,0,1
+twister,30,34,0	duplicate(TwistMorado)	TwistMorado#43	-1,0,0
+twister,60,40,0	duplicate(TwistMorado)	TwistMorado#44	-1,1,1
+twister,60,38,0	duplicate(TwistMorado)	TwistMorado#45	-1,1,0
+twister,58,40,0	duplicate(TwistMorado)	TwistMorado#46	-1,0,1
+twister,58,38,0	duplicate(TwistMorado)	TwistMorado#47	-1,0,0
+twister,44,40,0	duplicate(TwistMorado)	TwistMorado#48	-1,1,1
+twister,44,38,0	duplicate(TwistMorado)	TwistMorado#49	-1,1,0
+twister,42,40,0	duplicate(TwistMorado)	TwistMorado#50	-1,0,1
+twister,42,38,0	duplicate(TwistMorado)	TwistMorado#51	-1,0,0
+twister,28,40,0	duplicate(TwistMorado)	TwistMorado#52	-1,1,1
+twister,28,38,0	duplicate(TwistMorado)	TwistMorado#53	-1,1,0
+twister,26,40,0	duplicate(TwistMorado)	TwistMorado#54	-1,0,1
+twister,26,38,0	duplicate(TwistMorado)	TwistMorado#55	-1,0,0
+twister,72,44,0	duplicate(TwistMorado)	TwistMorado#56	-1,1,1
+twister,72,42,0	duplicate(TwistMorado)	TwistMorado#57	-1,1,0
+twister,70,44,0	duplicate(TwistMorado)	TwistMorado#58	-1,0,1
+twister,70,42,0	duplicate(TwistMorado)	TwistMorado#59	-1,0,0
+twister,56,44,0	duplicate(TwistMorado)	TwistMorado#60	-1,1,1
+twister,56,42,0	duplicate(TwistMorado)	TwistMorado#61	-1,1,0
+twister,54,44,0	duplicate(TwistMorado)	TwistMorado#62	-1,0,1
+twister,54,42,0	duplicate(TwistMorado)	TwistMorado#63	-1,0,0
+twister,40,44,0	duplicate(TwistMorado)	TwistMorado#64	-1,1,1
+twister,40,42,0	duplicate(TwistMorado)	TwistMorado#65	-1,1,0
+twister,38,44,0	duplicate(TwistMorado)	TwistMorado#66	-1,0,1
+twister,38,42,0	duplicate(TwistMorado)	TwistMorado#67	-1,0,0
+twister,68,48,0	duplicate(TwistMorado)	TwistMorado#68	-1,1,1
+twister,68,46,0	duplicate(TwistMorado)	TwistMorado#69	-1,1,0
+twister,66,48,0	duplicate(TwistMorado)	TwistMorado#70	-1,0,1
+twister,66,46,0	duplicate(TwistMorado)	TwistMorado#71	-1,0,0
+twister,52,48,0	duplicate(TwistMorado)	TwistMorado#72	-1,1,1
+twister,52,46,0	duplicate(TwistMorado)	TwistMorado#73	-1,1,0
+twister,50,48,0	duplicate(TwistMorado)	TwistMorado#74	-1,0,1
+twister,50,46,0	duplicate(TwistMorado)	TwistMorado#75	-1,0,0
+twister,36,48,0	duplicate(TwistMorado)	TwistMorado#76	-1,1,1
+twister,36,46,0	duplicate(TwistMorado)	TwistMorado#77	-1,1,0
+twister,34,48,0	duplicate(TwistMorado)	TwistMorado#78	-1,0,1
+twister,34,46,0	duplicate(TwistMorado)	TwistMorado#79	-1,0,0
+twister,64,52,0	duplicate(TwistMorado)	TwistMorado#80	-1,1,1
+twister,64,50,0	duplicate(TwistMorado)	TwistMorado#81	-1,1,0
+twister,62,52,0	duplicate(TwistMorado)	TwistMorado#82	-1,0,1
+twister,62,50,0	duplicate(TwistMorado)	TwistMorado#83	-1,0,0
+twister,48,52,0	duplicate(TwistMorado)	TwistMorado#84	-1,1,1
+twister,48,50,0	duplicate(TwistMorado)	TwistMorado#85	-1,1,0
+twister,46,52,0	duplicate(TwistMorado)	TwistMorado#86	-1,0,1
+twister,46,50,0	duplicate(TwistMorado)	TwistMorado#87	-1,0,0
+twister,32,52,0	duplicate(TwistMorado)	TwistMorado#88	-1,1,1
+twister,32,50,0	duplicate(TwistMorado)	TwistMorado#89	-1,1,0
+twister,30,52,0	duplicate(TwistMorado)	TwistMorado#90	-1,0,1
+twister,30,50,0	duplicate(TwistMorado)	TwistMorado#91	-1,0,0
+twister,60,56,0	duplicate(TwistMorado)	TwistMorado#501	-1,1,1
+twister,60,54,0	duplicate(TwistMorado)	TwistMorado#92	-1,1,0
+twister,58,56,0	duplicate(TwistMorado)	TwistMorado#93	-1,0,1
+twister,58,54,0	duplicate(TwistMorado)	TwistMorado#94	-1,0,0
+twister,44,56,0	duplicate(TwistMorado)	TwistMorado#95	-1,1,1
+twister,44,54,0	duplicate(TwistMorado)	TwistMorado#96	-1,1,0
+twister,42,56,0	duplicate(TwistMorado)	TwistMorado#97	-1,0,1
+twister,42,54,0	duplicate(TwistMorado)	TwistMorado#98	-1,0,0
+twister,28,56,0	duplicate(TwistMorado)	TwistMorado#99	-1,1,1
+twister,28,54,0	duplicate(TwistMorado)	TwistMorado#100	-1,1,0
+twister,26,56,0	duplicate(TwistMorado)	TwistMorado#101	-1,0,1
+twister,26,54,0	duplicate(TwistMorado)	TwistMorado#102	-1,0,0
+twister,72,60,0	duplicate(TwistMorado)	TwistMorado#103	-1,1,1
+twister,72,58,0	duplicate(TwistMorado)	TwistMorado#104	-1,1,0
+twister,70,60,0	duplicate(TwistMorado)	TwistMorado#105	-1,0,1
+twister,70,58,0	duplicate(TwistMorado)	TwistMorado#106	-1,0,0
+twister,56,60,0	duplicate(TwistMorado)	TwistMorado#107	-1,1,1
+twister,56,58,0	duplicate(TwistMorado)	TwistMorado#108	-1,1,0
+twister,54,60,0	duplicate(TwistMorado)	TwistMorado#109	-1,0,1
+twister,54,58,0	duplicate(TwistMorado)	TwistMorado#110	-1,0,0
+twister,40,60,0	duplicate(TwistMorado)	TwistMorado#111	-1,1,1
+twister,40,58,0	duplicate(TwistMorado)	TwistMorado#112	-1,1,0
+twister,38,60,0	duplicate(TwistMorado)	TwistMorado#113	-1,0,1
+twister,38,58,0	duplicate(TwistMorado)	TwistMorado#114	-1,0,0
+twister,68,64,0	duplicate(TwistMorado)	TwistMorado#115	-1,1,1
+twister,68,62,0	duplicate(TwistMorado)	TwistMorado#116	-1,1,0
+twister,66,64,0	duplicate(TwistMorado)	TwistMorado#117	-1,0,1
+twister,66,62,0	duplicate(TwistMorado)	TwistMorado#118	-1,0,0
+twister,52,64,0	duplicate(TwistMorado)	TwistMorado#119	-1,1,1
+twister,52,62,0	duplicate(TwistMorado)	TwistMorado#120	-1,1,0
+twister,50,64,0	duplicate(TwistMorado)	TwistMorado#121	-1,0,1
+twister,50,62,0	duplicate(TwistMorado)	TwistMorado#122	-1,0,0
+twister,36,64,0	duplicate(TwistMorado)	TwistMorado#123	-1,1,1
+twister,36,62,0	duplicate(TwistMorado)	TwistMorado#124	-1,1,0
+twister,34,64,0	duplicate(TwistMorado)	TwistMorado#125	-1,0,1
+twister,34,62,0	duplicate(TwistMorado)	TwistMorado#126	-1,0,0
+twister,64,68,0	duplicate(TwistMorado)	TwistMorado#127	-1,1,1
+twister,64,66,0	duplicate(TwistMorado)	TwistMorado#128	-1,1,0
+twister,62,68,0	duplicate(TwistMorado)	TwistMorado#129	-1,0,1
+twister,62,66,0	duplicate(TwistMorado)	TwistMorado#130	-1,0,0
+twister,48,68,0	duplicate(TwistMorado)	TwistMorado#131	-1,1,1
+twister,48,66,0	duplicate(TwistMorado)	TwistMorado#132	-1,1,0
+twister,46,68,0	duplicate(TwistMorado)	TwistMorado#133	-1,0,1
+twister,46,66,0	duplicate(TwistMorado)	TwistMorado#134	-1,0,0
+twister,32,68,0	duplicate(TwistMorado)	TwistMorado#135	-1,1,1
+twister,32,66,0	duplicate(TwistMorado)	TwistMorado#136	-1,1,0
+twister,30,68,0	duplicate(TwistMorado)	TwistMorado#137	-1,0,1
+twister,30,66,0	duplicate(TwistMorado)	TwistMorado#138	-1,0,0
+twister,60,72,0	duplicate(TwistMorado)	TwistMorado#139	-1,1,1
+twister,60,70,0	duplicate(TwistMorado)	TwistMorado#140	-1,1,0
+twister,58,72,0	duplicate(TwistMorado)	TwistMorado#141	-1,0,1
+twister,58,70,0	duplicate(TwistMorado)	TwistMorado#142	-1,0,0
+twister,44,72,0	duplicate(TwistMorado)	TwistMorado#143	-1,1,1
+twister,44,70,0	duplicate(TwistMorado)	TwistMorado#144	-1,1,0
+twister,42,72,0	duplicate(TwistMorado)	TwistMorado#145	-1,0,1
+twister,42,70,0	duplicate(TwistMorado)	TwistMorado#146	-1,0,0
+twister,28,72,0	duplicate(TwistMorado)	TwistMorado#147	-1,1,1
+twister,28,70,0	duplicate(TwistMorado)	TwistMorado#148	-1,1,0
+twister,26,72,0	duplicate(TwistMorado)	TwistMorado#149	-1,0,1
+twister,26,70,0	duplicate(TwistMorado)	TwistMorado#150	-1,0,0
+//=======Amarillo======
+twister,64,28,0	duplicate(TwistAmarillo)	TwistAmarillo#1	-1,1,1
+twister,64,26,0	duplicate(TwistAmarillo)	TwistAmarillo#2	-1,1,0
+twister,62,28,0	duplicate(TwistAmarillo)	TwistAmarillo#3	-1,0,1
+twister,62,26,0	duplicate(TwistAmarillo)	TwistAmarillo#4	-1,0,0
+twister,48,28,0	duplicate(TwistAmarillo)	TwistAmarillo#5	-1,1,1
+twister,48,26,0	duplicate(TwistAmarillo)	TwistAmarillo#6	-1,1,0
+twister,46,28,0	duplicate(TwistAmarillo)	TwistAmarillo#7	-1,0,1
+twister,46,26,0	duplicate(TwistAmarillo)	TwistAmarillo#8	-1,0,0
+twister,32,28,0	duplicate(TwistAmarillo)	TwistAmarillo#9	-1,1,1
+twister,32,26,0	duplicate(TwistAmarillo)	TwistAmarillo#10	-1,1,0
+twister,30,28,0	duplicate(TwistAmarillo)	TwistAmarillo#11	-1,0,1
+twister,30,26,0	duplicate(TwistAmarillo)	TwistAmarillo#12	-1,0,0
+twister,60,32,0	duplicate(TwistAmarillo)	TwistAmarillo#13	-1,1,1
+twister,60,30,0	duplicate(TwistAmarillo)	TwistAmarillo#14	-1,1,0
+twister,58,32,0	duplicate(TwistAmarillo)	TwistAmarillo#15	-1,0,1
+twister,58,30,0	duplicate(TwistAmarillo)	TwistAmarillo#16	-1,0,0
+twister,44,32,0	duplicate(TwistAmarillo)	TwistAmarillo#17	-1,1,1
+twister,44,30,0	duplicate(TwistAmarillo)	TwistAmarillo#18	-1,1,0
+twister,42,32,0	duplicate(TwistAmarillo)	TwistAmarillo#19	-1,0,1
+twister,42,30,0	duplicate(TwistAmarillo)	TwistAmarillo#20	-1,0,0
+twister,28,32,0	duplicate(TwistAmarillo)	TwistAmarillo#21	-1,1,1
+twister,28,30,0	duplicate(TwistAmarillo)	TwistAmarillo#22	-1,1,0
+twister,26,32,0	duplicate(TwistAmarillo)	TwistAmarillo#23	-1,0,1
+twister,26,30,0	duplicate(TwistAmarillo)	TwistAmarillo#24	-1,0,0
+twister,72,36,0	duplicate(TwistAmarillo)	TwistAmarillo#25	-1,1,1
+twister,72,34,0	duplicate(TwistAmarillo)	TwistAmarillo#26	-1,1,0
+twister,70,36,0	duplicate(TwistAmarillo)	TwistAmarillo#27	-1,0,1
+twister,70,34,0	duplicate(TwistAmarillo)	TwistAmarillo#28	-1,0,0
+twister,56,36,0	duplicate(TwistAmarillo)	TwistAmarillo#29	-1,1,1
+twister,56,34,0	duplicate(TwistAmarillo)	TwistAmarillo#30	-1,1,0
+twister,54,36,0	duplicate(TwistAmarillo)	TwistAmarillo#31	-1,0,1
+twister,54,34,0	duplicate(TwistAmarillo)	TwistAmarillo#32	-1,0,0
+twister,40,36,0	duplicate(TwistAmarillo)	TwistAmarillo#33	-1,1,1
+twister,40,34,0	duplicate(TwistAmarillo)	TwistAmarillo#34	-1,1,0
+twister,38,36,0	duplicate(TwistAmarillo)	TwistAmarillo#35	-1,0,1
+twister,38,34,0	duplicate(TwistAmarillo)	TwistAmarillo#36	-1,0,0
+twister,68,40,0	duplicate(TwistAmarillo)	TwistAmarillo#37	-1,1,1
+twister,68,38,0	duplicate(TwistAmarillo)	TwistAmarillo#38	-1,1,0
+twister,66,40,0	duplicate(TwistAmarillo)	TwistAmarillo#39	-1,0,1
+twister,66,38,0	duplicate(TwistAmarillo)	TwistAmarillo#40	-1,0,0
+twister,52,40,0	duplicate(TwistAmarillo)	TwistAmarillo#41	-1,1,1
+twister,52,38,0	duplicate(TwistAmarillo)	TwistAmarillo#42	-1,1,0
+twister,50,40,0	duplicate(TwistAmarillo)	TwistAmarillo#43	-1,0,1
+twister,50,38,0	duplicate(TwistAmarillo)	TwistAmarillo#44	-1,0,0
+twister,36,40,0	duplicate(TwistAmarillo)	TwistAmarillo#45	-1,1,1
+twister,36,38,0	duplicate(TwistAmarillo)	TwistAmarillo#46	-1,1,0
+twister,34,40,0	duplicate(TwistAmarillo)	TwistAmarillo#47	-1,0,1
+twister,34,38,0	duplicate(TwistAmarillo)	TwistAmarillo#48	-1,0,0
+twister,64,44,0	duplicate(TwistAmarillo)	TwistAmarillo#49	-1,1,1
+twister,64,42,0	duplicate(TwistAmarillo)	TwistAmarillo#50	-1,1,0
+twister,62,44,0	duplicate(TwistAmarillo)	TwistAmarillo#51	-1,0,1
+twister,62,42,0	duplicate(TwistAmarillo)	TwistAmarillo#52	-1,0,0
+twister,48,44,0	duplicate(TwistAmarillo)	TwistAmarillo#53	-1,1,1
+twister,48,42,0	duplicate(TwistAmarillo)	TwistAmarillo#54	-1,1,0
+twister,46,44,0	duplicate(TwistAmarillo)	TwistAmarillo#55	-1,0,1
+twister,46,42,0	duplicate(TwistAmarillo)	TwistAmarillo#56	-1,0,0
+twister,32,44,0	duplicate(TwistAmarillo)	TwistAmarillo#57	-1,1,1
+twister,32,42,0	duplicate(TwistAmarillo)	TwistAmarillo#58	-1,1,0
+twister,30,44,0	duplicate(TwistAmarillo)	TwistAmarillo#59	-1,0,1
+twister,30,42,0	duplicate(TwistAmarillo)	TwistAmarillo#60	-1,0,0
+twister,60,48,0	duplicate(TwistAmarillo)	TwistAmarillo#61	-1,1,1
+twister,60,46,0	duplicate(TwistAmarillo)	TwistAmarillo#62	-1,1,0
+twister,58,48,0	duplicate(TwistAmarillo)	TwistAmarillo#63	-1,0,1
+twister,58,46,0	duplicate(TwistAmarillo)	TwistAmarillo#64	-1,0,0
+twister,44,48,0	duplicate(TwistAmarillo)	TwistAmarillo#65	-1,1,1
+twister,44,46,0	duplicate(TwistAmarillo)	TwistAmarillo#66	-1,1,0
+twister,42,48,0	duplicate(TwistAmarillo)	TwistAmarillo#67	-1,0,1
+twister,42,46,0	duplicate(TwistAmarillo)	TwistAmarillo#68	-1,0,0
+twister,28,48,0	duplicate(TwistAmarillo)	TwistAmarillo#69	-1,1,1
+twister,28,46,0	duplicate(TwistAmarillo)	TwistAmarillo#70	-1,1,0
+twister,26,48,0	duplicate(TwistAmarillo)	TwistAmarillo#71	-1,0,1
+twister,26,46,0	duplicate(TwistAmarillo)	TwistAmarillo#72	-1,0,0
+twister,72,52,0	duplicate(TwistAmarillo)	TwistAmarillo#73	-1,1,1
+twister,72,50,0	duplicate(TwistAmarillo)	TwistAmarillo#74	-1,1,0
+twister,70,52,0	duplicate(TwistAmarillo)	TwistAmarillo#75	-1,0,1
+twister,70,50,0	duplicate(TwistAmarillo)	TwistAmarillo#76	-1,0,0
+twister,56,52,0	duplicate(TwistAmarillo)	TwistAmarillo#77	-1,1,1
+twister,56,50,0	duplicate(TwistAmarillo)	TwistAmarillo#78	-1,1,0
+twister,54,52,0	duplicate(TwistAmarillo)	TwistAmarillo#79	-1,0,1
+twister,54,50,0	duplicate(TwistAmarillo)	TwistAmarillo#80	-1,0,0
+twister,40,52,0	duplicate(TwistAmarillo)	TwistAmarillo#81	-1,1,1
+twister,40,50,0	duplicate(TwistAmarillo)	TwistAmarillo#82	-1,1,0
+twister,38,52,0	duplicate(TwistAmarillo)	TwistAmarillo#83	-1,0,1
+twister,38,50,0	duplicate(TwistAmarillo)	TwistAmarillo#84	-1,0,0
+twister,68,56,0	duplicate(TwistAmarillo)	TwistAmarillo#85	-1,1,1
+twister,68,54,0	duplicate(TwistAmarillo)	TwistAmarillo#86	-1,1,0
+twister,66,56,0	duplicate(TwistAmarillo)	TwistAmarillo#87	-1,0,1
+twister,66,54,0	duplicate(TwistAmarillo)	TwistAmarillo#88	-1,0,0
+twister,52,56,0	duplicate(TwistAmarillo)	TwistAmarillo#89	-1,1,1
+twister,52,54,0	duplicate(TwistAmarillo)	TwistAmarillo#90	-1,1,0
+twister,50,56,0	duplicate(TwistAmarillo)	TwistAmarillo#91	-1,0,1
+twister,50,54,0	duplicate(TwistAmarillo)	TwistAmarillo#92	-1,0,0
+twister,36,56,0	duplicate(TwistAmarillo)	TwistAmarillo#93	-1,1,1
+twister,36,54,0	duplicate(TwistAmarillo)	TwistAmarillo#94	-1,1,0
+twister,34,56,0	duplicate(TwistAmarillo)	TwistAmarillo#95	-1,0,1
+twister,34,54,0	duplicate(TwistAmarillo)	TwistAmarillo#96	-1,0,0
+twister,64,60,0	duplicate(TwistAmarillo)	TwistAmarillo#97	-1,1,1
+twister,64,58,0	duplicate(TwistAmarillo)	TwistAmarillo#98	-1,1,0
+twister,62,60,0	duplicate(TwistAmarillo)	TwistAmarillo#99	-1,0,1
+twister,62,58,0	duplicate(TwistAmarillo)	TwistAmarillo#100	-1,0,0
+twister,48,60,0	duplicate(TwistAmarillo)	TwistAmarillo#101	-1,1,1
+twister,48,58,0	duplicate(TwistAmarillo)	TwistAmarillo#102	-1,1,0
+twister,46,60,0	duplicate(TwistAmarillo)	TwistAmarillo#103	-1,0,1
+twister,46,58,0	duplicate(TwistAmarillo)	TwistAmarillo#104	-1,0,0
+twister,32,60,0	duplicate(TwistAmarillo)	TwistAmarillo#105	-1,1,1
+twister,32,58,0	duplicate(TwistAmarillo)	TwistAmarillo#106	-1,1,0
+twister,30,60,0	duplicate(TwistAmarillo)	TwistAmarillo#107	-1,0,1
+twister,30,58,0	duplicate(TwistAmarillo)	TwistAmarillo#108	-1,0,0
+twister,60,64,0	duplicate(TwistAmarillo)	TwistAmarillo#109	-1,1,1
+twister,60,62,0	duplicate(TwistAmarillo)	TwistAmarillo#110	-1,1,0
+twister,58,64,0	duplicate(TwistAmarillo)	TwistAmarillo#111	-1,0,1
+twister,58,62,0	duplicate(TwistAmarillo)	TwistAmarillo#112	-1,0,0
+twister,44,64,0	duplicate(TwistAmarillo)	TwistAmarillo#113	-1,1,1
+twister,44,62,0	duplicate(TwistAmarillo)	TwistAmarillo#114	-1,1,0
+twister,42,64,0	duplicate(TwistAmarillo)	TwistAmarillo#115	-1,0,1
+twister,42,62,0	duplicate(TwistAmarillo)	TwistAmarillo#116	-1,0,0
+twister,28,64,0	duplicate(TwistAmarillo)	TwistAmarillo#117	-1,1,1
+twister,28,62,0	duplicate(TwistAmarillo)	TwistAmarillo#118	-1,1,0
+twister,26,64,0	duplicate(TwistAmarillo)	TwistAmarillo#119	-1,0,1
+twister,26,62,0	duplicate(TwistAmarillo)	TwistAmarillo#120	-1,0,0
+twister,72,68,0	duplicate(TwistAmarillo)	TwistAmarillo#121	-1,1,1
+twister,72,66,0	duplicate(TwistAmarillo)	TwistAmarillo#122	-1,1,0
+twister,70,68,0	duplicate(TwistAmarillo)	TwistAmarillo#123	-1,0,1
+twister,70,66,0	duplicate(TwistAmarillo)	TwistAmarillo#124	-1,0,0
+twister,56,68,0	duplicate(TwistAmarillo)	TwistAmarillo#125	-1,1,1
+twister,56,66,0	duplicate(TwistAmarillo)	TwistAmarillo#126	-1,1,0
+twister,54,68,0	duplicate(TwistAmarillo)	TwistAmarillo#127	-1,0,1
+twister,54,66,0	duplicate(TwistAmarillo)	TwistAmarillo#128	-1,0,0
+twister,40,68,0	duplicate(TwistAmarillo)	TwistAmarillo#129	-1,1,1
+twister,40,66,0	duplicate(TwistAmarillo)	TwistAmarillo#130	-1,1,0
+twister,38,68,0	duplicate(TwistAmarillo)	TwistAmarillo#131	-1,0,1
+twister,38,66,0	duplicate(TwistAmarillo)	TwistAmarillo#132	-1,0,0
+twister,68,72,0	duplicate(TwistAmarillo)	TwistAmarillo#133	-1,1,1
+twister,68,70,0	duplicate(TwistAmarillo)	TwistAmarillo#134	-1,1,0
+twister,66,72,0	duplicate(TwistAmarillo)	TwistAmarillo#135	-1,0,1
+twister,66,70,0	duplicate(TwistAmarillo)	TwistAmarillo#136	-1,0,0
+twister,52,72,0	duplicate(TwistAmarillo)	TwistAmarillo#137	-1,1,1
+twister,52,70,0	duplicate(TwistAmarillo)	TwistAmarillo#138	-1,1,0
+twister,50,72,0	duplicate(TwistAmarillo)	TwistAmarillo#139	-1,0,1
+twister,50,70,0	duplicate(TwistAmarillo)	TwistAmarillo#140	-1,0,0
+twister,36,72,0	duplicate(TwistAmarillo)	TwistAmarillo#141	-1,1,1
+twister,36,70,0	duplicate(TwistAmarillo)	TwistAmarillo#142	-1,1,0
+twister,34,72,0	duplicate(TwistAmarillo)	TwistAmarillo#143	-1,0,1
+twister,34,70,0	duplicate(TwistAmarillo)	TwistAmarillo#144	-1,0,0
+//=========Azul===========
+twister,68,28,0	duplicate(TwistAzul)	TwistAzul#1	-1,1,1
+twister,68,26,0	duplicate(TwistAzul)	TwistAzul#2	-1,1,0
+twister,66,28,0	duplicate(TwistAzul)	TwistAzul#3	-1,0,1
+twister,66,26,0	duplicate(TwistAzul)	TwistAzul#4	-1,0,0
+twister,52,28,0	duplicate(TwistAzul)	TwistAzul#5	-1,1,1
+twister,52,26,0	duplicate(TwistAzul)	TwistAzul#6	-1,1,0
+twister,50,28,0	duplicate(TwistAzul)	TwistAzul#7	-1,0,1
+twister,50,26,0	duplicate(TwistAzul)	TwistAzul#8	-1,0,0
+twister,36,28,0	duplicate(TwistAzul)	TwistAzul#9	-1,1,1
+twister,36,26,0	duplicate(TwistAzul)	TwistAzul#10	-1,1,0
+twister,34,28,0	duplicate(TwistAzul)	TwistAzul#11	-1,0,1
+twister,34,26,0	duplicate(TwistAzul)	TwistAzul#12	-1,0,0
+twister,64,32,0	duplicate(TwistAzul)	TwistAzul#13	-1,1,1
+twister,64,30,0	duplicate(TwistAzul)	TwistAzul#14	-1,1,0
+twister,62,32,0	duplicate(TwistAzul)	TwistAzul#15	-1,0,1
+twister,62,30,0	duplicate(TwistAzul)	TwistAzul#16	-1,0,0
+twister,48,32,0	duplicate(TwistAzul)	TwistAzul#17	-1,1,1
+twister,48,30,0	duplicate(TwistAzul)	TwistAzul#18	-1,1,0
+twister,46,32,0	duplicate(TwistAzul)	TwistAzul#19	-1,0,1
+twister,46,30,0	duplicate(TwistAzul)	TwistAzul#20	-1,0,0
+twister,32,32,0	duplicate(TwistAzul)	TwistAzul#21	-1,1,1
+twister,32,30,0	duplicate(TwistAzul)	TwistAzul#22	-1,1,0
+twister,30,32,0	duplicate(TwistAzul)	TwistAzul#23	-1,0,1
+twister,30,30,0	duplicate(TwistAzul)	TwistAzul#24	-1,0,0
+twister,60,36,0	duplicate(TwistAzul)	TwistAzul#25	-1,1,1
+twister,60,34,0	duplicate(TwistAzul)	TwistAzul#26	-1,1,0
+twister,58,36,0	duplicate(TwistAzul)	TwistAzul#27	-1,0,1
+twister,58,34,0	duplicate(TwistAzul)	TwistAzul#28	-1,0,0
+twister,44,36,0	duplicate(TwistAzul)	TwistAzul#29	-1,1,1
+twister,44,34,0	duplicate(TwistAzul)	TwistAzul#30	-1,1,0
+twister,42,36,0	duplicate(TwistAzul)	TwistAzul#31	-1,0,1
+twister,42,34,0	duplicate(TwistAzul)	TwistAzul#32	-1,0,0
+twister,28,36,0	duplicate(TwistAzul)	TwistAzul#33	-1,1,1
+twister,28,34,0	duplicate(TwistAzul)	TwistAzul#34	-1,1,0
+twister,26,36,0	duplicate(TwistAzul)	TwistAzul#35	-1,0,1
+twister,26,34,0	duplicate(TwistAzul)	TwistAzul#36	-1,0,0
+twister,72,40,0	duplicate(TwistAzul)	TwistAzul#37	-1,1,1
+twister,72,38,0	duplicate(TwistAzul)	TwistAzul#38	-1,1,0
+twister,70,40,0	duplicate(TwistAzul)	TwistAzul#39	-1,0,1
+twister,70,38,0	duplicate(TwistAzul)	TwistAzul#40	-1,0,0
+twister,56,40,0	duplicate(TwistAzul)	TwistAzul#41	-1,1,1
+twister,56,38,0	duplicate(TwistAzul)	TwistAzul#42	-1,1,0
+twister,54,40,0	duplicate(TwistAzul)	TwistAzul#43	-1,0,1
+twister,54,38,0	duplicate(TwistAzul)	TwistAzul#44	-1,0,0
+twister,40,40,0	duplicate(TwistAzul)	TwistAzul#45	-1,1,1
+twister,40,38,0	duplicate(TwistAzul)	TwistAzul#46	-1,1,0
+twister,38,40,0	duplicate(TwistAzul)	TwistAzul#47	-1,0,1
+twister,38,38,0	duplicate(TwistAzul)	TwistAzul#48	-1,0,0
+twister,68,44,0	duplicate(TwistAzul)	TwistAzul#49	-1,1,1
+twister,68,42,0	duplicate(TwistAzul)	TwistAzul#50	-1,1,0
+twister,66,44,0	duplicate(TwistAzul)	TwistAzul#51	-1,0,1
+twister,66,42,0	duplicate(TwistAzul)	TwistAzul#52	-1,0,0
+twister,52,44,0	duplicate(TwistAzul)	TwistAzul#53	-1,1,1
+twister,52,42,0	duplicate(TwistAzul)	TwistAzul#54	-1,1,0
+twister,50,44,0	duplicate(TwistAzul)	TwistAzul#55	-1,0,1
+twister,50,42,0	duplicate(TwistAzul)	TwistAzul#56	-1,0,0
+twister,36,44,0	duplicate(TwistAzul)	TwistAzul#57	-1,1,1
+twister,36,42,0	duplicate(TwistAzul)	TwistAzul#58	-1,1,0
+twister,34,44,0	duplicate(TwistAzul)	TwistAzul#59	-1,0,1
+twister,34,42,0	duplicate(TwistAzul)	TwistAzul#60	-1,0,0
+twister,64,48,0	duplicate(TwistAzul)	TwistAzul#61	-1,1,1
+twister,64,46,0	duplicate(TwistAzul)	TwistAzul#62	-1,1,0
+twister,62,48,0	duplicate(TwistAzul)	TwistAzul#63	-1,0,1
+twister,62,46,0	duplicate(TwistAzul)	TwistAzul#64	-1,0,0
+twister,48,48,0	duplicate(TwistAzul)	TwistAzul#65	-1,1,1
+twister,48,46,0	duplicate(TwistAzul)	TwistAzul#66	-1,1,0
+twister,46,48,0	duplicate(TwistAzul)	TwistAzul#67	-1,0,1
+twister,46,46,0	duplicate(TwistAzul)	TwistAzul#68	-1,0,0
+twister,32,48,0	duplicate(TwistAzul)	TwistAzul#69	-1,1,1
+twister,32,46,0	duplicate(TwistAzul)	TwistAzul#70	-1,1,0
+twister,30,48,0	duplicate(TwistAzul)	TwistAzul#71	-1,0,1
+twister,30,46,0	duplicate(TwistAzul)	TwistAzul#72	-1,0,0
+twister,60,52,0	duplicate(TwistAzul)	TwistAzul#73	-1,1,1
+twister,60,50,0	duplicate(TwistAzul)	TwistAzul#74	-1,1,0
+twister,58,52,0	duplicate(TwistAzul)	TwistAzul#75	-1,0,1
+twister,58,50,0	duplicate(TwistAzul)	TwistAzul#76	-1,0,0
+twister,44,52,0	duplicate(TwistAzul)	TwistAzul#77	-1,1,1
+twister,44,50,0	duplicate(TwistAzul)	TwistAzul#78	-1,1,0
+twister,42,52,0	duplicate(TwistAzul)	TwistAzul#79	-1,0,1
+twister,42,50,0	duplicate(TwistAzul)	TwistAzul#80	-1,0,0
+twister,28,52,0	duplicate(TwistAzul)	TwistAzul#81	-1,1,1
+twister,28,50,0	duplicate(TwistAzul)	TwistAzul#82	-1,1,0
+twister,26,52,0	duplicate(TwistAzul)	TwistAzul#83	-1,0,1
+twister,26,50,0	duplicate(TwistAzul)	TwistAzul#84	-1,0,0
+twister,72,56,0	duplicate(TwistAzul)	TwistAzul#85	-1,1,1
+twister,72,54,0	duplicate(TwistAzul)	TwistAzul#86	-1,1,0
+twister,70,56,0	duplicate(TwistAzul)	TwistAzul#87	-1,0,1
+twister,70,54,0	duplicate(TwistAzul)	TwistAzul#88	-1,0,0
+twister,56,56,0	duplicate(TwistAzul)	TwistAzul#89	-1,1,1
+twister,56,54,0	duplicate(TwistAzul)	TwistAzul#90	-1,1,0
+twister,54,56,0	duplicate(TwistAzul)	TwistAzul#91	-1,0,1
+twister,54,54,0	duplicate(TwistAzul)	TwistAzul#92	-1,0,0
+twister,40,56,0	duplicate(TwistAzul)	TwistAzul#93	-1,1,1
+twister,40,54,0	duplicate(TwistAzul)	TwistAzul#94	-1,1,0
+twister,38,56,0	duplicate(TwistAzul)	TwistAzul#95	-1,0,1
+twister,38,54,0	duplicate(TwistAzul)	TwistAzul#96	-1,0,0
+twister,68,60,0	duplicate(TwistAzul)	TwistAzul#97	-1,1,1
+twister,68,58,0	duplicate(TwistAzul)	TwistAzul#98	-1,1,0
+twister,66,60,0	duplicate(TwistAzul)	TwistAzul#99	-1,0,1
+twister,66,58,0	duplicate(TwistAzul)	TwistAzul#100	-1,0,0
+twister,52,60,0	duplicate(TwistAzul)	TwistAzul#101	-1,1,1
+twister,52,58,0	duplicate(TwistAzul)	TwistAzul#102	-1,1,0
+twister,50,60,0	duplicate(TwistAzul)	TwistAzul#103	-1,0,1
+twister,50,58,0	duplicate(TwistAzul)	TwistAzul#104	-1,0,0
+twister,36,60,0	duplicate(TwistAzul)	TwistAzul#105	-1,1,1
+twister,36,58,0	duplicate(TwistAzul)	TwistAzul#106	-1,1,0
+twister,34,60,0	duplicate(TwistAzul)	TwistAzul#107	-1,0,1
+twister,34,58,0	duplicate(TwistAzul)	TwistAzul#108	-1,0,0
+twister,64,64,0	duplicate(TwistAzul)	TwistAzul#109	-1,1,1
+twister,64,62,0	duplicate(TwistAzul)	TwistAzul#110	-1,1,0
+twister,62,64,0	duplicate(TwistAzul)	TwistAzul#111	-1,0,1
+twister,62,62,0	duplicate(TwistAzul)	TwistAzul#112	-1,0,0
+twister,48,64,0	duplicate(TwistAzul)	TwistAzul#113	-1,1,1
+twister,48,62,0	duplicate(TwistAzul)	TwistAzul#114	-1,1,0
+twister,46,64,0	duplicate(TwistAzul)	TwistAzul#115	-1,0,1
+twister,46,62,0	duplicate(TwistAzul)	TwistAzul#116	-1,0,0
+twister,32,64,0	duplicate(TwistAzul)	TwistAzul#117	-1,1,1
+twister,32,62,0	duplicate(TwistAzul)	TwistAzul#118	-1,1,0
+twister,30,64,0	duplicate(TwistAzul)	TwistAzul#119	-1,0,1
+twister,30,62,0	duplicate(TwistAzul)	TwistAzul#120	-1,0,0
+twister,60,68,0	duplicate(TwistAzul)	TwistAzul#121	-1,1,1
+twister,60,66,0	duplicate(TwistAzul)	TwistAzul#122	-1,1,0
+twister,58,68,0	duplicate(TwistAzul)	TwistAzul#123	-1,0,1
+twister,58,66,0	duplicate(TwistAzul)	TwistAzul#124	-1,0,0
+twister,44,68,0	duplicate(TwistAzul)	TwistAzul#125	-1,1,1
+twister,44,66,0	duplicate(TwistAzul)	TwistAzul#126	-1,1,0
+twister,42,68,0	duplicate(TwistAzul)	TwistAzul#127	-1,0,1
+twister,42,66,0	duplicate(TwistAzul)	TwistAzul#128	-1,0,0
+twister,28,68,0	duplicate(TwistAzul)	TwistAzul#129	-1,1,1
+twister,28,66,0	duplicate(TwistAzul)	TwistAzul#130	-1,1,0
+twister,26,68,0	duplicate(TwistAzul)	TwistAzul#131	-1,0,1
+twister,26,66,0	duplicate(TwistAzul)	TwistAzul#132	-1,0,0
+twister,72,72,0	duplicate(TwistAzul)	TwistAzul#133	-1,1,1
+twister,72,70,0	duplicate(TwistAzul)	TwistAzul#134	-1,1,0
+twister,68,72,0	duplicate(TwistAzul)	TwistAzul#135	-1,0,1
+twister,68,70,0	duplicate(TwistAzul)	TwistAzul#136	-1,0,0
+twister,56,72,0	duplicate(TwistAzul)	TwistAzul#137	-1,1,1
+twister,56,70,0	duplicate(TwistAzul)	TwistAzul#138	-1,1,0
+twister,54,72,0	duplicate(TwistAzul)	TwistAzul#139	-1,0,1
+twister,54,70,0	duplicate(TwistAzul)	TwistAzul#140	-1,0,0
+twister,40,72,0	duplicate(TwistAzul)	TwistAzul#141	-1,1,1
+twister,40,70,0	duplicate(TwistAzul)	TwistAzul#142	-1,1,0
+twister,38,72,0	duplicate(TwistAzul)	TwistAzul#143	-1,0,1
+twister,38,70,0	duplicate(TwistAzul)	TwistAzul#144	-1,0,0
+//=====================Verde==============
+twister,60,28,0	duplicate(TwistVerde)	TwistVerde#5	-1,1,1
+twister,60,26,0	duplicate(TwistVerde)	TwistVerde#6	-1,1,0
+twister,58,28,0	duplicate(TwistVerde)	TwistVerde#7	-1,0,1
+twister,58,26,0	duplicate(TwistVerde)	TwistVerde#8	-1,0,0
+twister,44,28,0	duplicate(TwistVerde)	TwistVerde#9	-1,1,1
+twister,44,26,0	duplicate(TwistVerde)	TwistVerde#10	-1,1,0
+twister,42,28,0	duplicate(TwistVerde)	TwistVerde#11	-1,0,1
+twister,42,26,0	duplicate(TwistVerde)	TwistVerde#12	-1,0,0
+twister,28,28,0	duplicate(TwistVerde)	TwistVerde#13	-1,1,1
+twister,28,26,0	duplicate(TwistVerde)	TwistVerde#14	-1,1,0
+twister,26,28,0	duplicate(TwistVerde)	TwistVerde#15	-1,0,1
+twister,26,26,0	duplicate(TwistVerde)	TwistVerde#16	-1,0,0
+twister,72,32,0	duplicate(TwistVerde)	TwistVerde#17	-1,1,1
+twister,72,30,0	duplicate(TwistVerde)	TwistVerde#18	-1,1,0
+twister,70,32,0	duplicate(TwistVerde)	TwistVerde#19	-1,0,1
+twister,70,30,0	duplicate(TwistVerde)	TwistVerde#20	-1,0,0
+twister,56,32,0	duplicate(TwistVerde)	TwistVerde#21	-1,1,1
+twister,56,30,0	duplicate(TwistVerde)	TwistVerde#22	-1,1,0
+twister,54,32,0	duplicate(TwistVerde)	TwistVerde#23	-1,0,1
+twister,54,30,0	duplicate(TwistVerde)	TwistVerde#24	-1,0,0
+twister,40,32,0	duplicate(TwistVerde)	TwistVerde#25	-1,1,1
+twister,40,30,0	duplicate(TwistVerde)	TwistVerde#26	-1,1,0
+twister,38,32,0	duplicate(TwistVerde)	TwistVerde#27	-1,0,1
+twister,38,30,0	duplicate(TwistVerde)	TwistVerde#28	-1,0,0
+twister,68,36,0	duplicate(TwistVerde)	TwistVerde#29	-1,1,1
+twister,68,34,0	duplicate(TwistVerde)	TwistVerde#30	-1,1,0
+twister,66,36,0	duplicate(TwistVerde)	TwistVerde#31	-1,0,1
+twister,66,34,0	duplicate(TwistVerde)	TwistVerde#32	-1,0,0
+twister,52,36,0	duplicate(TwistVerde)	TwistVerde#33	-1,1,1
+twister,52,34,0	duplicate(TwistVerde)	TwistVerde#34	-1,1,0
+twister,50,36,0	duplicate(TwistVerde)	TwistVerde#35	-1,0,1
+twister,50,34,0	duplicate(TwistVerde)	TwistVerde#36	-1,0,0
+twister,36,36,0	duplicate(TwistVerde)	TwistVerde#37	-1,1,1
+twister,36,34,0	duplicate(TwistVerde)	TwistVerde#38	-1,1,0
+twister,34,36,0	duplicate(TwistVerde)	TwistVerde#39	-1,0,1
+twister,34,34,0	duplicate(TwistVerde)	TwistVerde#40	-1,0,0
+twister,64,40,0	duplicate(TwistVerde)	TwistVerde#41	-1,1,1
+twister,64,38,0	duplicate(TwistVerde)	TwistVerde#42	-1,1,0
+twister,62,40,0	duplicate(TwistVerde)	TwistVerde#43	-1,0,1
+twister,62,38,0	duplicate(TwistVerde)	TwistVerde#44	-1,0,0
+twister,48,40,0	duplicate(TwistVerde)	TwistVerde#45	-1,1,1
+twister,48,38,0	duplicate(TwistVerde)	TwistVerde#46	-1,1,0
+twister,46,40,0	duplicate(TwistVerde)	TwistVerde#47	-1,0,1
+twister,46,38,0	duplicate(TwistVerde)	TwistVerde#48	-1,0,0
+twister,32,40,0	duplicate(TwistVerde)	TwistVerde#49	-1,1,1
+twister,32,38,0	duplicate(TwistVerde)	TwistVerde#50	-1,1,0
+twister,30,40,0	duplicate(TwistVerde)	TwistVerde#51	-1,0,1
+twister,30,38,0	duplicate(TwistVerde)	TwistVerde#52	-1,0,0
+twister,60,44,0	duplicate(TwistVerde)	TwistVerde#53	-1,1,1
+twister,60,42,0	duplicate(TwistVerde)	TwistVerde#54	-1,1,0
+twister,58,44,0	duplicate(TwistVerde)	TwistVerde#55	-1,0,1
+twister,58,42,0	duplicate(TwistVerde)	TwistVerde#56	-1,0,0
+twister,44,44,0	duplicate(TwistVerde)	TwistVerde#57	-1,1,1
+twister,44,42,0	duplicate(TwistVerde)	TwistVerde#58	-1,1,0
+twister,42,44,0	duplicate(TwistVerde)	TwistVerde#59	-1,0,1
+twister,42,42,0	duplicate(TwistVerde)	TwistVerde#60	-1,0,0
+twister,28,44,0	duplicate(TwistVerde)	TwistVerde#61	-1,1,1
+twister,28,42,0	duplicate(TwistVerde)	TwistVerde#62	-1,1,0
+twister,26,44,0	duplicate(TwistVerde)	TwistVerde#63	-1,0,1
+twister,26,42,0	duplicate(TwistVerde)	TwistVerde#64	-1,0,0
+twister,72,48,0	duplicate(TwistVerde)	TwistVerde#65	-1,1,1
+twister,72,46,0	duplicate(TwistVerde)	TwistVerde#66	-1,1,0
+twister,70,48,0	duplicate(TwistVerde)	TwistVerde#67	-1,0,1
+twister,70,46,0	duplicate(TwistVerde)	TwistVerde#68	-1,0,0
+twister,56,48,0	duplicate(TwistVerde)	TwistVerde#69	-1,1,1
+twister,56,46,0	duplicate(TwistVerde)	TwistVerde#70	-1,1,0
+twister,54,48,0	duplicate(TwistVerde)	TwistVerde#71	-1,0,1
+twister,54,46,0	duplicate(TwistVerde)	TwistVerde#72	-1,0,0
+twister,40,48,0	duplicate(TwistVerde)	TwistVerde#73	-1,1,1
+twister,40,46,0	duplicate(TwistVerde)	TwistVerde#74	-1,1,0
+twister,38,48,0	duplicate(TwistVerde)	TwistVerde#75	-1,0,1
+twister,38,46,0	duplicate(TwistVerde)	TwistVerde#76	-1,0,0
+twister,68,52,0	duplicate(TwistVerde)	TwistVerde#77	-1,1,1
+twister,68,50,0	duplicate(TwistVerde)	TwistVerde#78	-1,1,0
+twister,66,52,0	duplicate(TwistVerde)	TwistVerde#79	-1,0,1
+twister,66,50,0	duplicate(TwistVerde)	TwistVerde#80	-1,0,0
+twister,52,52,0	duplicate(TwistVerde)	TwistVerde#81	-1,1,1
+twister,52,50,0	duplicate(TwistVerde)	TwistVerde#82	-1,1,0
+twister,50,52,0	duplicate(TwistVerde)	TwistVerde#83	-1,0,1
+twister,50,50,0	duplicate(TwistVerde)	TwistVerde#84	-1,0,0
+twister,36,52,0	duplicate(TwistVerde)	TwistVerde#85	-1,1,1
+twister,36,50,0	duplicate(TwistVerde)	TwistVerde#86	-1,1,0
+twister,34,52,0	duplicate(TwistVerde)	TwistVerde#87	-1,0,1
+twister,34,50,0	duplicate(TwistVerde)	TwistVerde#88	-1,0,0
+twister,64,56,0	duplicate(TwistVerde)	TwistVerde#89	-1,1,1
+twister,64,54,0	duplicate(TwistVerde)	TwistVerde#90	-1,1,0
+twister,62,56,0	duplicate(TwistVerde)	TwistVerde#91	-1,0,1
+twister,62,54,0	duplicate(TwistVerde)	TwistVerde#92	-1,0,0
+twister,48,56,0	duplicate(TwistVerde)	TwistVerde#93	-1,1,1
+twister,48,54,0	duplicate(TwistVerde)	TwistVerde#94	-1,1,0
+twister,46,56,0	duplicate(TwistVerde)	TwistVerde#95	-1,0,1
+twister,46,54,0	duplicate(TwistVerde)	TwistVerde#96	-1,0,0
+twister,32,56,0	duplicate(TwistVerde)	TwistVerde#97	-1,1,1
+twister,32,54,0	duplicate(TwistVerde)	TwistVerde#98	-1,1,0
+twister,30,56,0	duplicate(TwistVerde)	TwistVerde#99	-1,0,1
+twister,30,54,0	duplicate(TwistVerde)	TwistVerde#100	-1,0,0
+twister,60,60,0	duplicate(TwistVerde)	TwistVerde#101	-1,1,1
+twister,60,58,0	duplicate(TwistVerde)	TwistVerde#102	-1,1,0
+twister,58,60,0	duplicate(TwistVerde)	TwistVerde#103	-1,0,1
+twister,58,58,0	duplicate(TwistVerde)	TwistVerde#104	-1,0,0
+twister,44,60,0	duplicate(TwistVerde)	TwistVerde#105	-1,1,1
+twister,44,58,0	duplicate(TwistVerde)	TwistVerde#106	-1,1,0
+twister,42,60,0	duplicate(TwistVerde)	TwistVerde#107	-1,0,1
+twister,42,58,0	duplicate(TwistVerde)	TwistVerde#108	-1,0,0
+twister,28,60,0	duplicate(TwistVerde)	TwistVerde#109	-1,1,1
+twister,28,58,0	duplicate(TwistVerde)	TwistVerde#110	-1,1,0
+twister,26,60,0	duplicate(TwistVerde)	TwistVerde#111	-1,0,1
+twister,26,58,0	duplicate(TwistVerde)	TwistVerde#112	-1,0,0
+twister,72,64,0	duplicate(TwistVerde)	TwistVerde#113	-1,1,1
+twister,72,62,0	duplicate(TwistVerde)	TwistVerde#114	-1,1,0
+twister,70,64,0	duplicate(TwistVerde)	TwistVerde#115	-1,0,1
+twister,70,62,0	duplicate(TwistVerde)	TwistVerde#116	-1,0,0
+twister,56,64,0	duplicate(TwistVerde)	TwistVerde#117	-1,1,1
+twister,56,62,0	duplicate(TwistVerde)	TwistVerde#118	-1,1,0
+twister,54,64,0	duplicate(TwistVerde)	TwistVerde#119	-1,0,1
+twister,54,62,0	duplicate(TwistVerde)	TwistVerde#120	-1,0,0
+twister,40,64,0	duplicate(TwistVerde)	TwistVerde#121	-1,1,1
+twister,40,62,0	duplicate(TwistVerde)	TwistVerde#122	-1,1,0
+twister,38,64,0	duplicate(TwistVerde)	TwistVerde#123	-1,0,1
+twister,38,62,0	duplicate(TwistVerde)	TwistVerde#124	-1,0,0
+twister,68,68,0	duplicate(TwistVerde)	TwistVerde#125	-1,1,1
+twister,68,66,0	duplicate(TwistVerde)	TwistVerde#126	-1,1,0
+twister,66,68,0	duplicate(TwistVerde)	TwistVerde#127	-1,0,1
+twister,66,66,0	duplicate(TwistVerde)	TwistVerde#128	-1,0,0
+twister,52,68,0	duplicate(TwistVerde)	TwistVerde#129	-1,1,1
+twister,52,66,0	duplicate(TwistVerde)	TwistVerde#130	-1,1,0
+twister,50,68,0	duplicate(TwistVerde)	TwistVerde#131	-1,0,1
+twister,50,66,0	duplicate(TwistVerde)	TwistVerde#132	-1,0,0
+twister,36,68,0	duplicate(TwistVerde)	TwistVerde#133	-1,1,1
+twister,36,66,0	duplicate(TwistVerde)	TwistVerde#134	-1,1,0
+twister,34,68,0	duplicate(TwistVerde)	TwistVerde#135	-1,0,1
+twister,34,66,0	duplicate(TwistVerde)	TwistVerde#136	-1,0,0
+twister,64,72,0	duplicate(TwistVerde)	TwistVerde#137	-1,1,1
+twister,64,70,0	duplicate(TwistVerde)	TwistVerde#138	-1,1,0
+twister,62,72,0	duplicate(TwistVerde)	TwistVerde#139	-1,0,1
+twister,62,70,0	duplicate(TwistVerde)	TwistVerde#140	-1,0,0
+twister,48,72,0	duplicate(TwistVerde)	TwistVerde#141	-1,1,1
+twister,48,70,0	duplicate(TwistVerde)	TwistVerde#142	-1,1,0
+twister,46,72,0	duplicate(TwistVerde)	TwistVerde#143	-1,0,1
+twister,46,70,0	duplicate(TwistVerde)	TwistVerde#144	-1,0,0
+twister,32,72,0	duplicate(TwistVerde)	TwistVerde#145	-1,1,1
+twister,32,70,0	duplicate(TwistVerde)	TwistVerde#146	-1,1,0
+twister,30,72,0	duplicate(TwistVerde)	TwistVerde#147	-1,0,1
+twister,30,70,0	duplicate(TwistVerde)	TwistVerde#148	-1,0,0

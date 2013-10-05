@@ -1,0 +1,26 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+-	script	RegalaCoins	-1,{
+OnPCLoginEvent:
+goto OnPcGratis;
+end;
+OnPcGratis:
+	addtimer 3600000, strnpcinfo(3)+"::On5secs";
+	end;
+On5secs:
+announce "SinduRO: Felicidades acabas de ganar 1 Poring Coin por estar 1 hora conectado a SinduRO.",bc_self,0x00ffff;
+getitem 7539,1;
+sleep2 3000;
+goto OnPcGratis;
+	end;
+}

@@ -1,0 +1,201 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+quest,44,34,7	script	Clarck	748,{
+set	@name$,"[Magic's Hat's]";
+mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+mes "Soy Clarck, tengo unos Items que se han puesto de moda en el lugar de donde provengo, decidí viajar hasta acá para tratar de vender unos pocos";
+next;
+mes "El item se llama Bag Y tengo de diversos colores te aportan buen ataque físico entre otras cosas te interesaría comprarme una?";
+next;
+menu "Si, porque no!",abc,"No Gracias!",NO;
+abc:
+mes "Oh genial te diré lo que necesitas traerme!";
+mes "En estas fechas se ponen de moda los tiket's de Halloween  y no quisiera por nada del mundo perderme esas fiestas";
+next;
+mes "me encantaria tener 5000 mil de esos tiket's para eventos";
+mes "entre otras cosas que me hacen falta";
+next;
+menu "Que otras cosas",abc1,"hmm no me interesa",NO1;
+abc1:
+mes "Son algunos Items que ocupo!";
+next;
+mes "1 Red Square Bag"; //16001
+mes "1000 Green Bijou"; //7445
+mes "1000 Blue Bijou"; //7446
+mes "1000 Red Bijou"; //7447
+mes "1000 Yellow Bijou"; //7448
+mes "300 Blue Feather"; //7441
+mes "300 Red Feather"; //7440
+mes "20 Poring Coin's"; //7539
+mes "1 000 000 000 de zeny";
+mes "Eso seria todo vuelve cuando tengas todo!";
+next;
+menu "Seguro, nos vemos!",NO2,"Porque tanto?",abc2,"Aqui estan tus cosas",abc3;
+abc2:
+mes "bueno es solo que es un Item valioso y te brinda una skill que te sera de mucha utilidad te lo aseguro!";
+mes "si crees que no podras con este encargo... Simplemente dejalo";
+close;
+abc3:
+mes "Enserio tienes todas las cosas";
+mes "No se diga mas entregamelas yo te dare lo que te pertenese";
+next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(16001)<1)goto falta;
+	if(countitem(7445)<1000)goto falta;
+	if(countitem(7446)<1000)goto falta;
+	if(countitem(7447)<1000)goto falta;
+	if(countitem(7448)<1000)goto falta;
+	if(countitem(7441)<300)goto falta;
+	if(countitem(7440)<300)goto falta;
+	if(countitem(7539)<20)goto falta;
+	if(countitem(7941)<5000)goto falta;
+next;
+mes "Perfecto Elije el color de Bag que decees hacer";
+next;
+menu "Negra",diana,"Azul",diana1,"Cyan",diana2,"Dorada",diana3,"Verde",diana4,"Roja",diana5,"Blanca",diana6;
+next;
+diana:
+mes "ok este sera ^5555FF" + strcharinfo(0) + "^000000!...GRACIAS POR TODO";
+next;
+set Zeny, Zeny-1000000000;
+delitem 16001,1;
+delitem 7445,1000;
+delitem 7446,1000;
+delitem 7447,1000;
+delitem 7448,1000;
+delitem 7441,300;
+delitem 7440,300;
+delitem 7539,20;
+delitem 7941,5000;
+getitem 31901,1;
+next;
+mes "Adios!";
+close;
+diana1:
+mes "ok este sera ^5555FF" + strcharinfo(0) + "^000000!...GRACIAS POR TODO";
+next;
+set Zeny, Zeny-1000000000;
+delitem 16001,1;
+delitem 7445,1000;
+delitem 7446,1000;
+delitem 7447,1000;
+delitem 7448,1000;
+delitem 7441,300;
+delitem 7440,300;
+delitem 7539,20;
+delitem 7941,5000;
+getitem 31911,1;
+next;
+mes "Adios!";
+close;
+diana2:
+mes "ok este sera ^5555FF" + strcharinfo(0) + "^000000!...GRACIAS POR TODO";
+next;
+set Zeny, Zeny-1000000000;
+delitem 16001,1;
+delitem 7445,1000;
+delitem 7446,1000;
+delitem 7447,1000;
+delitem 7448,1000;
+delitem 7441,300;
+delitem 7440,300;
+delitem 7539,20;
+delitem 7941,5000;
+getitem 31921,1;
+next;
+mes "Adios!";
+close;
+diana3:
+mes "ok este sera ^5555FF" + strcharinfo(0) + "^000000!...GRACIAS POR TODO";
+next;
+set Zeny, Zeny-1000000000;
+delitem 16001,1;
+delitem 7445,1000;
+delitem 7446,1000;
+delitem 7447,1000;
+delitem 7448,1000;
+delitem 7441,300;
+delitem 7440,300;
+delitem 7539,20;
+delitem 7941,5000;
+getitem 31970,1;
+next;
+mes "Adios!";
+close;
+diana4:
+mes "ok este sera ^5555FF" + strcharinfo(0) + "^000000!...GRACIAS POR TODO";
+next;
+set Zeny, Zeny-1000000000;
+delitem 16001,1;
+delitem 7445,1000;
+delitem 7446,1000;
+delitem 7447,1000;
+delitem 7448,1000;
+delitem 7441,300;
+delitem 7440,300;
+delitem 7539,20;
+delitem 7941,5000;
+getitem 31978,1;
+next;
+mes "Adios!";
+close;
+diana5:
+mes "ok este sera ^5555FF" + strcharinfo(0) + "^000000!...GRACIAS POR TODO";
+next;
+set Zeny, Zeny-1000000000;
+delitem 16001,1;
+delitem 7445,1000;
+delitem 7446,1000;
+delitem 7447,1000;
+delitem 7448,1000;
+delitem 7441,300;
+delitem 7440,300;
+delitem 7539,20;
+delitem 7941,5000;
+getitem 32034,1;
+next;
+mes "Adios!";
+close;
+diana6:
+mes "ok este sera ^5555FF" + strcharinfo(0) + "^000000!...GRACIAS POR TODO";
+next;
+set Zeny, Zeny-1000000000;
+delitem 16001,1;
+delitem 7445,1000;
+delitem 7446,1000;
+delitem 7447,1000;
+delitem 7448,1000;
+delitem 7441,300;
+delitem 7440,300;
+delitem 7539,20;
+delitem 7941,5000;
+getitem 32057,1;
+next;
+mes "Adios!";
+close;
+
+falta:
+mes "hey... algo esta inconcluso checa bien";
+close;
+NO2:
+mes "Mucha suerte esfurzate, ten un buen dia!";
+NO1:
+mes "Ok sera oto dia";
+close;
+NO:
+mes "Supongo que no tienes tiempo Gracias de todas formas";
+close;
+
+end;
+
+}

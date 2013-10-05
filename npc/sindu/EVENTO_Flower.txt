@@ -1,0 +1,256 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+
+prontera,156,227,0	script	flowerPortal	45,2,2,{
+
+OnTouch:
+warp "old_morocc",156,93; //Portal Evento Plantas.
+end;
+
+OnInit:
+	hideonnpc "flowerPortal";
+	movenpc "flowerPortal",83,363;
+	end;
+}
+
+
+-	script	Evento_Flowers	-1,{
+OnClock0601:
+OnClock1001:
+OnClock1401:
+OnClock1801:
+OnClock2201:
+OnClock0201:
+donpcevent "Evento_Flowers::OnFlower";
+end;
+
+
+OnFlower:
+	killmonsterall "old_morocc";
+	hideoffnpc "flowerPortal";
+	movenpc "flowerPortal",156,227;
+	announce "Plantas: El evento de los plantas va a comenzar.",bc_npc,0x00ffff;
+	sleep2 5000;
+	announce "Plantas: Tienen menos de 2 minutos para entrar por el portal que esta al norte de la plaza de prontera.",bc_npc,0x00ffff;
+	sleep2 25000;
+	announce "Plantas: Queda 1 minuto y 30 segundos para que el portal que esta al norte de la plaza de prontera se cierre.",bc_npc,0x00ffff;
+	sleep2 30000;
+	announce "Plantas: Queda 1 minuto para que el portal que esta al norte de la plaza de prontera se cierre.",bc_npc,0x00ffff;
+	sleep2 30000;
+	announce "Plantas: Quedan 30 segundos para que el portal que esta al norte de la plaza de prontera se cierre.",bc_npc,0x00ffff;
+	sleep2 20000;
+	announce "Plantas: Quedan 10 segundos para que el portal que esta al norte de la plaza de prontera se cierre.",bc_npc,0x00ffff;
+	sleep2 5000;
+	announce "Plantas: 5 segundos.",bc_npc,0x00ffff;
+	sleep2 1000;
+	announce "Plantas: 4 segundos.",bc_npc,0x00ffff;
+	sleep2 1000;
+	announce "Plantas: 3 segundos.",bc_npc,0x00ffff;
+	sleep2 1000;
+	announce "Plantas: 2 segundos.",bc_npc,0x00ffff;
+	sleep2 1000;
+	announce "Plantas: 1 segundo.",bc_npc,0x00ffff;
+	sleep2 1000;
+	announce "Plantas: El portal para el evento de los Plantas ha sido cerrado.",bc_npc,0x00ffff;
+	hideonnpc "flowerPortal";
+	movenpc "flowerPortal",83,363;
+	donpcevent "aPlantas::OnPlantas";
+	end;
+}
+
+
+
+-	script	aPlantas	-1,{
+
+end;
+
+OnInit:
+	hideonnpc "aPlantas";
+	end;
+	
+OnPlantas:
+	
+	sleep2 5000;
+	mapannounce "old_morocc","Plantas: Bienvenido al evento de las Plantas.",bc_map,0xff8000;
+	sleep2 5000;
+	mapannounce "old_morocc","Plantas: Antes de comenzar, explicare brevemente de que trata el evento.",bc_map,0xff8000;
+	sleep2 5000;
+	mapannounce "old_morocc","Plantas: El evento consiste en que se invocaran una infinidad de plantas en esta zona.",bc_map,0xff8000;
+	sleep2 5000;
+	mapannounce "old_morocc","Plantas: Entre todas las plantas habra unas que te sumen puntos y otras que te los quiten.",bc_map,0xff8000;
+	sleep2 5000;
+	mapannounce "old_morocc","Plantas: Quien acumule 100 puntos sera el ganador del evento.",bc_map,0xff8000;
+	sleep2 5000;
+	mapannounce "old_morocc","Plantas: Eso es todo, ojala¡ se diviertan y que gane el de mejor.",bc_map,0xff8000;
+	sleep2 10000;
+	mapannounce "old_morocc","Plantas: Se han invocado las plantas, tienen como maximo 5 minutos para acumular 50 puntos.",bc_map,0xff8000;
+	monster "old_morocc",0,0,"Planta",3033,500,"aPlantas::OnPlantaRoja";//quitara 1 punto
+	monster "old_morocc",0,0,"Planta",3034,500,"aPlantas::OnPlantaBlanca";//quitara 2 punto
+	monster "old_morocc",0,0,"Planta",3032,500,"aPlantas::OnPlantaVerde";//dara 2 puntos
+	monster "old_morocc",0,0,"Planta",3031,500,"aPlantas::OnPlantaAzul";//dara 1 puntos
+	monster "old_morocc",0,0,"Planta",3035,500,"aPlantas::OnPlantaAmari";//dara 3 puntos
+	monster "old_morocc",0,0,"Planta",3036,500,"aPlantas::OnPlantaTodas";//quitara 3 puntos
+	set $plt, 1;
+	sleep2 300000;
+	if($plt == 1){
+	mapannounce "old_morocc","Plantas: Se ha acabado el tiempo, el evento ha terminado. Vuelve a participar en otra ocasiÃ³n.",bc_map,0xff8000;
+	killmonsterall "old_morocc";
+	set $pt, 0;
+	sleep2 5000;
+	mapwarp "old_morocc","prontera",155,182;
+	announce "Plantas: Lastima, nadie ha ganado el evento de las Plantas.",bc_npc,0x00ffff;	
+	end;
+	}
+	end;
+	
+OnPlantaRoja:
+set @plant,@plant-1;
+announce "Plantas : [" +strcharinfo(0) +"] Ups lo siento planta envenenada -1 punto.",bc_self,0x00FFFF;
+switch(rand(1,10)) {
+		Case 1:
+		Case 9:
+			sc_start SC_CONFUSION,8000,0;
+			emotion e_swt2,1;
+			end;
+		Case 2:
+			sc_start SC_STONE,4000,0;
+			end;
+		Case 4:
+			sc_start SC_SLEEP,4000,0;
+			end;
+		Case 6:
+		Case 3:
+		Case 5:
+		Case 7:
+			sc_start SC_FREEZE,4000,0;
+			emotion e_swt2,1;
+			end;
+		Case 8:
+			sc_start SC_STUN,4000,0;
+			end;
+		Case 10:
+			sc_start SC_CURSE,80000,0;
+			end;
+	}
+
+end;
+OnPlantaBlanca:
+set @plant,@plant-2;
+announce "Plantas : [" +strcharinfo(0) +"] Ups lo siento planta envenenada -2 puntos.",bc_self,0x00FFFF;
+switch(rand(1,10)) {
+		Case 1:
+		Case 9:
+			sc_start SC_CONFUSION,8000,0;
+			emotion e_swt2,1;
+			end;
+		Case 2:
+			sc_start SC_STONE,4000,0;
+			end;
+		Case 4:
+			sc_start SC_SLEEP,4000,0;
+			end;
+		Case 6:
+			sc_start SC_FREEZE,4000,0;
+			emotion e_swt2,1;
+			end;
+		Case 8:
+			sc_start SC_STUN,4000,0;
+			end;
+		Case 10:
+			sc_start SC_CURSE,80000,0;
+			end;
+	}
+end;
+OnPlantaVerde:
+set @plant,@plant+2;
+announce "Plantas : [" +strcharinfo(0) +"] +2 puntos llevas en total "+@plant+" puntos.",bc_self,0x00FFFF;
+if(@plant >= 100) goto Winner;
+end;
+
+OnPlantaAzul:
+set @plant,@plant+1;
+announce "Plantas : [" +strcharinfo(0) +"] +1 puntos llevas en total "+@plant+" puntos.",bc_self,0x00FFFF;
+if(@plant >= 100) goto Winner;
+end;
+
+OnPlantaAmari:
+set @plant,@plant+3;
+announce "Plantas : [" +strcharinfo(0) +"] +3 puntos llevas en total "+@plant+" puntos.",bc_self,0x00FFFF;
+if(@plant >= 100) goto Winner;
+end;
+
+OnPlantaTodas:
+set @plant,@plant-3;
+announce "Plantas : [" +strcharinfo(0) +"] Ups lo siento planta envenenada -3 puntos.",bc_self,0x00FFFF;
+switch(rand(1,10)) {
+		Case 1:
+		Case 9:
+			sc_start SC_CONFUSION,8000,0;
+			emotion e_swt2,1;
+			end;
+		Case 2:
+			sc_start SC_STONE,4000,0;
+			end;
+		Case 4:
+			sc_start SC_SLEEP,4000,0;
+			end;
+		Case 6:
+			sc_start SC_FREEZE,4000,0;
+			emotion e_swt2,1;
+			end;
+		Case 8:
+			sc_start SC_STUN,4000,0;
+			end;
+		Case 10:
+			sc_start SC_CURSE,80000,0;
+			end;
+	}
+end;
+
+
+
+
+Winner:
+	
+	atcommand "@doommap";
+	getitem 7539,2;
+	set $plt, 0;
+	set @plant,0;
+	killmonsterall "old_morocc";
+	sleep2 5000;
+	announce "Plantas: El ganador del evento de las plantas es "+strcharinfo(0)+", Felicidades.",bc_all,0x00ffff;
+	sleep2 5000;
+	mapwarp "old_morocc","prontera",155,182;
+	end;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

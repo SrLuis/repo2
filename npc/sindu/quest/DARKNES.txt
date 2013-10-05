@@ -1,0 +1,144 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+
+quest.gat,34,49,4	script	SET DARKNES	878,{
+// Variables
+set	@name$,"[SET DARKNES]";	//nombre NPC
+	if (GetGMLevel()>98) goto GMS;
+// Quest Script
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Esta  quest te otorga Medios poderes Brinda status a +80 exepto luk y vitalidad. Velocidad para caminar a 25% te deseo suerte";//
+	mes "Escoje el color de las parte Yin Yang que deseas hacer";
+if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],31090,31091,31089;
+		callfunc "DoTestHats";
+		end;
+	}
+	menu "Hat",QUEST1,"Alas",QUEST2,"Mid Hat",QUEST3;
+GMS:
+	mes "Hola gm escoje entre estas opciones";
+	menu "Sacar un item",SAKARITEM,"Menu User",MENUUSER;
+MENUUSER:
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Esta  quest te otorga Medios poderes Brinda status a +80 exepto luk y vitalidad. Velocidad para caminar a 25% te deseo suerte";//-----------------------------//--------------//======//
+	next;
+	if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],31090,31091,31089;
+		callfunc "DoTestHats";
+		end;
+	}
+	mes "Escoje el item que deseas hacer";
+	menu "Hat",QUEST1,"Alas",QUEST2,"Mid Hat",QUEST3;
+SAKARITEM:
+	menu "Hat",QUEST1a,"Aalas",QUEST2a,"Mid Hat",QUEST3a;
+QUEST1a:
+	getitem 31090,1;
+	close;
+QUEST2a:
+	getitem 31091,1;
+	close;
+QUEST3a:
+	getitem 31089,1;
+	close;
+
+QUEST1:
+	next;
+	mes "Necesitaras esto:";
+	mes "5 Fragment Of Rosata";
+	mes "5 Fang Of Garm";
+	mes "5 Poring Coin ";
+	mes "5 Fire Dragon Scale";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<10000000) goto falta;
+	if(countitem(7211)<5)goto falta;
+	if(countitem(7036)<5)goto falta;
+	if(countitem(7539)<5)goto falta;
+	if(countitem(7451)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-10000000;
+	delitem 7211,5;
+	delitem 7036,5;
+	delitem 7539,5;
+	delitem 7451,5;
+	getitem 31090,1;
+	close;
+	npctalk "~ NPC hecho SrLuis ~";
+	
+QUEST2:
+	next;
+	mes "Necesitaras esto:";
+	mes "5 Fragment Of Rosata";
+	mes "5 Fang Of Garm";
+	mes "5 Poring Coin ";
+	mes "5 Fire Dragon Scale";
+	mes "10,000,000 de Zeny";
+	next;
+	if(Zeny<10000000) goto falta;
+	if(countitem(7211)<5)goto falta;
+	if(countitem(7036)<5)goto falta;
+	if(countitem(7539)<5)goto falta;
+	if(countitem(7451)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-10000000;
+	delitem 7211,5;
+	delitem 7036,5;
+	delitem 7539,5;
+	delitem 7451,5;
+	getitem 31091,1;
+
+	close;
+	npctalk "~ NPC hecho por SrLuis ~";
+	
+QUEST3:
+	next;
+	mes "Necesitaras esto:";
+	mes "5 Fragment Of Rosata";
+	mes "5 Fang Of Garm";
+	mes "5 Poring Coin ";
+	mes "5 Fire Dragon Scale";
+	mes "10,000,000 de Zeny";
+	next;
+	if(Zeny<10000000) goto falta;
+	if(countitem(7211)<5)goto falta;
+	if(countitem(7036)<5)goto falta;
+	if(countitem(7539)<5)goto falta;
+	if(countitem(7451)<5)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item disfrutalo Grasias...";
+	next;
+	set Zeny, Zeny-10000000;
+	delitem 7211,5;
+	delitem 7036,5;
+	delitem 7539,5;
+	delitem 7451,5;
+	getitem 31089,1;
+
+	close;
+	
+falta:
+	mes "Creo que algo falta, Aun no tienes lo necesario checa bien, vuelve cuando lo tengas buena suerte ..";
+	close;
+	npctalk "~ NPC SrLuis ~";
+}
+prontera,244,74,4	duplicate(SET DARKNES)	SET DARKNES#01	828

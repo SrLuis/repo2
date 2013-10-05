@@ -1,0 +1,30 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+prontera,144,178,6	script	Gold Room	775,{
+mes "[Goold Room]";
+mes "Hola te gustaria ir al gold room?";
+if (select("Si:No") == 2) {
+   mes "Ok, adiós...";
+   close;
+}
+mes "[Goold Room]";
+mes "Vamonos...";
+close2;
+warp "moc_fild20",0,0;
+end;
+}
+
+izlude,133,150,7	duplicate(Gold Room)	Gold Room#02	775
+gonryun,165,123,7	duplicate(Gold Room)	Gold Room#03	775
+lighthalzen,150,88,7	duplicate(Gold Room)	Gold Room#04	775
+dicastes01,188,191,7	duplicate(Gold Room)	Gold Room#05	775

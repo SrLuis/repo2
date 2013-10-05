@@ -1,0 +1,44 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+prontera,142,170,7	script	Mercado Quest	61,{
+mes "Ayudante";
+mes "Hola yo te puedo warpear al mercado a las zonas quest y tambien a el mercado vip.";
+mes "A donde deseas ir";
+switch(select("Mercado:Zona Quest:Zona(para no actualizados)")){
+
+	case 1:
+		mes "Vamonos ...=D";
+		close2;
+		warp "alberta",103,182;
+		end;
+	case 2:
+		mes "Vamonos ...=D";
+		close2;
+		warp "quest",0,0;
+		end;
+			close;
+	case 3:
+		mes "Vamonos ...=D";
+		close2;
+		warp "prontera",240,71;
+		end;
+			close;
+
+		}
+		
+}
+
+izlude,131,154,7	duplicate(Mercado Quest)	Mercado Quest#02	61
+gonryun,152,114,7	duplicate(Mercado Quest)	Mercado Quest#03	61
+lighthalzen,149,103,7	duplicate(Mercado Quest)	Mercado Quest#04	61
+dicastes01,181,188,7	duplicate(Mercado Quest)	Mercado Quest#05	61

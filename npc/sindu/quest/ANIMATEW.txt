@@ -1,0 +1,338 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+
+quest.gat,45,57,4	script	Animate Wings	403,{
+// Variables
+set	@name$,"[Animation w]";	//nombre NPC
+	if (GetGMLevel()>98) goto GMS;
+// Quest Script
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Estas Alas te otorgaran grandes poderes, te permite ver enemigos invisibles,  Brinda status a +110 exepto luk y vitalidad. Skill Crimson Fire Formation, Velocidad para caminar a 30% te deseo suerte";//-----------------------------//--------------//======//
+	mes "Escoje el color de Tus Animate Wings que deseas hacer";
+	if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],31749,31750,31751,31752,31753,31754,31755,31756;
+		callfunc "DoTestHats";
+		end;
+	}
+	menu "Negras",QUEST1,"Azules",QUEST2,"Cyan",QUEST3,"Doradas",QUEST4,"Verdes",QUEST5,"Purpura",QUEST6,"Rojas",QUEST7,"Blancas",QUEST8;
+
+GMS:
+	mes "Hola gm escoje entre estas opciones";
+	menu "Sacar un item",SAKARITEM,"Menu User",MENUUSER;
+MENUUSER:
+	mes @name$;
+	mes "Hola, ^5555FF" + strcharinfo(0) + "^000000!...";
+	mes "Estas Alas te otorgaran grandes poderes, te permite ver enemigos invisibles,  Brinda status a +110 exepto luk y vitalidad. Skill Crimson Fire Formation, Velocidad para caminar a 30% te deseo suerte";//-----------------------------//--------------//======//
+	next;
+	if( select("Crear el item:Probarme el item") == 2 )
+	{
+		cleararray @Hats[0],0,127;
+		setarray @Hats[0],31749,31750,31751,31752,31753,31754,31755,31756;
+		callfunc "DoTestHats";
+		end;
+	}
+	mes "Escoje el item que deseas hacer";
+	menu "Negras",QUEST1,"Azules",QUEST2,"Cyan",QUEST3,"Doradas",QUEST4,"Verdes",QUEST5,"Purpura",QUEST6,"Rojas",QUEST7,"Blancas",QUEST8;
+SAKARITEM:
+	menu "Negras",QUEST1a,"Azules",QUEST2a,"Cyan",QUEST3a,"Doradas",QUEST4a,"Verdes",QUEST5a,"Purpura",QUEST6a,"Rojas",QUEST7a,"Blancas",QUEST8a;	
+QUEST1a:
+	getitem 31750,1;
+	close;
+QUEST2a:
+	getitem 31751,1;
+	close;
+QUEST3a:
+	getitem 31752,1;
+	close;
+QUEST4a:
+	getitem 31753,1;
+	close;
+QUEST5a:
+	getitem 31754,1;
+	close;
+QUEST6a:
+	getitem 31755,1;
+	close;
+QUEST7a:
+	getitem 31756,1;
+	close;
+QUEST8a:
+	getitem 31749,1;
+	close;
+
+//31750,Black_Animated_Angel_Wings,Black_Animated_Angel_Wings,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1724,{ bonus bAllStats,110; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,30; bonus bIntravision,0; skill 535,25; },{},{}
+//31751,Blue_Animated_Angel_Wings,Blue_Animated_Angel_Wings,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1725,{ bonus bAllStats,110; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,30; bonus bIntravision,0; skill 535,25; },{},{}
+//31752,Cyan_Animated_Angel_Wings,Cyan_Animated_Angel_Wings,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1726,{ bonus bAllStats,110; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,30; bonus bIntravision,0; skill 535,25; },{},{}
+//31753,Gold_Animated_Angel_Wings,Gold_Animated_Angel_Wings,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1727,{ bonus bAllStats,110; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,30; bonus bIntravision,0; skill 535,25; },{},{}
+//31754,Green_Animated_Angel_Wings,Green_Animated_Angel_Wings,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1728,{ bonus bAllStats,110; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,30; bonus bIntravision,0; skill 535,25; },{},{}
+//31755,Purple_Animated_Angel_Wings,Purple_Animated_Angel_Wings,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1729,{ bonus bAllStats,110; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,30; bonus bIntravision,0; skill 535,25; },{},{}
+//31756,Red_Animated_Angel_Wings,Red_Animated_Angel_Wings,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1730,{ bonus bAllStats,110; bonus bLuk,-80; bonus bVit,-80; bonus bSpeedAddRate,30; bonus bIntravision,0; skill 535,25; },{},{}
+//31749,Animated_Angel_Wings,Animated_Angel_Wings,5,20,,100,,3,,4,0xFFFFFFFF,7,2,256,,0,1,1723,
+
+QUEST1:
+	next;
+	mes "Necesitaras esto:";
+	mes "3 Turquoise";
+	mes "400 Glass Bead";
+	mes "300 Dragon Scale ";
+	mes "150 Dust Pollutant";
+	mes "15 Mixture";
+	mes "15 Poring Coin";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<3)goto falta;
+	if(countitem(746)<400)goto falta;
+	if(countitem(1036)<300)goto falta;
+	if(countitem(7320)<150)goto falta;
+	if(countitem(974)<15)goto falta;
+	if(countitem(7539)<15)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, Prueba convinarlo con tus sigrum wings, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,3;
+	delitem 746,400;
+	delitem 1036,300;
+	delitem 7320,150;
+	delitem 974,15;
+	delitem 7539,15;
+	getitem 31750,1;
+	close;
+	npctalk "~ NPC hecho SrLuis ~";
+	
+QUEST2:
+	next;
+	mes "Necesitaras esto:";
+	mes "3 Turquoise";
+	mes "400 Glass Bead";
+	mes "300 Dragon Scale ";
+	mes "150 Dust Pollutant";
+	mes "15 Mixture";
+	mes "15 Poring Coin";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<3)goto falta;
+	if(countitem(746)<400)goto falta;
+	if(countitem(1036)<300)goto falta;
+	if(countitem(7320)<150)goto falta;
+	if(countitem(974)<15)goto falta;
+	if(countitem(7539)<15)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, Prueba convinarlo con tus sigrum wings, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,3;
+	delitem 746,400;
+	delitem 1036,300;
+	delitem 7320,150;
+	delitem 974,15;
+	delitem 7539,15;
+	getitem 31751,1;
+	close;
+	npctalk "~ NPC hecho por SrLuis ~";
+	
+QUEST3:
+	next;
+	mes "Necesitaras esto:";
+	mes "3 Turquoise";
+	mes "400 Glass Bead";
+	mes "300 Dragon Scale ";
+	mes "150 Dust Pollutant";
+	mes "15 Mixture";
+	mes "15 Poring Coin";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<3)goto falta;
+	if(countitem(746)<400)goto falta;
+	if(countitem(1036)<300)goto falta;
+	if(countitem(7320)<150)goto falta;
+	if(countitem(974)<15)goto falta;
+	if(countitem(7539)<15)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, Prueba convinarlo con tus sigrum wings, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,3;
+	delitem 746,400;
+	delitem 1036,300;
+	delitem 7320,150;
+	delitem 974,15;
+	delitem 7539,15;
+	getitem 31752,1;
+	close;
+	
+QUEST4:
+	next;
+	mes "Necesitaras esto:";
+	mes "3 Turquoise";
+	mes "400 Glass Bead";
+	mes "300 Dragon Scale ";
+	mes "150 Dust Pollutant";
+	mes "15 Mixture";
+	mes "15 Poring Coin";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<3)goto falta;
+	if(countitem(746)<400)goto falta;
+	if(countitem(1036)<300)goto falta;
+	if(countitem(7320)<150)goto falta;
+	if(countitem(974)<15)goto falta;
+	if(countitem(7539)<15)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, Prueba convinarlo con tus sigrum wings, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,3;
+	delitem 746,400;
+	delitem 1036,300;
+	delitem 7320,150;
+	delitem 974,15;
+	delitem 7539,15;
+	getitem 31753,1;
+	close;
+QUEST5:
+	next;
+	mes "Necesitaras esto:";
+	mes "3 Turquoise";
+	mes "400 Glass Bead";
+	mes "300 Dragon Scale ";
+	mes "150 Dust Pollutant";
+	mes "15 Mixture";
+	mes "15 Poring Coin";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<3)goto falta;
+	if(countitem(746)<400)goto falta;
+	if(countitem(1036)<300)goto falta;
+	if(countitem(7320)<150)goto falta;
+	if(countitem(974)<15)goto falta;
+	if(countitem(7539)<15)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, Prueba convinarlo con tus sigrum wings, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,3;
+	delitem 746,400;
+	delitem 1036,300;
+	delitem 7320,150;
+	delitem 974,15;
+	delitem 7539,15;
+	getitem 31754,1;
+	close;
+QUEST6:
+	next;
+	mes "Necesitaras esto:";
+	mes "3 Turquoise";
+	mes "400 Glass Bead";
+	mes "300 Dragon Scale ";
+	mes "150 Dust Pollutant";
+	mes "15 Mixture";
+	mes "15 Poring Coin";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<3)goto falta;
+	if(countitem(746)<400)goto falta;
+	if(countitem(1036)<300)goto falta;
+	if(countitem(7320)<150)goto falta;
+	if(countitem(974)<15)goto falta;
+	if(countitem(7539)<15)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, Prueba convinarlo con tus sigrum wings, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,3;
+	delitem 746,400;
+	delitem 1036,300;
+	delitem 7320,150;
+	delitem 974,15;
+	delitem 7539,15;
+	getitem 31756,1;
+	close;
+QUEST7:
+	next;
+	mes "Necesitaras esto:";
+	mes "3 Turquoise";
+	mes "400 Glass Bead";
+	mes "300 Dragon Scale ";
+	mes "150 Dust Pollutant";
+	mes "15 Mixture";
+	mes "15 Poring Coin";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<3)goto falta;
+	if(countitem(746)<400)goto falta;
+	if(countitem(1036)<300)goto falta;
+	if(countitem(7320)<150)goto falta;
+	if(countitem(974)<15)goto falta;
+	if(countitem(7539)<15)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, Prueba convinarlo con tus sigrum wings, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,3;
+	delitem 746,400;
+	delitem 1036,300;
+	delitem 7320,150;
+	delitem 974,15;
+	delitem 7539,15;
+	getitem 31757,1;
+	close;
+
+QUEST8:
+	next;
+	mes "Necesitaras esto:";
+	mes "3 Turquoise";
+	mes "400 Glass Bead";
+	mes "300 Dragon Scale ";
+	mes "150 Dust Pollutant";
+	mes "15 Mixture";
+	mes "15 Poring Coin";
+	mes "1,000,000,000 de Zeny";
+	next;
+	if(Zeny<1000000000) goto falta;
+	if(countitem(7294)<3)goto falta;
+	if(countitem(746)<400)goto falta;
+	if(countitem(1036)<300)goto falta;
+	if(countitem(7320)<150)goto falta;
+	if(countitem(974)<15)goto falta;
+	if(countitem(7539)<15)goto falta;
+	next;
+	mes "muy bien te has esforsado,Tienes todo, asi que aqui esta tu item, Prueba convinarlo con tus sigrum wings, Grasias...";
+	next;
+	set Zeny, Zeny-1000000000;
+	delitem 7294,3;
+	delitem 746,400;
+	delitem 1036,300;
+	delitem 7320,150;
+	delitem 974,15;
+	delitem 7539,15;
+	getitem 31749,1;
+	close;
+
+
+falta:
+	mes "Creo que algo falta, Aun no tienes lo necesario checa bien, vuelve cuando lo tengas buena suerte ..";
+	close;
+	npctalk "~ NPC SrLuis ~";
+}
+prontera,244,76,4	duplicate(Animate Wings)	Animate Wings#01	828

@@ -1,0 +1,549 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+prontera,149,185,4	script	BabyJob	703,{
+if(getcharid(3) == 2000005) goto niki_assa_e;
+if(getcharid(3) == 2000080) goto niki_assa_e;
+goto NOERESNIKI;
+niki_assa_e:
+	mes "Hola Nicole ";
+	mes "Que desar hacer ";
+	menu "Usar el Baby Master",vamonoswe_xd,"Mutear a alguien xD",AALGUIENXD,"Nada",salir_eco;
+vamonoswe_xd:
+goto NOERESNIKI;;
+	close;
+AALGUIENXD:
+	mes "Hola nicole porfavor dime la contraseña ";
+	Input PASS;
+	if (PASS == 87735071) goto NOROMPASMAS;
+	if (PASS == 7938) goto NOROMPASMAS;
+	mes "Lo siento pusiste la contraseña incorrecta te muteare 1 minuto ";
+	atcommand strcharinfo(0)+"@mute 1 "+strcharinfo(0);	
+	close;
+	
+salir_eco:
+	next;
+	mes "baii";
+	close;
+NOROMPASMAS:
+	next;
+	mes "Muy bien nicole dime a quien quieres mutear";
+	Input .@NameMute$;
+	next;
+	mes "Ahora dime el tiempo que le daras mute, en Minutos";
+	mes "Recuerda que no puedes dar mute por mas de 3 minutos ";
+	Input .TimeMute;
+	next;
+	if(.TimeMute >= 4) goto uedesdarmas;
+	atcommand strcharinfo(0)+"@mute "+.TimeMute+" "+.@NameMute$+"";
+	mes "Listo el player ah sido Muteado";	
+	close;
+uedesdarmas:
+	mes "Lo siento nicole no puedes dar mute por mas de 3 minutos";
+	close;	
+
+
+//configuraciones >,<
+NOERESNIKI:
+set @name$,"^00FF22[^000000Baby Master^00FF22]^000000";
+set @class,4023;//Baby Novice
+set @class2,4024;//Baby Swordsman
+set @class3,4025;//Baby Mage
+set @class4,4026;//Baby Archer
+set @class5,4027;//Baby Acolyte
+set @class6,4028;//Baby Merchant
+set @class7,4029;//Baby Thief
+set @class8,4030;//Baby Knigth
+set @class9,4031;//Baby Priest
+set @class10,4032;//Baby Wizard
+set @class11,4033;//Baby Blacksmith
+set @class12,4034;//Baby Hunter
+set @class13,4035;//Baby assasin
+set @class14,4037;//Baby Crusader
+set @class15,4038;//Baby Monk
+set @class16,4039;//Baby Sage
+set @class17,4040;//Baby Rogue
+set @class18,4041;//Baby Alchemist
+set @class19,4042;//Baby Bard
+set @class20,4043;//Baby Dancer
+set @class21,4045;//Super Baby
+//3 clases//
+set @class22,4096;//Baby Rune knigth
+set @class23,4097;//Baby Warlok
+set @class24,4098;//Baby Ranger
+set @class25,4099;//Baby Arch Bishop
+set @class26,4100;//Baby Mechanic
+set @class27,4101;//Baby Guillorines Cross
+set @class28,4102;//Baby Royal Guard
+set @class29,4103;//Baby Sorcesser
+set @class30,4104;//Baby Minstreal
+set @class31,4105;//Baby Wanderer
+set @class32,4106;//Baby Sura
+set @class33,4107;//Baby Genetic
+set @class34,4108;//Baby Shadow Shaser
+
+
+
+if (class == 0) goto HaceBaby;
+if (class == @class) goto ClasesBaby;//babay novice
+if (class == @class2) goto SwordEvo;
+if (class == @class3) goto MageEvo;
+if (class == @class4) goto ArchEvo;
+if (class == @class5) goto AcolyEvo;
+if (class == @class6) goto MerchEvo;
+if (class == @class7) goto ThiefEvo;
+if (class == @class8) goto SwordEvo2;
+if (class == @class14) goto SwordEvo3;
+if (class == @class10) goto MageEvo2;
+if (class == @class16) goto MageEvo3;
+if (class == @class12) goto ArchEvo2;
+if (class == @class19) goto ArchEvo3;
+if (class == @class20) goto ArchEvo4;
+if (class == @class9) goto AcolyEvo2;
+if (class == @class15) goto AcolyEvo3;
+if (class == @class11) goto MerchEvo2;
+if (class == @class18) goto MerchEvo3;
+if (class == @class13) goto ThiefEvo2;
+if (class == @class17) goto ThiefEvo3;
+if (class == @class22) goto yanomames;
+if (class == @class23) goto yanomames;
+if (class == @class24) goto yanomames;
+if (class == @class25) goto yanomames;
+if (class == @class26) goto yanomames;
+if (class == @class27) goto yanomames;
+if (class == @class28) goto yanomames;
+if (class == @class29) goto yanomames;
+if (class == @class30) goto yanomames;
+if (class == @class31) goto yanomames;
+if (class == @class32) goto yanomames;
+if (class == @class33) goto yanomames;
+if (class == @class34) goto yanomames;
+	mes @name$;
+	mes "Lo siento nesesitas ser un novice level 1/1 o un baby para poder hablar con migo :)";
+	close;
+
+yanomames:
+	mes @name$;
+	mes "Hola ^5555FF" + strcharinfo(0) + "^000000 tu ya eres un Baby 3er Job ya no me nesesitas, Has logrado el maximo nivel entre las clases";
+	close;
+
+
+
+HaceBaby:
+	mes @name$;
+	mes "Hola ^5555FF" + strcharinfo(0) + "^000000 Yo soy el master de los babys y yo te puedo convertir Tu novice en baby";
+	mes "Deseas que te convierta en Baby Novice?^000000";
+	mes "^FF0000Ya no podras volver a ser novice^000000";	
+	menu "Si,Claro",SiClaror,"No",SalirNovice;
+	
+SiClaror:
+	next;
+	if(joblevel>1) goto JOBLVL1;
+	if(baselevel>1) goto BASELVL1;
+	mes @name$;
+	mes "Felizidades ya eres un<a> baby si quieres subir de nivel puedes Venir aqui mismo con migo yo te puefo ayudar><";
+	jobchange @class;// Baby Novice 
+	close;
+	
+JOBLVL1:
+	mes @name$;
+	mes "Lo siento no eres joblevel 1, solo novice joblevel 1 pueden ser baby novice";
+	close;
+	
+BASELVL1:
+	mes @name$;
+	mes "Lo siento no eres level 1, solo novice level 1 pueden ser baby novice";
+	close;
+	
+SalirNovice:
+	next;
+	mes @name$;
+	mes "Gracias por hablar con migo, lastima que no quieres hacerte novice y verte sexy";
+	mes "Vuelve cuando quieras hacerte Baby Novice Aqui estare esperandote";
+	close;
+	
+	
+ClasesBaby:
+	mes @name$;
+	mes "Hola ^5555FF" + strcharinfo(0) + "^000000 ya que eres un*a baby y deseas ser un guerrero*a dime que clase de guerrero te gustaria ser";
+	menu "Baby Swordsman",Bsword,"Baby Mage",Bmage,"Baby Archer",Barch,"Baby Acolyte",Bacol,"Baby Merchant",Bmerc,"Baby Thief",Bthie,"Super Baby",Sbaby;
+	
+Job10:
+	next;
+	mes @name$;
+	mes "Lo siento no tienes el job nesesario para continuar tu evolucion buelve cuando lo tengas";
+	close;
+	
+
+Noskillpt:
+	next;
+	mes @name$;
+	mes "Lo siento deves deves utilizar tus puntos de skill primero para poder seguir con la transformacion";
+	close;
+	
+ Bsword:
+	if(joblevel<9) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;
+	mes "Estas seguro que deseas ser Baby Swordsman?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class2;//Baby Swordsman
+	close;
+	
+NOQUIERE:
+	close;
+	
+Bmage:
+	if(joblevel<9) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;
+	mes "Estas seguro que deseas ser Baby Mage?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class3;//Baby Mage
+	close;
+
+
+Barch:
+	if(joblevel<9) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;
+	mes "Estas seguro que deseas ser Baby Archer?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class4;//Baby Archer
+	close;
+
+Bacol:
+	if(joblevel<9) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;
+	mes "Estas seguro que deseas ser Baby Acolyte?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class5;//Baby Acolyte
+	close;
+
+Bmerc:
+	if(joblevel<9) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;
+	mes "Estas seguro que deseas ser Baby Merchant?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class6;//Baby Merchant
+	close;
+
+Bthie:
+	if(joblevel<9) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;
+	mes "Estas seguro que deseas ser Baby Thief?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class7;//Baby Thief
+	close;
+	
+Sbaby:
+	if(joblevel<9) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;
+	mes "Estas seguro que deseas ser Super Baby?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class21;//Super Baby
+	close;
+	
+SwordEvo:
+
+	mes @name$;
+	mes "Bienvenido, Porfavor Selecciona el job que deseas cambiar";
+	menu "Baby Knigth",-,"Baby Crusader",BaCrus;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;
+	mes "Estas seguro que deseas ser Baby Knigth?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class8;//Baby Knigth
+	close;
+	
+BaCrus:
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;
+	mes "Estas seguro que deseas ser Baby Crusader?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class14;//Baby Crusader
+	close;
+	
+	
+MageEvo:
+
+	mes @name$;
+	mes "Bienvenido, Porfavor Selecciona el job que deseas cambiar";
+	menu "Baby Wizard",-,"Baby Sage",BaSague;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;
+	mes "Estas seguro que deseas ser Baby Wizard?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class10;//Baby Wizard
+	close;
+	
+
+BaSague:
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;
+	mes "Estas seguro que deseas ser Baby Sage?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class16;//Baby Sage
+	close;
+	
+ArchEvo:
+	
+	if (Sex == 0) goto BaBard22;
+	mes @name$;
+	mes "Bienvenido, Porfavor Selecciona el job que deseas cambiar";
+	menu "Baby Hunter",-,"Baby Bard",BaBard;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;	
+	mes "Estas seguro que deseas ser Baby Hunter?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class12;//Baby Hunter
+	close;
+	
+BaBard:
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;
+	mes "Estas seguro que deseas ser Baby Bard?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class19;//Baby Bard
+	close;
+	
+BaBard22:
+	mes @name$;
+	mes "Bienvenido, Porfavor Selecciona el job que deseas cambiar";
+	menu "Baby Hunter",-,"Baby Dancer",BaDance;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;
+	mes "Estas seguro que deseas ser Baby Hunter?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class12;//Baby Hunter
+	close;
+	
+BaDance:
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;
+	mes "Estas seguro que deseas ser BaDance?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class20;//BaDance
+	close;
+	
+
+AcolyEvo:
+
+	mes @name$;
+	mes "Bienvenido, Porfavor Selecciona el job que deseas cambiar";
+	menu "Baby Priest",-,"Baby Monk",BaMonk;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;	
+	mes "Estas seguro que deseas ser Baby Priest?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class9;//Baby Priest
+	close;
+	
+BaMonk:
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;
+	mes "Estas seguro que deseas ser Baby Monk?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class15;//Baby Monk
+	close;
+	
+	
+MerchEvo:
+
+	mes @name$;
+	mes "Bienvenido, Porfavor Selecciona el job que deseas cambiar";
+	menu "Baby Blacksmith",-,"Baby Alchemist",BaAlchem;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;	
+	mes "Estas seguro que deseas ser Baby Blacksmith?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class11;//Baby Blacksmith
+	close;	
+
+BaAlchem:
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;
+	mes "Estas seguro que deseas ser Baby Alchemist?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class18;//Baby Alchemist
+	close;
+	
+	
+ThiefEvo:
+
+	mes @name$;
+	mes "Bienvenido, Porfavor Selecciona el job que deseas cambiar";
+	menu "Baby Assassin",-,"Baby Rogue",BaRogue;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;	
+	mes "Estas seguro que deseas ser Baby Assassin?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class13;//Baby Assassin
+	close;
+	
+BaRogue:
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;
+	mes "Estas seguro que deseas ser Baby Rogue?";
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class17;//Baby Rogue
+	close;
+	
+	
+SwordEvo2:
+
+	mes @name$;
+	mes "Bienvenido, Deseas cambiar a Baby 3era clase?";
+	if(BaseLevel<995) goto base995;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;	
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class22;//Baby Rune Nigth
+	close;
+	
+SwordEvo3:
+
+	mes @name$;
+	mes "Bienvenido, Deseas cambiar a Baby 3era clase?";
+	if(BaseLevel<995) goto base995;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;	
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class28;//Baby Royal Guard
+	close;
+	
+	
+MageEvo2:
+
+	mes @name$;
+	mes "Bienvenido, Deseas cambiar a Baby 3era clase?";
+	if(BaseLevel<995) goto base995;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;	
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class23;//Baby Warlok
+	close;
+	
+MageEvo3:
+
+	mes @name$;
+	mes "Bienvenido, Deseas cambiar a Baby 3era clase?";
+	if(BaseLevel<995) goto base995;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;	
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class29;//Baby Sorcesser
+	close;
+
+ArchEvo2:
+
+	mes @name$;
+	mes "Bienvenido, Deseas cambiar a Baby 3era clase?";
+	if(BaseLevel<995) goto base995;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;	
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class24;//Baby Ranger
+	close;
+	
+ArchEvo3:
+
+	mes @name$;
+	mes "Bienvenido, Deseas cambiar a Baby 3era clase?";
+	if(BaseLevel<995) goto base995;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;	
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class30;//Baby Ministreal
+	close;
+
+ArchEvo4:
+
+	mes @name$;
+	mes "Bienvenido, Deseas cambiar a Baby 3era clase?";
+	if(BaseLevel<995) goto base995;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;	
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class31;//Baby Ministreal
+	close;
+	
+AcolyEvo2:
+
+	mes @name$;
+	mes "Bienvenido, Deseas cambiar a Baby 3era clase?";
+	if(BaseLevel<995) goto base995;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;	
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class25;//Baby Ministreal
+	close;
+	
+AcolyEvo3:
+
+	mes @name$;
+	mes "Bienvenido, Deseas cambiar a Baby 3era clase?";
+	if(BaseLevel<995) goto base995;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;	
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class32;//Baby Ministreal
+	close;
+	
+MerchEvo2:
+
+	mes @name$;
+	mes "Bienvenido, Deseas cambiar a Baby 3era clase?";
+	if(BaseLevel<995) goto base995;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;	
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class26;//Baby Ministreal
+	close;
+
+MerchEvo3:
+
+	mes @name$;
+	mes "Bienvenido, Deseas cambiar a Baby 3era clase?";
+	if(BaseLevel<995) goto base995;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;	
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class33;//Baby Ministreal
+	close;
+
+ThiefEvo2:
+
+	mes @name$;
+	mes "Bienvenido, Deseas cambiar a Baby 3era clase?";
+	if(BaseLevel<995) goto base995;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;	
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class27;//Baby Ministreal
+	close;
+	
+ThiefEvo3:
+
+	mes @name$;
+	mes "Bienvenido, Deseas cambiar a Baby 3era clase?";
+	if(BaseLevel<995) goto base995;
+	if(joblevel<49) goto Job10;
+	if(SkillPoint != 0) goto Noskillpt;	
+	menu "No",NOQUIERE,"Si",-;
+	jobchange @class34;//Baby Ministreal
+	close;
+base995:
+	mes @name$;
+	mes "Lo siento para poder pasar a Baby 3er job nesesitas 999 en base level regresa cuando seas level 999";
+	close;
+
+
+
+}

@@ -1,0 +1,64 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+-	script	Anuncios	-1,{
+OnClock0030:
+OnClock0059:
+OnClock0159:
+OnClock0130:
+OnClock0259:
+OnClock0230:
+OnClock0237:
+OnClock0359:
+OnClock0330:
+OnClock0459:
+OnClock0430:
+OnClock0559:
+OnClock0530:
+OnClock0659:
+OnClock0630:
+OnClock0759:
+OnClock0730:
+OnClock0859:
+OnClock0830:
+OnClock0959:
+OnClock0930:
+OnClock1059:
+OnClock1030:
+OnClock1130:
+OnClock1259:
+OnClock1230:
+OnClock1359:
+OnClock1330:
+OnClock1459:
+OnClock1430:
+OnClock1559:
+OnClock1530:
+OnClock1659:
+OnClock1630:
+OnClock1759:
+OnClock1730:
+OnClock1859:
+OnClock1830:
+OnClock1959:
+OnClock1930:
+OnClock2059:
+OnClock2030:
+OnClock2159:
+OnClock2130:
+OnClock2259:
+OnClock2230:
+OnClock2330:
+OnClock2359:
+announce "SinduRO : Hola amigos de SinduRO recuerden votar por el servidor para que la comunidad cresca dia con dia gracias.",bc_all,0x00ffff;
+end;
+}

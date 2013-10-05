@@ -1,0 +1,49 @@
+//=========================================================
+// ____                    __           ____    _____      
+///\  _`\   __            /\ \         /\  _`\ /\  __`\    
+//\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
+// \/_\__ \\/\ \ /' _ `\  /'_` \/\ \/\ \\ \ ,  /\ \ \ \ \  
+//   /\ \L\ \ \ \/\ \/\ \/\ \L\ \ \ \_\ \\ \ \\ \\ \ \_\ \ 
+//   \ `\____\ \_\ \_\ \_\ \___,_\ \____/ \ \_\ \_\ \_____\
+//    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
+//=========================================================
+// SrLuis ~ Minato
+//=========================================================
+
+prontera,145,187,4	script	Vendedor stats	57,{
+
+
+	mes "[Vendedor Stats]";
+	mes "Hola te gustaria comprar algo?";
+	next;
+	switch(select("Stats:Skills")) {
+	
+case 1:
+	mes "[Vendedor Stats]";
+	mes "Por 10,000,000z te dare 30,000 puntos de stats";
+	next;
+	if (Zeny < 10000000) goto INSUFI;
+	set zeny,zeny-10000000;
+	set StatusPoint, StatusPoint+30000;
+	mes "[Vendedor Stats]";
+ 	mes "Listo se han agregado tus puntos de stats";
+	close;
+case 2:
+	mes "[Vendedor Stats]";
+	mes "Por 10,000,000z te dare 10 puntos de skill";
+	next;
+	if (Zeny < 10000000) goto INSUFI;
+	set zeny,zeny-10000000;
+	set SkillPoint, SkillPoint+10;
+	mes "[Vendedor Stats]";
+ 	mes "Listo se han agregado tus puntos de stats";
+	close;
+}
+INSUFI:
+	mes "[Vendedor Stats]";
+	mes "Lo siento no tienes suficiente zeny par hacer la compra";
+	close;
+}
+
+
+

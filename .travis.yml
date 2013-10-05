@@ -1,0 +1,18 @@
+language: c
+compiler:
+  - clang
+  - gcc
+  
+before_script:
+  - uname -a  
+
+script: 
+  - ./configure --enable-debug
+  - make -j3
+  
+notifications:
+  email: false
+  
+branches:
+  only:
+    - master

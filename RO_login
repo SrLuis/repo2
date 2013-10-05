@@ -1,0 +1,14 @@
+#!/bin/sh
+# AsuraHosting Script; Author: Edward L.
+
+# Set Date
+DATE=`date +%b%d`
+
+# Run login-server_sql
+cd /root/Desktop/trunk
+if [ ! -f /root/trunk/login-server_sql ];
+then
+	./login-server 2>&1 | tee -a /root/logs/login-server-$DATE.log
+else
+	./login-server_sql 2>&1 | tee -a /root/Logs/login-server-$DATE.log
+fi

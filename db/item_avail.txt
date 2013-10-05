@@ -1,0 +1,36 @@
+// Item Availability and Alias Database
+//
+// Structure of Database:
+// ItemID,SpriteID
+//
+// 01. ItemID       Item ID to change.
+// 02. SpriteID     Item ID which will be sent to the client instead of ItemID.
+//                  If 0, the item becomes unavailable for use. If item_check is enabled and a player owns such an item, it will be removed upon next login/teleport.
+//
+// NOTE: Replaces an item client-side while keeping them separate server-side.
+// Think of it as a way to disguise items.
+
+2240,2241 //Beard - Grampa Beard
+
+//Treasure Hunters Quest Items
+//use these aliases if your game client doesn't support them normally
+//7950,7021
+//7951,7042
+//1998,1250
+//1999,1472
+
+//St. Patric's Day Quest (2008) Items
+//Enable if you plan to use the quest.
+//12715,7721
+//7915,673
+//7916,675
+//607,Yggdrasilberry,Yggdrasil Berry,0,5000,,300,,,,,0xFFFFFFFF,63,2,,,,,,{ percentheal 100,100; },{},{}
+//31900,607
+31901,5360
+32100,5314
+//5315,Observer,Observer,5,20,,100,,1,,4,0xFFFFFFFF,63,2,512,,35,0,337,{ skill "WZ_ESTIMATION",1; },{},{}
+32101,5315
+
+32119,31170
+32120,31771
+32121,31772

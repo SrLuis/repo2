@@ -1,11 +1,5 @@
 rAthena
 =======
-SinduRO
----------
-Todos los derechos de autor a rAthena
-Este repositorio es personal esta hospedado en github como respaldo solamente tiene custom modificaciones
-cualquier duda de porque esta este repositorio aqui visiten la pagina en www.sindu-ro.com o envien un mail a staff@sindu-ro.com
-
 Table of Contents
 ---------
 * 1 What is rAthena?

@@ -1,4 +1,4 @@
-//=========================================================
+//========================================================
 // ____                    __           ____    _____      
 ///\  _`\   __            /\ \         /\  _`\ /\  __`\    
 //\ \,\L\_\/\_\    ___    \_\ \  __  __\ \ \L\ \ \ \/\ \   
@@ -8,7 +8,11 @@
 //    \/_____/\/_/\/_/\/_/\/__,_ /\/___/   \/_/\/ /\/_____/
 //=========================================================
 // SrLuis ~ Minato
-//=========================================================
-
+//========================================================= Atcommands and charcommands configuration file */
 // Internal default is limited to 128 lines.  If you need more, you will need to modify the MOTD_LINE_SIZE definition in pc.c
-Welcome to rAthena SVN! Enjoy! Please report any bugs you find.
+SinduRO Un Nuevo Comienzo
+
+Todas las descripciones de los items modificados han sido reparadas ahora en la descripcion del item dice lo que da realmente!
+
+Happy Halloween Muajaja!
+
